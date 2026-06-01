@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protector Solar Anti-Brillo SPF 50+ | Protect Diversity</title>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  PROTECT DIVERSITY — Product Detail Page (PDP) Template     ║
+  ║  Designed for Shopify Liquid conversion                     ║
+  ║  Product: Protector Solar Anti-Brillo (PS-ANTIBRILLO)       ║
+  ║                                                             ║
+  ║  SHOPIFY METAFIELDS REQUIRED (product.metafields.custom):   ║
+  ║  • subtitle           → Eyebrow text (e.g. "PROTECCIÓN SOLAR") ║
+  ║  • short_description  → Hero description                    ║
+  ║  • key_ingredient     → Pill text (e.g. "Óxido de Zinc 15%")║
+  ║  • skin_types         → JSON list of skin type pills        ║
+  ║  • benefits           → JSON array [{icon,title,desc}]      ║
+  ║  • ingredients_table  → JSON array [{name,inci,pct,fn}]     ║
+  ║  • texture_attrs      → JSON array [{label,value,positive}] ║
+  ║  • usage_steps        → JSON array [{number,text}]          ║
+  ║  • ideal_for          → JSON list                           ║
+  ║  • not_ideal_for      → JSON list with alt suggestion       ║
+  ║  • faqs               → JSON array [{q,a}]                  ║
+  ║  • free_from          → JSON list of "free from" claims     ║
+  ║  • product_pills      → JSON list (e.g. ["MATE","SPF 50+"])║
+  ║  • trust_badges       → JSON array [{icon,text}]            ║
+  ║                                                             ║
+  ║  Reviews: Judge.me widget with custom template               ║
+  ║  Shipping: Universal section (same for all products)         ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --crema: #F5EFE4;
+  --crema-2: #EDE4D3;
+  --cacao: #2A1D14;
+  --terracota: #C45A2C;
+  --ocre: #D9893B;
+  --salvia: #5E6B4E;
+  --rose: #E8B9A6;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--crema);
+  color: var(--cacao);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+}
+
+/* ═══ HEADER ═══ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--crema);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.header.scrolled {
+  border-bottom-color: var(--cacao);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: var(--cacao);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: opacity 0.15s;
+}
+
+.header-nav a:hover { opacity: 0.6; }
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  color: var(--cacao);
+}
+
+.header-icons span { cursor: pointer; transition: opacity 0.15s; }
+.header-icons span:hover { opacity: 0.6; }
+
+.breadcrumb {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 40px;
+  font-size: 12px;
+  color: var(--cacao);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+.breadcrumb span { margin: 0 6px; }
+
+@media (max-width: 768px) {
+  .header-inner { padding: 12px 16px; }
+  .header-nav { display: none; }
+  .breadcrumb { padding: 8px 16px; }
+}
+
+/* ═══ EYEBROW ═══ */
+/* Brand book p.21: Manrope 600, 8-10pt, tracking 0.28-0.35em */
+.eyebrow {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  margin-bottom: 12px;
+}
+
+/* ═══ SECTION SPACING ═══ */
+section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  section { padding: 56px 0; }
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  padding-top: 140px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.gallery-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--crema-2);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-main .pill {
+  position: absolute;
+  top: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--cacao);
+  color: var(--crema);
+}
+
+.gallery-main .pill-mate { left: 20px; }
+.gallery-main .pill-spf { left: 100px; background: var(--ocre); }
+
+.gallery-main-placeholder {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: var(--cacao);
+  opacity: 0.2;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gallery-thumb {
+  aspect-ratio: 1;
+  background: var(--crema-2);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--cacao);
+  opacity: 0.4;
+}
+
+.gallery-thumb.active,
+.gallery-thumb:hover {
+  border-color: var(--ocre);
+  opacity: 1;
+}
+
+/* Purchase box */
+.purchase-box { padding-top: 20px; }
+
+.purchase-box .eyebrow { color: var(--cacao); opacity: 0.6; }
+
+/* Brand book p.21: H1 Fraunces 500, 32-42pt, line-height 1.0, tracking -0.015em */
+.purchase-box h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.015em;
+  margin-bottom: 16px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.rating .stars { color: var(--ocre); font-size: 16px; letter-spacing: 2px; }
+.rating .score { font-weight: 600; font-size: 14px; }
+.rating .count { font-size: 13px; opacity: 0.6; }
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.price-current {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.price-compare {
+  font-size: 18px;
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.price-discount {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  background: var(--salvia);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.product-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+
+.ingredient-pill {
+  display: inline-block;
+  background: var(--terracota);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.trust-badge {
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.75;
+}
+
+.skin-types {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.skin-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--cacao);
+  opacity: 0.7;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  background: var(--cacao);
+  color: var(--crema);
+  border: none;
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--cacao);
+  border: 2px solid var(--cacao);
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  text-decoration: none;
+}
+
+.btn-secondary:hover { opacity: 0.7; }
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .purchase-box h1 { font-size: 28px; }
+}
+
+/* ═══ BENEFICIOS ═══ */
+.benefits-intro {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* Brand book p.21: H2 Fraunces 500, 18-24pt, line-height 1.1, tracking -0.01em */
+/* Using larger display size for section headers per brand book Display level */
+.benefits-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+
+.benefits-intro .subtitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--terracota);
+  font-size: 16px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.benefit-card {
+  background: var(--crema-2);
+  border-radius: 12px;
+  padding: 36px;
+}
+
+.benefit-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--cacao);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--ocre);
+  margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.benefit-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══ FÓRMULA TABS ═══ */
+.formula-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.formula-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(42,29,20,0.15);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 14px 32px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--cacao);
+  opacity: 0.4;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  opacity: 1;
+  border-bottom-color: var(--cacao);
+}
+
+.tab-btn:hover { opacity: 0.7; }
+
+.tab-content {
+  display: none;
+  animation: fadeTab 0.3s ease;
+}
+
+.tab-content.active { display: block; }
+
+@keyframes fadeTab {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ingredients table */
+.ingredients-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+
+.ingredients-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 16px;
+  opacity: 0.5;
+  border-bottom: 1px solid rgba(42,29,20,0.1);
+}
+
+.ingredients-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+.ingredients-table tr:nth-child(odd) td { background: var(--crema); }
+.ingredients-table tr:nth-child(even) td { background: var(--crema-2); }
+
+.ingredients-table .name { font-family: 'Fraunces', serif; font-weight: 500; }
+.ingredients-table .inci { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.5; }
+
+.pct-pill {
+  display: inline-block;
+  background: var(--ocre);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.free-from {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.free-pill {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--salvia);
+}
+
+/* Texture tab */
+.texture-list {
+  list-style: none;
+}
+
+.texture-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(42,29,20,0.08);
+}
+
+.texture-item .label { font-size: 14px; opacity: 0.6; }
+.texture-item .value { font-weight: 500; font-size: 14px; }
+.texture-item .value.positive { color: var(--salvia); font-weight: 600; }
+
+/* Usage tab */
+.usage-section {
+  background: var(--cacao);
+  border-radius: 16px;
+  padding: 48px;
+}
+
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.usage-step {
+  position: relative;
+}
+
+.usage-step .number {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 500;
+  color: var(--ocre);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.usage-step p {
+  color: var(--crema);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .usage-grid { grid-template-columns: 1fr; }
+  .usage-section { padding: 32px 24px; }
+}
+
+/* ═══ ¿ES PARA TI? ═══ */
+.fit-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.fit-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.fit-card {
+  background: var(--crema-2);
+  border-radius: 12px;
+  padding: 36px;
+}
+
+.fit-card.ideal { border-left: 3px solid var(--salvia); }
+.fit-card.not-ideal { border-left: 3px solid var(--terracota); }
+
+.fit-card .eyebrow-fit {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 20px;
+}
+
+.fit-card.ideal .eyebrow-fit { color: var(--salvia); }
+.fit-card.not-ideal .eyebrow-fit { color: var(--terracota); }
+
+.fit-card ul {
+  list-style: none;
+}
+
+.fit-card li {
+  font-size: 14px;
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.fit-card.ideal li::before { content: "✓"; color: var(--salvia); font-weight: 700; }
+.fit-card.not-ideal li::before { content: "—"; color: var(--terracota); font-weight: 700; }
+
+.fit-card .alt-suggestion {
+  font-size: 12px;
+  opacity: 0.6;
+  margin-top: 4px;
+  padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .fit-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══ RESEÑAS ═══ */
+.reviews-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reviews-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.reviews-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.reviews-score {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 500;
+}
+
+.reviews-stars { color: var(--ocre); font-size: 20px; letter-spacing: 3px; }
+
+.reviews-bars { display: flex; flex-direction: column; gap: 4px; }
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.bar-label { width: 20px; text-align: right; opacity: 0.5; }
+
+.bar-track {
+  width: 120px;
+  height: 6px;
+  background: rgba(42,29,20,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--ocre);
+  border-radius: 3px;
+}
+
+.bar-pct { font-size: 11px; opacity: 0.4; width: 30px; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: #fff;
+  border: 0.5px solid #D3D1C7;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--cacao);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crema);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.review-meta .review-name { font-weight: 600; font-size: 14px; }
+.review-meta .review-info { font-size: 11px; opacity: 0.5; }
+
+.review-verified {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--salvia);
+  margin-left: auto;
+}
+
+.review-stars {
+  color: var(--ocre);
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.review-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.review-text {
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+
+.review-date { font-size: 11px; opacity: 0.4; }
+
+@media (max-width: 768px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+  .reviews-summary { flex-direction: column; gap: 16px; }
+}
+
+/* ═══ FAQs ═══ */
+.faqs-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faqs-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(42,29,20,0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cacao);
+  text-align: left;
+}
+
+.faq-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding-bottom: 20px;
+}
+
+.faq-answer p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+/* ═══ ENVÍOS ═══ */
+.shipping-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.shipping-intro h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.shipping-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.shipping-card {
+  background: var(--crema-2);
+  border-radius: 12px;
+  padding: 32px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shipping-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shipping-card-header h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.shipping-card-header .subtitle {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 4px;
+}
+
+.shipping-toggle {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.shipping-card.open .shipping-toggle { transform: rotate(45deg); }
+
+.shipping-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.shipping-card.open .shipping-details { max-height: 400px; }
+
+.shipping-table {
+  width: 100%;
+  margin-top: 24px;
+  border-collapse: collapse;
+}
+
+.shipping-table th {
+  text-align: left;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(42,29,20,0.1);
+}
+
+.shipping-table td {
+  padding: 10px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(42,29,20,0.05);
+}
+
+.return-text {
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  .shipping-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══ CTA FINAL ═══ */
+.cta-final {
+  background: var(--cacao);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.cta-final .logo-small { margin-bottom: 32px; }
+
+.cta-final h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.cta-final .italic-line {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 48px;
+  color: var(--terracota);
+  margin-bottom: 16px;
+}
+
+.cta-final .subtitle {
+  color: var(--crema);
+  font-size: 15px;
+  opacity: 0.7;
+  margin-bottom: 36px;
+}
+
+.cta-final .btn-primary {
+  width: auto;
+  display: inline-block;
+  padding: 18px 48px;
+  font-size: 14px;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  background: var(--cacao);
+  padding: 48px 0;
+  text-align: center;
+  border-top: 1px solid rgba(245,239,228,0.1);
+}
+
+.footer p {
+  color: var(--crema);
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* ═══ STICKY BAR ═══ */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--cacao);
+  padding: 12px 40px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-bar.visible { transform: translateY(0); }
+
+.sticky-thumb {
+  width: 40px;
+  height: 40px;
+  background: var(--crema-2);
+  border-radius: 6px;
+}
+
+.sticky-name {
+  color: var(--crema);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sticky-price {
+  color: var(--crema);
+  font-size: 14px;
+}
+
+.sticky-price .compare {
+  text-decoration: line-through;
+  opacity: 0.4;
+  margin-left: 8px;
+}
+
+.sticky-btn {
+  background: var(--ocre);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.sticky-btn:hover { opacity: 0.85; }
+
+@media (max-width: 768px) {
+  .sticky-bar { padding: 12px 16px; gap: 12px; }
+  .sticky-name { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="img/logo-full.svg" alt="Protect Diversity" height="52" style="height:52px;width:auto;">
+    </a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#">Protección Solar</a></li>
+        <li><a href="#">Sueros</a></li>
+        <li><a href="#">Cremas</a></li>
+        <li><a href="#">Limpiadores</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <span>◈</span>
+      <span>♡</span>
+    </div>
+  </div>
+  <div class="breadcrumb">
+    Tienda <span>·</span> Protección Solar <span>·</span> Protector Solar Anti-Brillo
+  </div>
+</header>
+
+<!-- ═══ SECTION 01: HERO ═══ -->
+<!-- Shopify: section "product-hero" — pulls from product object -->
+<!-- {{ product.title }}, {{ product.price | money }}, {{ product.compare_at_price | money }} -->
+<!-- Images: {{ product.featured_image | image_url }}, product.images loop -->
+<!-- Metafields: product.metafields.custom.subtitle, .short_description, .key_ingredient, .skin_types, .trust_badges, .product_pills -->
+<section class="hero" data-section="product-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="gallery">
+        <div class="gallery-main" id="galleryMain">
+          <span class="pill pill-mate">MATE</span>
+          <span class="pill pill-spf">SPF 50+</span>
+          <img id="galleryMainImg"
+               src="img/products/ps-antibrillo-1.jpg"
+               alt="Protector Solar Anti-Brillo"
+               style="width:100%;height:100%;object-fit:contain;display:block;padding:20px;">
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="gallery-thumb active" data-img="img/products/ps-antibrillo-1.jpg" data-alt="Vista frontal">Frontal</div>
+          <div class="gallery-thumb" data-img="img/products/ps-antibrillo-2.jpg" data-alt="Vista lateral">Textura</div>
+          <div class="gallery-thumb" data-img="img/products/ps-antibrillo-1.jpg" data-alt="Modo de uso">Uso</div>
+          <div class="gallery-thumb" data-img="img/products/ps-antibrillo-2.jpg" data-alt="Detalle">Detalle</div>
+        </div>
+      </div>
+      <div class="purchase-box">
+        <p class="eyebrow">PROTECCIÓN SOLAR</p>
+        <h1>Protector Solar Anti-Brillo</h1>
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span class="score">4.8</span>
+          <span class="count">(241 reseñas)</span>
+        </div>
+        <div class="price-row">
+          <span class="price-current">$384</span>
+          <span class="price-compare">$480</span>
+          <span class="price-discount">−20% OFF</span>
+        </div>
+        <p class="product-desc">Control de brillo y sebo todo el día. Acabado mate ultra ligero con SPF 50+ amplio espectro. Formulado para piel mixta y grasa que odia la sensación pegajosa.</p>
+        <span class="ingredient-pill">Óxido de Zinc 15% + Niacinamida 3%</span>
+        <div class="trust-strip">
+          <span class="trust-badge">✓ Cert. Dermatológica · España</span>
+          <span class="trust-badge">❀ Vegano</span>
+          <span class="trust-badge">♡ Cruelty-free</span>
+          <span class="trust-badge">◉ Biodegradable</span>
+        </div>
+        <div class="skin-types">
+          <span class="skin-pill">Piel mixta</span>
+          <span class="skin-pill">Piel grasa</span>
+        </div>
+        <!-- Shopify: {%- form 'product', product, id: 'product-form' -%} -->
+        <!-- <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> -->
+        <button class="btn-primary" type="submit" data-add-to-cart>AGREGAR A MI BOLSA — $384</button>
+        <!-- {%- endform -%} -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 02: BENEFICIOS ═══ -->
+<!-- Shopify: section "product-benefits" — product.metafields.custom.benefits (JSON) -->
+<section data-section="product-benefits">
+  <div class="container">
+    <div class="benefits-intro">
+      <p class="eyebrow">POR QUÉ FUNCIONA</p>
+      <h2>Resultados que sentirás.</h2>
+      <p class="subtitle">4 beneficios respaldados por ingredientes activos.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">☀</div>
+        <h3>SPF 50+ Amplio Espectro</h3>
+        <p>UVA + UVB con Óxido de Zinc mineral. Sin efecto blanco, incluso en pieles oscuras.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">◐</div>
+        <h3>Acabado Mate 8 Horas</h3>
+        <p>Sílice absorbe el exceso de sebo sin resecar tu piel. Cero brillo de mediodía.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">○</div>
+        <h3>Minimiza Poros Visibles</h3>
+        <p>Niacinamida 3% regula la producción sebácea. Poros más finos con uso constante.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✓</div>
+        <h3>No Comedogénico</h3>
+        <p>Testado en piel acneica. No obstruye poros. Apto para uso diario todo el año.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 03: FÓRMULA (TABS) ═══ -->
+<!-- Shopify: section "product-formula" — product.metafields.custom.ingredients_table, .texture_attrs, .usage_steps, .free_from -->
+<section data-section="product-formula">
+  <div class="container">
+    <div class="formula-intro">
+      <p class="eyebrow">FÓRMULA COMPLETA</p>
+      <h2>Transparencia total.</h2>
+    </div>
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="ingredientes">Ingredientes</button>
+      <button class="tab-btn" data-tab="textura">Textura</button>
+      <button class="tab-btn" data-tab="uso">Modo de Uso</button>
+    </div>
+
+    <!-- Tab 1: Ingredientes -->
+    <div class="tab-content active" id="tab-ingredientes">
+      <table class="ingredients-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>INCI</th>
+            <th>%</th>
+            <th>Función</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Óxido de Zinc</td>
+            <td class="inci">ZINC OXIDE</td>
+            <td><span class="pct-pill">15%</span></td>
+            <td>Filtro mineral UVA/UVB amplio espectro</td>
+          </tr>
+          <tr>
+            <td class="name">Niacinamida</td>
+            <td class="inci">NIACINAMIDE</td>
+            <td><span class="pct-pill">3%</span></td>
+            <td>Seborregulador, minimiza poros</td>
+          </tr>
+          <tr>
+            <td class="name">Sílice</td>
+            <td class="inci">SILICA</td>
+            <td><span class="pct-pill">2%</span></td>
+            <td>Absorbe exceso de sebo, acabado mate</td>
+          </tr>
+          <tr>
+            <td class="name">Glicerina Vegetal</td>
+            <td class="inci">GLYCERIN</td>
+            <td>—</td>
+            <td>Humectante suave</td>
+          </tr>
+          <tr>
+            <td class="name">Vitamina E</td>
+            <td class="inci">TOCOPHEROL</td>
+            <td>—</td>
+            <td>Antioxidante natural</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="free-from">
+        <span class="free-pill">✓ Sin fragancias sintéticas</span>
+        <span class="free-pill">✓ Sin parabenos</span>
+        <span class="free-pill">✓ Sin sulfatos agresivos</span>
+        <span class="free-pill">✓ Sin siliconas</span>
+        <span class="free-pill">✓ Sin aceite mineral</span>
+      </div>
+    </div>
+
+    <!-- Tab 2: Textura -->
+    <div class="tab-content" id="tab-textura">
+      <ul class="texture-list">
+        <li class="texture-item">
+          <span class="label">Consistencia</span>
+          <span class="value">Fluida · emulsión ligera</span>
+        </li>
+        <li class="texture-item">
+          <span class="label">Acabado en piel</span>
+          <span class="value">Mate · no pegajoso</span>
+        </li>
+        <li class="texture-item">
+          <span class="label">Absorción</span>
+          <span class="value">Rápida · menos de 60 seg</span>
+        </li>
+        <li class="texture-item">
+          <span class="label">White cast</span>
+          <span class="value positive">Ninguno</span>
+        </li>
+        <li class="texture-item">
+          <span class="label">Compatible con maquillaje</span>
+          <span class="value positive">Sí</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab 3: Modo de Uso -->
+    <div class="tab-content" id="tab-uso">
+      <div class="usage-section">
+        <div class="usage-grid">
+          <div class="usage-step">
+            <div class="number">01</div>
+            <p>Como último paso de tu rutina de día, sobre crema hidratante.</p>
+          </div>
+          <div class="usage-step">
+            <div class="number">02</div>
+            <p>Aplica una moneda (aprox. 2 dedos) en rostro, cuello y escote.</p>
+          </div>
+          <div class="usage-step">
+            <div class="number">03</div>
+            <p>Extiende con movimientos ascendentes hasta absorber completamente.</p>
+          </div>
+          <div class="usage-step">
+            <div class="number">04</div>
+            <p>Reaplica cada 2–3 horas de exposición solar directa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 04: ¿ES PARA TI? ═══ -->
+<!-- Shopify: section "product-fit" — product.metafields.custom.ideal_for, .not_ideal_for -->
+<section data-section="product-fit">
+  <div class="container">
+    <div class="fit-intro">
+      <p class="eyebrow">¿ES PARA TI?</p>
+      <h2>Honestidad radical.</h2>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-card ideal">
+        <p class="eyebrow-fit">IDEAL PARA TI SI</p>
+        <ul>
+          <li>Piel grasa o mixta</li>
+          <li>Odias el brillo del mediodía</li>
+          <li>Usas maquillaje encima</li>
+          <li>Clima cálido o húmedo</li>
+        </ul>
+      </div>
+      <div class="fit-card not-ideal">
+        <p class="eyebrow-fit">QUIZÁS NO SI</p>
+        <ul>
+          <li>Piel extremadamente seca</li>
+        </ul>
+        <p class="alt-suggestion">(mejor: PS con Ácido Hialurónico)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 05: RESEÑAS ═══ -->
+<section data-section="product-reviews">
+  <div class="container">
+    <div class="section-intro">
+      <p class="eyebrow">RESEÑAS</p>
+      <h2>Pieles reales hablando.</h2>
+    </div>
+    <div id="pdpReviewsContainer"></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 06: FAQs ═══ -->
+<!-- Shopify: section "product-faqs" — product.metafields.custom.faqs (JSON array) -->
+<!-- 4 category-specific + 4 universal FAQs per fichas técnicas -->
+<section data-section="product-faqs">
+  <div class="container">
+    <div class="faqs-intro">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2>Todo lo que necesitas saber.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">¿Deja efecto blanco (white cast)?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>No. Nuestras formulaciones minerales usan tamaños de partícula optimizados para absorberse sin dejar residuo blanquecino, incluso en pieles oscuras.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Puedo usarlo bajo maquillaje?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Sí. Espera 1 minuto antes de aplicar base. Las fórmulas toque seco y anti-brillo funcionan especialmente bien como prep.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Protege contra luz azul (pantallas)?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Sí. Nuestro Óxido de Zinc bloquea UVA, UVB y también luz visible (incluyendo luz azul de dispositivos).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuánto producto debo usar?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Una moneda de 10 pesos para cara y cuello. Menos que eso reduce la protección real del SPF indicado.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Los productos son realmente veganos?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Sí. Formulados exclusivamente con ingredientes de origen vegetal o sintético seguro. Ningún ingrediente ni producto final se testa en animales. Certificación de proveedores y lotes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Son biodegradables?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Sí, al 100%. Las fórmulas se degradan en el medio ambiente sin residuos tóxicos. Nuestros empaques son reciclables y estamos transicionando a materiales compostables.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cómo sé si es adecuado para mi piel?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Cada producto incluye "Ideal para" y "No recomendado". Si aún tienes dudas, toma nuestro Quiz de Rutina IA y te recomendaremos los productos correctos en 60 segundos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">¿Cuándo veré resultados?<span class="faq-icon">+</span></button>
+        <div class="faq-answer"><p>Hidratación: 1–2 días. Textura y luminosidad: 2–4 semanas. Manchas y líneas finas: 6–12 semanas de uso constante. La consistencia importa más que la cantidad.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 07: ENVÍOS Y DEVOLUCIONES ═══ -->
+<!-- Shopify: section "shipping-returns" — UNIVERSAL (same for all products) -->
+<!-- No metafields needed — hardcoded in Liquid section -->
+<section data-section="shipping-returns">
+  <div class="container">
+    <div class="shipping-intro">
+      <p class="eyebrow">ENVÍOS Y DEVOLUCIONES</p>
+      <h2>Sin sorpresas.</h2>
+    </div>
+    <div class="shipping-grid">
+      <div class="shipping-card" id="card-envios">
+        <div class="shipping-card-header">
+          <div>
+            <h3>◈ Envíos</h3>
+            <p class="subtitle">Gratis desde $1,200</p>
+          </div>
+          <span class="shipping-toggle">+</span>
+        </div>
+        <div class="shipping-details">
+          <table class="shipping-table">
+            <thead>
+              <tr><th>Zona</th><th>Cobertura</th><th>Costo</th><th>Tiempo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Zona 1</td><td>CDMX, EdoMex, Morelos, Hidalgo, Puebla, Tlaxcala</td><td>$89</td><td>1–2 días</td></tr>
+              <tr><td>Zona 2</td><td>Bajío y Centro-Oeste</td><td>$129</td><td>2–4 días</td></tr>
+              <tr><td>Zona 3</td><td>Norte, Sur, Península</td><td>$159</td><td>4–6 días</td></tr>
+              <tr><td>Pickup</td><td>Roma Norte, CDMX</td><td>Gratis</td><td>2–4 horas</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="shipping-card" id="card-devoluciones">
+        <div class="shipping-card-header">
+          <div>
+            <h3>↺ Devoluciones</h3>
+            <p class="subtitle">30 días sin preguntas</p>
+          </div>
+          <span class="shipping-toggle">+</span>
+        </div>
+        <div class="shipping-details">
+          <p class="return-text">Envío gratis en compras superiores a $1,200. Devolución 30 días sin preguntas, incluso si el producto fue abierto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 08: CTA FINAL ═══ -->
+<!-- Shopify: section "product-cta" — pulls product.price, add-to-cart JS -->
+<section class="cta-final" data-section="product-cta">
+  <div class="container">
+    <img src="img/isotipo.svg" alt="Protect Diversity" height="56" style="height:56px;width:auto;">
+    <h2>¿Lista para</h2>
+    <p class="italic-line">probarlo?</p>
+    <p class="subtitle">30 días para enamorarte. Si no, te devolvemos todo sin preguntas.</p>
+    <button class="btn-primary">AGREGAR A MI BOLSA — $384</button>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Protect Diversity · Skincare Dermatológico · CDMX, México</p>
+    <p style="margin-top:6px;font-size:11px;opacity:0.3;">Diseño y desarrollo · MV Design</p>
+  </div>
+</footer>
+
+<!-- ═══ STICKY BAR ═══ -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-thumb"></div>
+  <span class="sticky-name">Protector Solar Anti-Brillo</span>
+  <span class="sticky-price">$384 <span class="compare">$480</span></span>
+  <button class="sticky-btn">AGREGAR</button>
+</div>
+
+<script>
+// Header scroll border
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Sticky bar
+const stickyBar = document.getElementById('stickyBar');
+window.addEventListener('scroll', () => {
+  stickyBar.classList.toggle('visible', window.scrollY > 300);
+});
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// FAQs accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Shipping cards
+document.querySelectorAll('.shipping-card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('open');
+  });
+});
+
+// Gallery thumbs — image swap
+document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    var img = document.getElementById('galleryMainImg');
+    if (img && thumb.dataset.img) {
+      img.src = thumb.dataset.img;
+      img.alt = thumb.dataset.alt || '';
+    }
+  });
+});
+</script>
+<script src="js/products.js"></script>
+<script src="js/reviews.js"></script>
+<script>
+// Render PDP reviews from reviews.js
+PD.renderReviews('PS-ANTIBRILLO', document.getElementById('pdpReviewsContainer'));
+</script>
+</body>
+</html>

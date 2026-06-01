@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protección Solar | Protect Diversity</title>
+<meta name="description" content="Protectores solares SPF 50+ dermatológicamente aprobados. Minerales, sin white cast. Para piel grasa, seca, con manchas o sensible. Veganos y biodegradables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.collection-hero { padding: 120px 0 40px; }
+.collection-hero h1 { margin-bottom: 10px; }
+.collection-hero .desc { font-size: 15px; opacity: 0.7; max-width: 580px; margin-bottom: 8px; }
+.collection-hero .count { font-size: 12px; opacity: 0.35; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; }
+
+.collection-layout { display: grid; grid-template-columns: 220px 1fr; gap: 48px; }
+
+.filters { position: sticky; top: 100px; align-self: start; }
+.filters h4 { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 12px; opacity: 0.4; margin-top: 24px; }
+.filters h4:first-child { margin-top: 0; }
+.filter-option { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; cursor: pointer; user-select: none; }
+.filter-checkbox { width: 18px; height: 18px; border: 1.5px solid rgba(42,29,20,0.25); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--crema); transition: all 0.15s; flex-shrink: 0; }
+.filter-option.active .filter-checkbox { background: var(--cacao); border-color: var(--cacao); }
+.filter-option.active .filter-checkbox::after { content: "✓"; }
+
+.sort-select { width: 100%; padding: 10px 12px; border: 1px solid rgba(42,29,20,0.2); border-radius: 8px; background: var(--blanco); font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--cacao); cursor: pointer; }
+
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.cat-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 32px; }
+.cat-tab { padding: 8px 18px; border: 1.5px solid rgba(42,29,20,0.15); border-radius: 999px; background: none; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; color: var(--cacao); transition: all 0.15s; text-decoration: none; display: inline-block; }
+.cat-tab:hover, .cat-tab.active { background: var(--cacao); color: var(--crema); border-color: var(--cacao); }
+
+.seo-block { margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(42,29,20,0.08); }
+.seo-block h2 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+.seo-block p { font-size: 13px; line-height: 1.8; opacity: 0.55; }
+
+@media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+  .collection-layout { grid-template-columns: 1fr; }
+  .filters { position: static; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link"><img src="img/logo-full.svg" alt="Protect Diversity" height="52" style="height:52px;width:auto;"></a>
+    <nav><ul class="header-nav">
+      <li><a href="coleccion.html" class="active">Protección Solar</a></li>
+      <li><a href="coleccion.html?cat=sueros">Sueros</a></li>
+      <li><a href="coleccion.html?cat=cremas">Cremas</a></li>
+      <li><a href="coleccion.html?cat=limpiadores">Limpiadores</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+    </ul></nav>
+    <div class="header-icons">
+      <button class="header-icon mobile-menu-btn" aria-label="Menú">☰</button>
+      <button class="header-icon" aria-label="Buscar">◈</button>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito">♡<span class="cart-count" style="display:none">0</span></button>
+    </div>
+  </div>
+  <div class="breadcrumb">Tienda <span>·</span> <span id="breadcrumbCat">Protección Solar</span></div>
+</header>
+
+<nav class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <a href="coleccion.html">Protección Solar</a><a href="coleccion.html?cat=sueros">Sueros</a>
+  <a href="coleccion.html?cat=cremas">Cremas</a><a href="coleccion.html?cat=limpiadores">Limpiadores</a>
+  <a href="nosotros.html">Nosotros</a><a href="blog.html">Blog</a><a href="contacto.html">Contacto</a>
+</nav>
+
+<section style="padding-top:148px;">
+  <div class="container">
+
+    <!-- Tabs de categoría -->
+    <div class="cat-tabs" style="margin-bottom:32px;">
+      <a href="coleccion.html" class="cat-tab active" data-cat="Protección Solar">Protección Solar</a>
+      <a href="coleccion.html?cat=sueros" class="cat-tab" data-cat="Sueros">Sueros</a>
+      <a href="coleccion.html?cat=cremas" class="cat-tab" data-cat="Cremas">Cremas</a>
+      <a href="coleccion.html?cat=limpiadores" class="cat-tab" data-cat="Limpiadores">Limpiadores</a>
+      <a href="comparador.html" class="cat-tab">Comparador ◈</a>
+    </div>
+
+    <!-- LAYOUT: filtros | (texto + grid) -->
+    <div class="collection-layout">
+      <aside class="filters">
+        <h4>Tipo de piel</h4>
+        <div class="filter-option" onclick="filterToggle(this,'grasa')"><span class="filter-checkbox"></span>Grasa</div>
+        <div class="filter-option" onclick="filterToggle(this,'mixta')"><span class="filter-checkbox"></span>Mixta</div>
+        <div class="filter-option" onclick="filterToggle(this,'seca')"><span class="filter-checkbox"></span>Seca</div>
+        <div class="filter-option" onclick="filterToggle(this,'sensible')"><span class="filter-checkbox"></span>Sensible</div>
+
+        <h4>Preocupación</h4>
+        <div class="filter-option" onclick="filterToggle(this,'brillo')"><span class="filter-checkbox"></span>Brillo / sebo</div>
+        <div class="filter-option" onclick="filterToggle(this,'manchas')"><span class="filter-checkbox"></span>Manchas</div>
+        <div class="filter-option" onclick="filterToggle(this,'poros')"><span class="filter-checkbox"></span>Poros</div>
+        <div class="filter-option" onclick="filterToggle(this,'deshidratación')"><span class="filter-checkbox"></span>Deshidratación</div>
+
+        <h4>Ordenar</h4>
+        <select class="sort-select" onchange="sortProducts(this.value)">
+          <option value="default">Más vendidos</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="rating">Mejor valorado</option>
+        </select>
+      </aside>
+
+      <div>
+        <!-- ① TEXTO alineado con los productos -->
+        <div style="margin-bottom:36px;">
+          <p class="eyebrow" id="collectionEyebrow">PROTECCIÓN SOLAR</p>
+          <h1 id="collectionTitle" style="font-family:'Fraunces',serif;font-size:clamp(28px,3.5vw,44px);font-weight:500;line-height:1.05;margin:10px 0 10px;">Protección que se siente <em style="font-style:italic;color:var(--terracota)">invisible.</em></h1>
+          <p id="collectionDesc" style="font-size:15px;opacity:0.65;max-width:580px;line-height:1.6;">SPF 50+ de amplio espectro. Mineral, sin white cast, para cada tipo de piel. Dermatológicamente aprobado.</p>
+          <p id="collectionCount" style="font-size:11px;opacity:0.35;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;margin-top:10px;">8 productos</p>
+        </div>
+
+        <!-- ② GRID de productos -->
+        <div class="products-grid" id="productsGrid"></div>
+
+        <!-- SEO (oculto visualmente, disponible para bots) -->
+        <div id="seoCopy" style="display:none;"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><img src="img/isotipo.svg" alt="Protect Diversity" height="48" style="height:48px;width:auto;"><p class="footer-tagline">One World · Many Stories · One Future</p></div>
+      <div class="footer-col"><h4>Productos</h4><ul><li><a href="coleccion.html">Protección Solar</a></li><li><a href="coleccion.html?cat=sueros">Sueros</a></li><li><a href="coleccion.html?cat=cremas">Cremas</a></li><li><a href="coleccion.html?cat=limpiadores">Limpiadores</a></li></ul></div>
+      <div class="footer-col"><h4>Información</h4><ul><li><a href="nosotros.html">Quiénes Somos</a></li><li><a href="blog.html">Blog</a></li><li><a href="quiz.html">Quiz de Rutina</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><p>masm@protectdiversity.store</p><p style="margin-top:8px;">Roma Norte, CDMX<br>Lunes a Viernes · 9:00 – 18:00</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Protect Diversity · CDMX, México</p><p style="margin-top:6px;font-size:11px;opacity:0.3;">Diseño y desarrollo · MV Design</p></div>
+  </div>
+</footer>
+
+<div class="cart-overlay"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>Tu bolsa</h3><button class="cart-drawer-close">✕</button></div><div class="cart-drawer-items"><div class="cart-drawer-empty"><p>Tu bolsa está vacía</p><a href="coleccion.html" class="btn-secondary">Explorar productos</a></div></div><div class="cart-drawer-footer" style="display:none"><div class="cart-drawer-subtotal"><span>Subtotal</span><span class="amount">$0</span></div><p class="cart-drawer-shipping">Envío gratis desde $1,200</p><a href="carrito.html" class="btn-primary btn-primary--full">VER BOLSA</a></div></div>
+
+<script src="js/global.js"></script>
+<script src="js/products.js"></script>
+<script>
+var activeFilters = [];
+var currentCat = 'Protección Solar';
+
+var catMeta = {
+  'Protección Solar': {
+    eyebrow: 'PROTECCIÓN SOLAR',
+    title: 'Protección que se siente <em style="font-family:\'Fraunces\',serif;font-style:italic;color:var(--terracota)">invisible.</em>',
+    desc: 'SPF 50+ de amplio espectro. Mineral, sin white cast, para cada tipo de piel. Dermatológicamente aprobado.',
+    seo: '<h2>Protección solar para piel mexicana</h2><p>Nuestros protectores solares SPF 50+ están formulados con filtros minerales como Óxido de Zinc, sin fragancias sintéticas ni parabenos. Cada fórmula está pensada para una necesidad específica: control de brillo, prevención de manchas, hidratación profunda o un acabado toque seco. Sin white cast. Dermatológicamente aprobados, veganos y biodegradables.</p>'
+  },
+  'Sueros': {
+    eyebrow: 'SUEROS FACIALES',
+    title: 'Activos en <em style="font-family:\'Fraunces\',serif;font-style:italic;color:var(--terracota)">concentraciones reales.</em>',
+    desc: 'Ingredientes activos con porcentajes efectivos clínicamente. Sin rellenos, sin promesas vacías.',
+    seo: '<h2>Sueros faciales con ingredientes activos reales</h2><p>Nuestros sueros tienen porcentajes de activos que sí funcionan. Niacinamida al 10%, Vitamina C estable al 5%, Ácido Hialurónico en tres pesos moleculares. Cada concentración está elegida por eficacia — no por marketing.</p>'
+  },
+  'Cremas': {
+    eyebrow: 'CREMAS FACIALES',
+    title: 'Hidratación que <em style="font-family:\'Fraunces\',serif;font-style:italic;color:var(--terracota)">penetra de verdad.</em>',
+    desc: 'Activos encapsulados en liposomas. Penetran más profundo, duran más, resultan más.',
+    seo: '<h2>Cremas faciales con activos liposomados</h2><p>Usamos encapsulación en liposomas para que el Ácido Hialurónico y la Vitamina C lleguen a donde realmente importa — no solo a la superficie. Formuladas para piel seca, madura y apagada.</p>'
+  },
+  'Limpiadores': {
+    eyebrow: 'LIMPIADORES FACIALES',
+    title: 'El primer paso <em style="font-family:\'Fraunces\',serif;font-style:italic;color:var(--terracota)">importa.</em>',
+    desc: 'Limpieza efectiva sin comprometer la barrera cutánea. pH balanceado, sin sulfatos agresivos.',
+    seo: '<h2>Limpiadores faciales sin sulfatos agresivos</h2><p>Un buen limpiador no reseca. El nuestro usa tensoactivos de origen vegetal con pH balanceado que eliminan impurezas sin alterar la barrera cutánea. Apto para uso AM y PM, incluso en piel sensible.</p>'
+  }
+};
+
+function getCategory() {
+  var params = new URLSearchParams(window.location.search);
+  var cat = params.get('cat');
+  if (cat === 'sueros') return 'Sueros';
+  if (cat === 'cremas') return 'Cremas';
+  if (cat === 'limpiadores') return 'Limpiadores';
+  return 'Protección Solar';
+}
+
+function renderMeta(cat) {
+  var m = catMeta[cat];
+  document.getElementById('collectionEyebrow').textContent = m.eyebrow;
+  document.getElementById('collectionTitle').innerHTML = m.title;
+  document.getElementById('collectionDesc').textContent = m.desc;
+  document.getElementById('seoCopy').innerHTML = m.seo;
+  document.getElementById('breadcrumbCat').textContent = cat;
+  document.title = cat + ' | Protect Diversity';
+  var count = PD.getByCategory(cat).length;
+  document.getElementById('collectionCount').textContent = count + ' producto' + (count !== 1 ? 's' : '');
+  document.querySelectorAll('.cat-tab').forEach(function(t) {
+    t.classList.toggle('active', t.dataset.cat === cat);
+  });
+}
+
+function renderGrid(cat, filters, sort) {
+  var products = PD.getByCategory(cat);
+
+  if (filters && filters.length > 0) {
+    products = products.filter(function(p) {
+      return filters.every(function(f) {
+        return (p.bestFor && p.bestFor.some(function(b) { return b.indexOf(f) !== -1; })) ||
+               (p.concerns && p.concerns.indexOf(f) !== -1);
+      });
+    });
+  }
+
+  if (sort === 'price-asc') products.sort(function(a,b){ return a.price - b.price; });
+  else if (sort === 'price-desc') products.sort(function(a,b){ return b.price - a.price; });
+  else if (sort === 'rating') products.sort(function(a,b){ return b.stars - a.stars; });
+
+  var grid = document.getElementById('productsGrid');
+  if (products.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;opacity:0.5;"><p>Sin resultados con estos filtros. <button onclick="clearFilters()" style="text-decoration:underline;background:none;border:none;cursor:pointer;font-family:inherit;font-size:inherit;">Limpiar filtros</button></p></div>';
+    return;
+  }
+  grid.innerHTML = products.map(function(p, i) {
+    return PD.renderCard(p, (i % 3) + 1 <= 3 ? (i % 3) + 1 : 0);
+  }).join('');
+
+  // Re-trigger reveal
+  setTimeout(function() {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 50);
+}
+
+window.filterToggle = function(el, val) {
+  el.classList.toggle('active');
+  var idx = activeFilters.indexOf(val);
+  if (idx === -1) activeFilters.push(val);
+  else activeFilters.splice(idx, 1);
+  renderGrid(currentCat, activeFilters, document.querySelector('.sort-select').value);
+};
+
+window.sortProducts = function(val) {
+  renderGrid(currentCat, activeFilters, val);
+};
+
+window.clearFilters = function() {
+  activeFilters = [];
+  document.querySelectorAll('.filter-option').forEach(function(f) { f.classList.remove('active'); });
+  renderGrid(currentCat, [], document.querySelector('.sort-select').value);
+};
+
+// Init
+currentCat = getCategory();
+renderMeta(currentCat);
+renderGrid(currentCat, [], 'default');
+</script>
+</body>
+</html>

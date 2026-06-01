@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiénes Somos | Protect Diversity</title>
+<meta name="description" content="Protect Diversity es una marca mexicana de dermocosmética minimalista. Vegana, biodegradable y dermatológicamente aprobada. Hecha en CDMX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+/* ── NOSOTROS-SPECIFIC ── */
+
+/* Hero */
+.about-hero {
+  background: var(--cacao);
+  color: var(--crema);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.about-hero-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.04;
+  height: 400px;
+  width: auto;
+  pointer-events: none;
+}
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.about-hero .eyebrow { color: var(--ocre); margin-bottom: 24px; }
+.about-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+}
+.about-hero h1 em { font-style: italic; color: var(--terracota); }
+.about-hero .subtitle {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 24px);
+  opacity: 0.6;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Story */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.story-eyebrow { color: var(--terracota); margin-bottom: 16px; }
+.story-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+.story-text p {
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+.story-visual {
+  background: var(--crema-2);
+  border-radius: 16px;
+  aspect-ratio: 4/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.story-visual img { height: 200px; width: auto; opacity: 0.15; }
+
+/* Propuesta */
+.propuesta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.propuesta-card {
+  text-align: center;
+  padding: 40px 24px;
+}
+.propuesta-number {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--ocre);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.propuesta-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.propuesta-card p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
+
+/* Values */
+.values-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.value-6-card {
+  padding: 32px;
+}
+.value-6-card .num {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--terracota);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+.value-6-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.value-6-card p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
+
+/* Promise */
+.promise {
+  text-align: center;
+  padding: 100px 0;
+}
+.promise blockquote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1.3;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+.promise .attribution {
+  font-size: 12px;
+  opacity: 0.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Audience */
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.audience-card { padding: 36px; }
+.audience-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.audience-card p, .audience-card li {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+.audience-card ul { padding-left: 0; }
+.audience-card li { padding: 4px 0; display: flex; align-items: flex-start; gap: 8px; }
+.audience-card li::before { content: "·"; font-weight: 700; flex-shrink: 0; }
+
+/* Tagline */
+.tagline-section {
+  text-align: center;
+  padding: 60px 0;
+}
+.tagline-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+/* Positioning */
+.positioning {
+  padding: 48px;
+  border-radius: 16px;
+}
+.positioning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.positioning h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--salvia);
+}
+.positioning .not h3 { color: var(--terracota); }
+.positioning li {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.75;
+  padding: 4px 0;
+}
+
+@media (max-width: 1024px) {
+  .propuesta-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid-6 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .story-grid { grid-template-columns: 1fr; gap: 32px; }
+  .propuesta-grid { grid-template-columns: 1fr; }
+  .values-grid-6 { grid-template-columns: 1fr; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .positioning-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="img/logo-full.svg" alt="Protect Diversity" height="52" style="height:52px;width:auto;">
+    </a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="coleccion.html">Protección Solar</a></li>
+        <li><a href="coleccion.html">Sueros</a></li>
+        <li><a href="coleccion.html">Cremas</a></li>
+        <li><a href="coleccion.html">Limpiadores</a></li>
+        <li><a href="nosotros.html" class="active">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <button class="header-icon mobile-menu-btn" aria-label="Menú">☰</button>
+      <button class="header-icon" aria-label="Buscar">◈</button>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito">♡<span class="cart-count" style="display:none">0</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <a href="coleccion.html">Protección Solar</a>
+  <a href="coleccion.html">Sueros</a>
+  <a href="coleccion.html">Cremas</a>
+  <a href="coleccion.html">Limpiadores</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="blog.html">Blog</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="about-hero">
+  <img src="img/isotipo.svg" alt="" class="about-hero-logo">
+  <div class="container">
+    <div class="about-hero-content reveal">
+      <p class="eyebrow">MANIFIESTO</p>
+      <h1>La piel es <em>política.</em></h1>
+      <p class="subtitle">Nacimos en Ciudad de México con una convicción radical: la belleza no debería estandarizarse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NUESTRA HISTORIA ═══ -->
+<section>
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <p class="eyebrow story-eyebrow">NUESTRA HISTORIA</p>
+        <h2 class="story-title">Protect Diversity <em>existe</em> la marca.</h2>
+        <p>El mercado mexicano de skincare está dominado por marcas extranjeras formuladas para piel europea o asiática — más clara, con menos pigmentación, con preocupaciones distintas a las de una piel mexicana. Los tonalidades "universales" rara vez lo son. Los productos prometen mucho y cargan poco. Las rutinas se rifan de pasos innecesarios. Los ingredientes son listas eternas de relleno.</p>
+        <p>Protect Diversity propone exactamente lo contrario. Formulamos en minúsculo — sin rellenos, sin perfumes innecesarios, sin promesas infladas. Pensadas para cada tono de piel, cada edad y cada clima.</p>
+        <p>Ingredientes activos en concentraciones efectivas. Nombres comerciales + INCI + porcentajes + función. Sin ingredientes escondidos. Sin promesas infladas.</p>
+      </div>
+      <div class="story-visual reveal reveal-delay-2">
+        <img src="img/isotipo.svg" alt="Protect Diversity">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROPUESTA DE VALOR ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">NUESTRA PROPUESTA</p>
+      <h2>4 pilares, una filosofía.</h2>
+    </div>
+    <div class="propuesta-grid">
+      <div class="card propuesta-card reveal reveal-delay-1">
+        <div class="propuesta-number">01</div>
+        <h3>Formulación minimalista</h3>
+        <p>Ingredientes activos en concentraciones efectivas, sin rellenos. Listas cortas, transparentes, con porcentajes a la vista.</p>
+      </div>
+      <div class="card propuesta-card reveal reveal-delay-2">
+        <div class="propuesta-number">02</div>
+        <h3>Hecha para piel mexicana</h3>
+        <p>Formulamos considerando subtonos rosado y amarillo, fototipos III-V, melasma, manchas y la realidad de un país soleado.</p>
+      </div>
+      <div class="card propuesta-card reveal reveal-delay-3">
+        <div class="propuesta-number">03</div>
+        <h3>Ética sin compromiso</h3>
+        <p>100% vegana, libre de crueldad animal, biodegradable, empaques reciclables. No es una etiqueta — es la regla de formulación.</p>
+      </div>
+      <div class="card propuesta-card reveal reveal-delay-4">
+        <div class="propuesta-number">04</div>
+        <h3>Transparencia radical</h3>
+        <p>Nombres comerciales + INCI + porcentajes + función. Sin ingredientes escondidos. Sin promesas infladas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6 VALORES ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">NUESTROS VALORES</p>
+      <h2>Lo que nos guía.</h2>
+      <p class="subtitle">Los valores son los principios. La personalidad es cómo se sienten cuando se viven.</p>
+    </div>
+    <div class="values-grid-6">
+      <div class="card value-6-card reveal reveal-delay-1">
+        <div class="num">01</div>
+        <h3>Diversidad como punto de partida</h3>
+        <p>No celebramos la diversidad — la asumimos. Subtonos, edades, geografías. Si una fórmula no contempla esa pluralidad, no existe.</p>
+      </div>
+      <div class="card value-6-card reveal reveal-delay-2">
+        <div class="num">02</div>
+        <h3>Transparencia radical</h3>
+        <p>Mostramos INCI, porcentajes, función. Si no podemos explicar por qué un ingrediente está en la fórmula, no entra.</p>
+      </div>
+      <div class="card value-6-card reveal reveal-delay-3">
+        <div class="num">03</div>
+        <h3>Minimalismo con propósito</h3>
+        <p>Menos productos, menos pasos, menos ingredientes. Más eficacia, más respeto a la barrera cutánea.</p>
+      </div>
+      <div class="card value-6-card reveal reveal-delay-1">
+        <div class="num">04</div>
+        <h3>Ética sin negociar</h3>
+        <p>Vegano, libre de crueldad, biodegradable. No por moda, por convicción. No es marketing, es regla de formulación.</p>
+      </div>
+      <div class="card value-6-card reveal reveal-delay-2">
+        <div class="num">05</div>
+        <h3>Orgullo mexicano sin folclor</h3>
+        <p>Hecho en CDMX, pensado para piel mexicana — pero sin diseño cosmopolita, sin estándares globales, sin estereotipos.</p>
+      </div>
+      <div class="card value-6-card reveal reveal-delay-3">
+        <div class="num">06</div>
+        <h3>Honestidad antes que conversión</h3>
+        <p>Decimos a quién NO le sirve cada producto. Preferimos un cliente menos y bien servido, que uno más con decepción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NUESTRO COMPROMISO ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">NUESTRO COMPROMISO</p>
+      <h2>Lo que puedes esperar de nosotros.</h2>
+    </div>
+    <div class="card positioning reveal">
+      <div class="positioning-grid">
+        <div>
+          <h3>✓ Siempre vas a encontrar</h3>
+          <ul>
+            <li>Cada ingrediente con nombre, INCI, porcentaje y función</li>
+            <li>Fórmulas pensadas para la diversidad real de pieles mexicanas</li>
+            <li>Certificación dermatológica en cada producto</li>
+            <li>Honestidad sobre para quién funciona — y para quién no</li>
+            <li>Ingredientes veganos, biodegradables y libres de crueldad</li>
+            <li>Precios justos sin promociones infladas</li>
+          </ul>
+        </div>
+        <div class="not">
+          <h3>✕ Nunca vas a encontrar</h3>
+          <ul>
+            <li>Promesas de resultados mágicos o instantáneos</li>
+            <li>Ingredientes de relleno que no aportan a tu piel</li>
+            <li>Fragancias sintéticas ni parabenos innecesarios</li>
+            <li>Fórmulas genéricas que dicen ser "para todos"</li>
+            <li>Marketing que exagera lo que un producto puede hacer</li>
+            <li>Tests en animales en ninguna etapa de producción</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROMESA ═══ -->
+<section class="section-dark promise">
+  <div class="container reveal">
+    <blockquote>"Pieles diversas, fórmulas que respetan. Cuidado real, sin disculpas."</blockquote>
+    <p class="attribution">— La promesa de Protect Diversity</p>
+  </div>
+</section>
+
+<!-- ═══ TAGLINE ═══ -->
+<section class="tagline-section">
+  <div class="container reveal">
+    <p class="tagline-text">One World · Many Stories · One Future</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="img/isotipo.svg" alt="Protect Diversity" height="48" style="height:48px;width:auto;">
+        <p class="footer-tagline">One World · Many Stories · One Future</p>
+        <p style="margin-top:16px;">Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="coleccion.html">Protección Solar</a></li>
+          <li><a href="coleccion.html">Sueros</a></li>
+          <li><a href="coleccion.html">Cremas</a></li>
+          <li><a href="coleccion.html">Limpiadores</a></li>
+          <li><a href="comparador.html">Comparador</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="nosotros.html">Quiénes Somos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html">Quiz de Rutina</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>masm@protectdiversity.store</p>
+        <p style="margin-top:8px;">Roma Norte, CDMX<br>Lunes a Viernes · 9:00 – 18:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Protect Diversity · Skincare Dermatológico · CDMX, México</p>
+        <p style="margin-top:6px;font-size:11px;opacity:0.3;">Diseño y desarrollo · MV Design</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">◈</a>
+        <a href="#" aria-label="TikTok">✦</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart Drawer -->
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Tu bolsa</h3>
+    <button class="cart-drawer-close">✕</button>
+  </div>
+  <div class="cart-drawer-items">
+    <div class="cart-drawer-empty"><p>Tu bolsa está vacía</p><a href="index.html" class="btn-secondary">Explorar productos</a></div>
+  </div>
+  <div class="cart-drawer-footer" style="display:none">
+    <div class="cart-drawer-subtotal"><span>Subtotal</span><span class="amount">$0</span></div>
+    <p class="cart-drawer-shipping">Envío gratis en compras desde $1,200</p>
+    <a href="carrito.html" class="btn-primary btn-primary--full">VER BOLSA</a>
+  </div>
+</div>
+
+<script src="js/global.js"></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz de Rutina | Protect Diversity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.quiz-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+.quiz-header { padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+.quiz-close { font-size: 20px; background: none; border: none; cursor: pointer; color: var(--cacao); }
+
+.quiz-progress { height: 3px; background: var(--crema-2); }
+.quiz-progress-bar { height: 100%; background: var(--terracota); transition: width 0.4s ease; }
+
+.quiz-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px; }
+
+.quiz-step { display: none; text-align: center; max-width: 640px; width: 100%; animation: quizFadeIn 0.4s ease; }
+.quiz-step.active { display: block; }
+@keyframes quizFadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.quiz-step .eyebrow { margin-bottom: 16px; color: var(--terracota); }
+.quiz-step h2 { font-family: 'Fraunces', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 500; line-height: 1.1; margin-bottom: 12px; }
+.quiz-step p { font-size: 15px; opacity: 0.7; margin-bottom: 32px; }
+
+.quiz-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 480px; margin: 0 auto; }
+.quiz-options--3 { grid-template-columns: repeat(3, 1fr); }
+
+.quiz-option {
+  padding: 24px 16px; border: 2px solid rgba(42,29,20,0.12); border-radius: 12px;
+  background: var(--blanco); cursor: pointer; transition: all 0.2s; text-align: center;
+}
+.quiz-option:hover { border-color: var(--cacao); }
+.quiz-option.selected { border-color: var(--terracota); background: rgba(196,90,44,0.05); }
+.quiz-option-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+.quiz-option-label { font-size: 14px; font-weight: 600; }
+.quiz-option-desc { font-size: 12px; opacity: 0.5; margin-top: 4px; }
+
+.quiz-options--multi .quiz-option.selected::after { content: "✓"; position: absolute; top: 8px; right: 10px; color: var(--terracota); font-weight: 700; font-size: 14px; }
+.quiz-options--multi .quiz-option { position: relative; }
+
+.quiz-nav { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
+
+/* Results */
+.quiz-results { max-width: 800px; width: 100%; }
+.quiz-results h2 { margin-bottom: 8px; }
+.quiz-results .subtitle { font-family: 'Fraunces', serif; font-style: italic; color: var(--terracota); font-size: 16px; margin-bottom: 32px; }
+.results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px; text-align: left; }
+.result-card { padding: 24px; }
+.result-card-match { font-size: 11px; font-weight: 600; color: var(--salvia); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; }
+.result-card-img { width: 100%; aspect-ratio: 1; background: var(--crema); border-radius: 8px; margin-bottom: 12px; }
+.result-card h4 { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.result-card .price { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.result-card p { font-size: 12px; opacity: 0.6; line-height: 1.5; }
+.results-total { text-align: center; margin-bottom: 8px; }
+.results-total .price-big { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; }
+.results-total .savings { font-size: 13px; color: var(--salvia); font-weight: 500; }
+
+.quiz-bool { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 320px; margin: 0 auto; }
+.quiz-bool .quiz-option { padding: 20px; }
+
+@media (max-width: 768px) {
+  .quiz-header { padding: 12px 16px; }
+  .quiz-body { padding: 24px 16px; }
+  .quiz-options { grid-template-columns: 1fr 1fr; }
+  .quiz-options--3 { grid-template-columns: 1fr 1fr 1fr; }
+  .results-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-wrapper">
+  <div class="quiz-header">
+    <a href="index.html"><img src="img/isotipo.svg" alt="Protect Diversity" height="36" style="height:36px;width:auto;"></a>
+    <span class="eyebrow" id="quizCounter">1 / 5</span>
+    <a href="index.html" class="quiz-close">✕</a>
+  </div>
+  <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar" style="width:20%"></div></div>
+
+  <div class="quiz-body">
+
+    <!-- Step 0: Welcome -->
+    <div class="quiz-step active" data-step="0">
+      <p class="eyebrow">QUIZ DE RUTINA</p>
+      <h2>Encuentra tu rutina en 60 segundos.</h2>
+      <p>Responde 5 preguntas sobre tu piel y te recomendaremos los productos exactos que necesitas.</p>
+      <button class="btn-primary btn-primary--large" onclick="nextStep()">COMENZAR</button>
+    </div>
+
+    <!-- Step 1: Skin type -->
+    <div class="quiz-step" data-step="1">
+      <p class="eyebrow">PASO 1 DE 5</p>
+      <h2>¿Cuál es tu tipo de piel?</h2>
+      <p>Selecciona el que mejor te describe.</p>
+      <div class="quiz-options" id="skinType">
+        <div class="quiz-option" data-value="grasa" onclick="selectOption(this)">
+          <span class="quiz-option-icon">◐</span>
+          <span class="quiz-option-label">Grasa</span>
+          <span class="quiz-option-desc">Brillo, poros visibles</span>
+        </div>
+        <div class="quiz-option" data-value="mixta" onclick="selectOption(this)">
+          <span class="quiz-option-icon">◑</span>
+          <span class="quiz-option-label">Mixta</span>
+          <span class="quiz-option-desc">Zona T grasa, mejillas secas</span>
+        </div>
+        <div class="quiz-option" data-value="seca" onclick="selectOption(this)">
+          <span class="quiz-option-icon">○</span>
+          <span class="quiz-option-label">Seca</span>
+          <span class="quiz-option-desc">Tirantez, descamación</span>
+        </div>
+        <div class="quiz-option" data-value="sensible" onclick="selectOption(this)">
+          <span class="quiz-option-icon">❀</span>
+          <span class="quiz-option-label">Sensible</span>
+          <span class="quiz-option-desc">Enrojecimiento, reactividad</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>
+    </div>
+
+    <!-- Step 2: Concerns -->
+    <div class="quiz-step" data-step="2">
+      <p class="eyebrow">PASO 2 DE 5</p>
+      <h2>¿Qué te preocupa más?</h2>
+      <p>Puedes elegir varias opciones.</p>
+      <div class="quiz-options quiz-options--multi quiz-options--3" id="concerns">
+        <div class="quiz-option" data-value="brillo" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">☀</span>
+          <span class="quiz-option-label">Brillo</span>
+        </div>
+        <div class="quiz-option" data-value="manchas" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">◉</span>
+          <span class="quiz-option-label">Manchas</span>
+        </div>
+        <div class="quiz-option" data-value="poros" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">○</span>
+          <span class="quiz-option-label">Poros</span>
+        </div>
+        <div class="quiz-option" data-value="arrugas" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">✦</span>
+          <span class="quiz-option-label">Arrugas</span>
+        </div>
+        <div class="quiz-option" data-value="deshidratacion" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">◐</span>
+          <span class="quiz-option-label">Deshidratación</span>
+        </div>
+        <div class="quiz-option" data-value="acne" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">✕</span>
+          <span class="quiz-option-label">Acné</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button><button class="btn-primary" onclick="nextStep()">SIGUIENTE</button></div>
+    </div>
+
+    <!-- Step 3: Climate -->
+    <div class="quiz-step" data-step="3">
+      <p class="eyebrow">PASO 3 DE 5</p>
+      <h2>¿Qué clima predomina donde vives?</h2>
+      <div class="quiz-options quiz-options--3" id="climate" style="margin-top:24px;">
+        <div class="quiz-option" data-value="calido" onclick="selectOption(this)">
+          <span class="quiz-option-icon">☀</span>
+          <span class="quiz-option-label">Cálido / húmedo</span>
+        </div>
+        <div class="quiz-option" data-value="templado" onclick="selectOption(this)">
+          <span class="quiz-option-icon">◐</span>
+          <span class="quiz-option-label">Templado</span>
+        </div>
+        <div class="quiz-option" data-value="frio" onclick="selectOption(this)">
+          <span class="quiz-option-icon">❂</span>
+          <span class="quiz-option-label">Frío / seco</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>
+    </div>
+
+    <!-- Step 4: Sunscreen -->
+    <div class="quiz-step" data-step="4">
+      <p class="eyebrow">PASO 4 DE 5</p>
+      <h2>¿Usas protector solar diario?</h2>
+      <div class="quiz-bool" style="margin-top:24px;">
+        <div class="quiz-option" data-value="si" onclick="selectOption(this)">
+          <span class="quiz-option-label">Sí</span>
+        </div>
+        <div class="quiz-option" data-value="no" onclick="selectOption(this)">
+          <span class="quiz-option-label">No</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>
+    </div>
+
+    <!-- Step 5: Makeup -->
+    <div class="quiz-step" data-step="5">
+      <p class="eyebrow">PASO 5 DE 5</p>
+      <h2>¿Usas maquillaje encima del skincare?</h2>
+      <div class="quiz-bool" style="margin-top:24px;">
+        <div class="quiz-option" data-value="si" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">Sí</span>
+        </div>
+        <div class="quiz-option" data-value="no" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">No</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>
+    </div>
+
+    <!-- Results -->
+    <div class="quiz-step quiz-results" data-step="results">
+      <p class="eyebrow">TU RUTINA PERSONALIZADA</p>
+      <h2>Estos son tus productos.</h2>
+      <p class="subtitle">Seleccionados según tu tipo de piel y preocupaciones.</p>
+      <div class="results-grid" id="resultsGrid"></div>
+      <div class="results-total">
+        <p class="price-big" id="resultsTotal"></p>
+        <p class="savings" id="resultsSavings"></p>
+      </div>
+      <button class="btn-primary btn-primary--large" id="addRoutineBtn">AGREGAR RUTINA COMPLETA</button>
+      <div style="margin-top:16px;">
+        <a href="coleccion.html" style="font-size:13px;opacity:0.5;text-decoration:underline;">o explora el catálogo completo</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

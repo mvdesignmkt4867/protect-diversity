@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Bolsa | Protect Diversity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.cart-page-hero { padding: 120px 0 32px; }
+.cart-page-hero h1 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; }
+
+.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+
+/* Items */
+.cart-items { border-top: 1px solid rgba(42,29,20,0.1); }
+.cart-item {
+  display: grid; grid-template-columns: 80px 1fr auto auto; gap: 20px;
+  align-items: center; padding: 24px 0; border-bottom: 1px solid rgba(42,29,20,0.06);
+}
+.cart-item-img { width: 80px; height: 80px; background: var(--crema-2); border-radius: 8px; }
+.cart-item-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+.cart-item-variant { font-size: 12px; opacity: 0.5; }
+.cart-item-qty {
+  display: flex; align-items: center; gap: 8px;
+}
+.cart-item-qty button {
+  width: 32px; height: 32px; border: 1px solid rgba(42,29,20,0.2); border-radius: 6px;
+  background: none; font-size: 16px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.cart-item-qty span { font-size: 14px; font-weight: 600; min-width: 24px; text-align: center; }
+.cart-item-price { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; text-align: right; min-width: 80px; }
+.cart-item-remove { font-size: 11px; opacity: 0.4; cursor: pointer; background: none; border: none; margin-top: 4px; }
+.cart-item-remove:hover { opacity: 1; color: var(--terracota); }
+
+/* Summary */
+.cart-summary { position: sticky; top: 100px; }
+.cart-summary-inner { padding: 32px; }
+.cart-summary h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+.cart-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+.cart-summary-row.total { border-top: 1px solid rgba(42,29,20,0.1); padding-top: 16px; margin-top: 8px; font-weight: 600; }
+.cart-summary-row.total .val { font-family: 'Fraunces', serif; font-size: 22px; }
+.cart-summary-shipping { font-size: 12px; color: var(--salvia); font-weight: 500; margin-top: 4px; }
+.cart-summary .btn-primary { margin-top: 20px; }
+
+/* Empty */
+.cart-empty { text-align: center; padding: 80px 20px; }
+.cart-empty h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; margin-bottom: 12px; }
+.cart-empty p { font-size: 15px; opacity: 0.6; margin-bottom: 28px; }
+
+/* Upsell */
+.upsell { margin-top: 48px; }
+.upsell h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+.upsell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.upsell-item { display: flex; gap: 12px; padding: 16px; align-items: center; }
+.upsell-img { width: 56px; height: 56px; background: var(--crema); border-radius: 8px; flex-shrink: 0; }
+.upsell-info { flex: 1; }
+.upsell-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.upsell-price { font-size: 12px; opacity: 0.6; }
+.upsell-add { font-size: 18px; background: none; border: none; cursor: pointer; color: var(--cacao); opacity: 0.4; }
+.upsell-add:hover { opacity: 1; }
+
+/* Trust */
+.cart-trust { display: flex; justify-content: center; gap: 32px; padding: 40px 0; margin-top: 24px; border-top: 1px solid rgba(42,29,20,0.06); }
+.cart-trust-item { text-align: center; font-size: 12px; opacity: 0.5; }
+.cart-trust-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+@media (max-width: 768px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-item { grid-template-columns: 64px 1fr; gap: 12px; }
+  .cart-item-price { grid-column: 2; }
+  .cart-item-qty { grid-column: 2; }
+  .upsell-grid { grid-template-columns: 1fr; }
+  .cart-trust { gap: 20px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link"><img src="img/logo-full.svg" alt="Protect Diversity" height="52" style="height:52px;width:auto;"></a>
+    <nav><ul class="header-nav">
+      <li><a href="coleccion.html">Protección Solar</a></li><li><a href="coleccion.html">Sueros</a></li>
+      <li><a href="coleccion.html">Cremas</a></li><li><a href="coleccion.html">Limpiadores</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+    </ul></nav>
+    <div class="header-icons">
+      <button class="header-icon mobile-menu-btn" aria-label="Menú">☰</button>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito">♡<span class="cart-count" style="display:none">0</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav"><button class="mobile-nav-close">✕</button>
+  <a href="coleccion.html">Protección Solar</a><a href="coleccion.html">Sueros</a><a href="coleccion.html">Cremas</a>
+  <a href="coleccion.html">Limpiadores</a><a href="nosotros.html">Nosotros</a><a href="contacto.html">Contacto</a>
+</nav>
+
+<section class="cart-page-hero">
+  <div class="container">
+    <h1>Tu bolsa</h1>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div id="cartContent"></div>
+
+    <div class="cart-trust">
+      <div class="cart-trust-item"><span class="cart-trust-icon">↺</span>30 días para devolver</div>
+      <div class="cart-trust-item"><span class="cart-trust-icon">◈</span>Envío seguro</div>
+      <div class="cart-trust-item"><span class="cart-trust-icon">✓</span>Pago protegido</div>
+      <div class="cart-trust-item"><span class="cart-trust-icon">♡</span>Cruelty-free siempre</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><img src="img/isotipo.svg" alt="Protect Diversity" height="48" style="height:48px;width:auto;"><p class="footer-tagline">One World · Many Stories · One Future</p></div>
+      <div class="footer-col"><h4>Productos</h4><ul><li><a href="coleccion.html">Protección Solar</a></li><li><a href="coleccion.html">Sueros</a></li><li><a href="coleccion.html">Cremas</a></li><li><a href="coleccion.html">Limpiadores</a></li></ul></div>
+      <div class="footer-col"><h4>Información</h4><ul><li><a href="nosotros.html">Quiénes Somos</a></li><li><a href="blog.html">Blog</a></li><li><a href="quiz.html">Quiz de Rutina</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><p>masm@protectdiversity.store</p><p style="margin-top:8px;">Roma Norte, CDMX</p></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Protect Diversity · CDMX, México</p><p style="margin-top:6px;font-size:11px;opacity:0.3;">Diseño y desarrollo · MV Design</p></div>
+  </div>
+</footer>
+
+<div class="cart-overlay"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>Tu bolsa</h3><button class="cart-drawer-close">✕</button></div><div class="cart-drawer-items"><div class="cart-drawer-empty"><p>Tu bolsa está vacía</p></div></div><div class="cart-drawer-footer" style="display:none"><div class="cart-drawer-subtotal"><span>Subtotal</span><span class="amount">$0</span></div><p class="cart-drawer-shipping">Envío gratis desde $1,200</p><a href="carrito.html" class="btn-primary btn-primary--full">VER BOLSA</a></div></div>
+
+<script src="js/global.js"></script>
+<script>
+(function() {
+  var container = document.getElementById('cartContent');
+  var cart = PD.cart;
+
+  function render() {
+    cart = JSON.parse(localStorage.getItem('pd_cart') || '[]');
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="cart-empty"><h2>Tu bolsa está vacía</h2><p>Explora nuestros productos y encuentra lo que tu piel necesita.</p><a href="coleccion.html" class="btn-primary btn-primary--large">VER CATÁLOGO</a></div>';
+      return;
+    }
+
+    var subtotal = cart.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
+    var freeShipping = subtotal >= 1200;
+    var shipping = freeShipping ? 0 : 89;
+
+    var html = '<div class="cart-layout"><div><div class="cart-items">';
+    cart.forEach(function(item) {
+      html += '<div class="cart-item">' +
+        '<div class="cart-item-img"></div>' +
+        '<div><div class="cart-item-name">' + item.name + '</div><div class="cart-item-variant">50 ml</div>' +
+        '<button class="cart-item-remove" onclick="removeItem(\'' + item.id + '\')">Eliminar</button></div>' +
+        '<div class="cart-item-qty">' +
+          '<button onclick="changeQty(\'' + item.id + '\',-1)">−</button>' +
+          '<span>' + item.qty + '</span>' +
+          '<button onclick="changeQty(\'' + item.id + '\',1)">+</button>' +
+        '</div>' +
+        '<div class="cart-item-price">$' + (item.price * item.qty).toLocaleString() + '</div>' +
+      '</div>';
+    });
+    html += '</div>';
+
+    html += '<div class="upsell"><h3>Completa tu rutina</h3><div class="upsell-grid">' +
+      '<div class="card upsell-item"><div class="upsell-img"></div><div class="upsell-info"><div class="upsell-name">Suero Facial con Vitamina C</div><div class="upsell-price">$449</div></div><button class="upsell-add" data-add-to-cart data-product-id="SU-VITC" data-product-name="Suero Facial con Vitamina C" data-product-price="449">+</button></div>' +
+      '<div class="card upsell-item"><div class="upsell-img"></div><div class="upsell-info"><div class="upsell-name">Limpiador Facial con Ácido Hialurónico</div><div class="upsell-price">$299</div></div><button class="upsell-add" data-add-to-cart data-product-id="LI-HIALURONICO" data-product-name="Limpiador Facial con AH" data-product-price="299">+</button></div>' +
+      '<div class="card upsell-item"><div class="upsell-img"></div><div class="upsell-info"><div class="upsell-name">Crema Facial con Ácido Hialurónico</div><div class="upsell-price">$399</div></div><button class="upsell-add" data-add-to-cart data-product-id="CR-HIALURONICO" data-product-name="Crema Facial con AH" data-product-price="399">+</button></div>' +
+    '</div></div>';
+
+    html += '</div>';
+
+    html += '<div class="cart-summary"><div class="card cart-summary-inner"><h3>Resumen</h3>' +
+      '<div class="cart-summary-row"><span>Subtotal</span><span>$' + subtotal.toLocaleString() + '</span></div>' +
+      '<div class="cart-summary-row"><span>Envío</span><span>' + (freeShipping ? 'Gratis' : '$' + shipping) + '</span></div>' +
+      (freeShipping ? '<p class="cart-summary-shipping">✓ Envío gratis aplicado</p>' : '<p style="font-size:12px;opacity:0.5;margin-top:4px;">Gratis desde $1,200</p>') +
+      '<div class="cart-summary-row total"><span>Total</span><span class="val">$' + (subtotal + shipping).toLocaleString() + '</span></div>' +
+      '<button class="btn-primary btn-primary--full" style="margin-top:20px;">PROCEDER AL PAGO</button>' +
+    '</div></div></div>';
+
+    container.innerHTML = html;
+  }
+
+  window.changeQty = function(id, delta) {
+    var c = JSON.parse(localStorage.getItem('pd_cart') || '[]');
+    var item = c.find(function(i) { return i.id === id; });
+    if (!item) return;
+    item.qty = Math.max(1, item.qty + delta);
+    localStorage.setItem('pd_cart', JSON.stringify(c));
+    PD.cart = c;
+    PD.updateCartCount();
+    render();
+  };
+
+  window.removeItem = function(id) {
+    var c = JSON.parse(localStorage.getItem('pd_cart') || '[]').filter(function(i) { return i.id !== id; });
+    localStorage.setItem('pd_cart', JSON.stringify(c));
+    PD.cart = c;
+    PD.updateCartCount();
+    render();
+  };
+
+  render();
+})();
+</script>
+</body>
+</html>

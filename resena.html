@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escribe tu Reseña | Protect Diversity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+.resena-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--crema); }
+.resena-header { padding: 24px 40px; border-bottom: 1px solid rgba(42,29,20,0.08); }
+.resena-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 20px; }
+.resena-card { max-width: 600px; width: 100%; }
+.resena-product-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--crema-2); border-radius: 8px; padding: 10px 16px;
+  font-size: 13px; font-weight: 500; margin-bottom: 24px;
+}
+.resena-product-img {
+  width: 40px; height: 40px; border-radius: 6px;
+  object-fit: cover; background: var(--crema);
+}
+.star-selector {
+  display: flex; gap: 8px; margin: 16px 0 24px; font-size: 32px;
+  cursor: pointer; user-select: none;
+}
+.star-selector span { color: var(--crema-2); transition: color 0.1s; }
+.star-selector span.lit { color: var(--ocre); }
+.skin-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.skin-pill {
+  padding: 8px 16px; border: 1.5px solid rgba(42,29,20,0.15); border-radius: 999px;
+  font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+  background: none; font-family: 'Manrope', sans-serif; color: var(--cacao);
+}
+.skin-pill.selected { background: var(--cacao); color: var(--crema); border-color: var(--cacao); }
+.resena-success { display: none; text-align: center; padding: 60px 40px; }
+.resena-success h2 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; margin-bottom: 12px; }
+.resena-success p { opacity: 0.7; margin-bottom: 24px; }
+@media (max-width: 480px) { .resena-header { padding: 16px; } }
+</style>
+</head>
+<body>
+<div class="resena-page">
+  <div class="resena-header">
+    <a href="index.html"><img src="img/logo-full.svg" alt="Protect Diversity" height="44" style="height:44px;width:auto;"></a>
+  </div>
+
+  <div class="resena-body">
+    <div class="resena-card" id="resenaForm">
+      <p class="eyebrow" style="margin-bottom:8px;">RESEÑA DE PRODUCTO</p>
+      <h1 style="font-family:'Fraunces',serif;font-size:clamp(28px,4vw,40px);font-weight:500;margin-bottom:8px;">Comparte tu experiencia.</h1>
+      <p style="font-size:14px;opacity:0.6;margin-bottom:28px;">Tu reseña ayuda a otras personas a elegir el producto correcto para su piel. Gracias por tomarte el tiempo.</p>
+
+      <div class="resena-product-tag">
+        <img id="resenaProductImg" src="img/products/ps-antibrillo-1.jpg" alt="Producto" class="resena-product-img">
+        <span id="resenaProductName">Protector Solar Anti-Brillo</span>
+      </div>
+
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;opacity:0.5;margin-bottom:8px;">Tu calificación</p>
+      <div class="star-selector" id="starSelector">
+        <span data-v="1">★</span>
+        <span data-v="2">★</span>
+        <span data-v="3">★</span>
+        <span data-v="4">★</span>
+        <span data-v="5">★</span>
+      </div>
+      <input type="hidden" id="starsValue" value="0">
+
+      <form id="resenaFormEl">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+          <div><label class="input-label">Nombre</label><input type="text" class="input" id="resenaName" placeholder="Tu nombre" required></div>
+          <div><label class="input-label">Ciudad</label><input type="text" class="input" id="resenaCity" placeholder="CDMX" required></div>
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <label class="input-label" style="margin-bottom:8px;display:block;">Tu tipo de piel</label>
+          <div class="skin-pills" id="skinPills">
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Grasa</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Mixta</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Seca</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Sensible</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Normal</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Con acné</button>
+            <button type="button" class="skin-pill" onclick="selectSkin(this)">Madura</button>
+          </div>
+          <input type="hidden" id="skinValue">
+        </div>
+
+        <div style="margin-bottom:16px;">
+          <label class="input-label">Título de tu reseña</label>
+          <input type="text" class="input" id="resenaTitle" placeholder="En una frase, ¿qué destacas?" required>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <label class="input-label">Tu reseña</label>
+          <textarea class="input" id="resenaText" style="min-height:120px;resize:vertical;" placeholder="Cuéntanos tu experiencia con el producto. ¿Cuánto tiempo lo has usado? ¿Qué notaste?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary btn-primary--full">PUBLICAR RESEÑA</button>
+        <p style="font-size:11px;opacity:0.4;text-align:center;margin-top:12px;">Tu reseña será visible tras una revisión rápida de 24-48h.</p>
+      </form>
+    </div>
+
+    <div class="resena-success card" id="resenaSuccess">
+      <p style="font-size:48px;margin-bottom:16px;">✓</p>
+      <h2>¡Gracias por tu reseña!</h2>
+      <p>La publicaremos en 24-48 horas tras verificar que sea auténtica. Tu opinión ayuda a otras personas a cuidar mejor su piel.</p>
+      <a href="index.html" class="btn-primary">IR A INICIO</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/products.js"></script>
+<script>
+// Read product from URL params
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var productId = params.get('producto') || 'PS-ANTIBRILLO';
+  var orderNum = params.get('pedido') || '';
+  var clientName = params.get('nombre') || '';
+
+  // Pre-fill name if in URL
+  if (clientName) document.getElementById('resenaName').value = decodeURIComponent(clientName);
+
+  // Set product info
+  var p = PD.getProduct ? PD.getProduct(productId) : null;
+  if (p) {
+    document.getElementById('resenaProductName').textContent = p.name;
+    if (p.img1) document.getElementById('resenaProductImg').src = p.img1;
+    document.title = 'Reseña: ' + p.name + ' | Protect Diversity';
+    if (orderNum) {
+      var tag = document.querySelector('.resena-product-tag');
+      tag.innerHTML += '<span style="font-size:11px;opacity:0.4;margin-left:4px;">· Pedido #' + orderNum + '</span>';
+    }
+  }
+})();
+
+// Star selector
+var starsEl = document.querySelectorAll('#starSelector span');
+var starsInput = document.getElementById('starsValue');
+starsEl.forEach(function(star) {
+  star.addEventListener('mouseover', function() {
+    var v = parseInt(star.dataset.v);
+    starsEl.forEach(function(s, i) { s.classList.toggle('lit', i < v); });
+  });
+  star.addEventListener('click', function() {
+    starsInput.value = star.dataset.v;
+  });
+});
+document.getElementById('starSelector').addEventListener('mouseleave', function() {
+  var v = parseInt(starsInput.value) || 0;
+  starsEl.forEach(function(s, i) { s.classList.toggle('lit', i < v); });
+});
+
+// Skin pills
+window.selectSkin = function(btn) {
+  document.querySelectorAll('.skin-pill').forEach(function(p) { p.classList.remove('selected'); });
+  btn.classList.add('selected');
+  document.getElementById('skinValue').value = btn.textContent;
+};
+
+// Form submit
+document.getElementById('resenaFormEl').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (parseInt(starsInput.value) === 0) { alert('Por favor selecciona una calificación con estrellas.'); return; }
+  document.getElementById('resenaForm').style.display = 'none';
+  document.getElementById('resenaSuccess').style.display = 'block';
+});
+</script>
+</body>
+</html>

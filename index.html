@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protect Diversity — Skincare Dermatológico · CDMX</title>
+<meta name="description" content="Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada. Formulada para la diversidad real de pieles mexicanas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/global.css">
+<style>
+/* ── HOME-SPECIFIC STYLES ── */
+
+/* Hero */
+.home-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 40%, var(--rose) 100%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.home-hero-content {
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+.home-hero-eyebrow {
+  margin-bottom: 20px;
+  color: var(--cacao);
+  opacity: 0.6;
+}
+.home-hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+.home-hero h1 em {
+  font-style: italic;
+  color: var(--terracota);
+}
+.home-hero-sub {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--cacao);
+  opacity: 0.7;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.home-hero-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.75;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+.home-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Trust bar */
+.trust-bar {
+  padding: 32px 0;
+  border-top: 1px solid rgba(42,29,20,0.06);
+  border-bottom: 1px solid rgba(42,29,20,0.06);
+}
+.trust-bar .trust-strip { justify-content: center; gap: 32px; }
+.trust-bar .trust-badge { font-size: 13px; opacity: 0.6; gap: 6px; }
+
+/* Categories */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.category-card {
+  border-radius: 16px;
+  padding: 40px 28px 32px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.category-card:hover { transform: translateY(-4px); color: inherit; }
+.category-card-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+.category-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.category-card p { font-size: 13px; opacity: 0.65; line-height: 1.5; }
+.category-card .count {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.4;
+  margin-top: 12px;
+}
+
+.cat-solar { background: var(--crema-2); }
+.cat-sueros { background: var(--rose); }
+.cat-cremas { background: #E8E2D4; }
+.cat-limpiadores { background: var(--cacao); color: var(--crema); }
+.cat-limpiadores p { opacity: 0.5; }
+
+/* Bestsellers */
+.bestsellers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 380px));
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Value props */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.value-card { text-align: center; padding: 40px 24px; }
+.value-number {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--ocre);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.value-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.value-card p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
+
+/* Manifesto */
+.manifesto {
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+}
+.manifesto-logo {
+  opacity: 0.06;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(3);
+  pointer-events: none;
+}
+.manifesto blockquote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--crema);
+  max-width: 800px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+.manifesto .attribution {
+  font-size: 12px;
+  opacity: 0.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--crema);
+  position: relative;
+  z-index: 1;
+}
+
+/* Quiz CTA */
+.quiz-cta {
+  text-align: center;
+}
+.quiz-cta-icon {
+  font-size: 48px;
+  margin-bottom: 24px;
+  opacity: 0.3;
+}
+.quiz-cta h2 {
+  margin-bottom: 12px;
+}
+.quiz-cta p {
+  font-size: 15px;
+  opacity: 0.7;
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.testimonial-card { padding: 28px; }
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--cacao);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crema);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.testimonial-meta .name { font-weight: 600; font-size: 14px; }
+.testimonial-meta .info { font-size: 11px; opacity: 0.5; }
+.testimonial-stars { color: var(--ocre); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+.testimonial-product {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+.testimonial-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .bestsellers-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .home-hero { min-height: auto; padding-top: 120px; padding-bottom: 60px; }
+  .categories-grid { grid-template-columns: 1fr 1fr; }
+  .bestsellers-grid {
+    grid-template-columns: repeat(4, 260px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+  .bestsellers-grid > * { scroll-snap-align: start; }
+  .values-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="img/logo-full.svg" alt="Protect Diversity" height="52" style="height:52px;width:auto;">
+    </a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="coleccion.html">Protección Solar</a></li>
+        <li><a href="coleccion.html">Sueros</a></li>
+        <li><a href="coleccion.html">Cremas</a></li>
+        <li><a href="coleccion.html">Limpiadores</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <button class="header-icon mobile-menu-btn" aria-label="Menú">☰</button>
+      <button class="header-icon" aria-label="Buscar">◈</button>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito">♡<span class="cart-count" style="display:none">0</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav">
+  <button class="mobile-nav-close">✕</button>
+  <a href="coleccion.html">Protección Solar</a>
+  <a href="coleccion.html">Sueros</a>
+  <a href="coleccion.html">Cremas</a>
+  <a href="coleccion.html">Limpiadores</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="blog.html">Blog</a>
+  <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="home-hero">
+  <div class="container">
+    <div class="home-hero-content reveal">
+      <p class="eyebrow home-hero-eyebrow">DERMOCOSMÉTICA · CDMX</p>
+      <h1>Tu piel merece <em>ciencia real.</em></h1>
+      <p class="home-hero-sub">Formulación minimalista, dermatológicamente aprobada. Ingredientes activos con nombre, porcentaje y función — sin rellenos, sin promesas vacías.</p>
+      <p class="home-hero-desc">Vegana, biodegradable, hecha en Ciudad de México. Para cada tono de piel, cada edad, cada clima.</p>
+      <div class="home-hero-ctas">
+        <a href="quiz.html" class="btn-primary btn-primary--large">DESCUBRE TU RUTINA</a>
+        <a href="coleccion.html" class="btn-secondary">VER CATÁLOGO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-strip">
+      <span class="trust-badge">✓ Dermatológicamente aprobada</span>
+      <span class="trust-badge">❀ Vegano</span>
+      <span class="trust-badge">♡ Cruelty-free</span>
+      <span class="trust-badge">◉ Biodegradable</span>
+      <span class="trust-badge">◈ Hecha en CDMX</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CATEGORÍAS ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">CATEGORÍAS</p>
+      <h2>Encuentra lo que tu piel necesita.</h2>
+    </div>
+    <div class="categories-grid">
+      <a href="coleccion.html" class="category-card cat-solar reveal reveal-delay-1">
+        <span class="category-card-icon">☀</span>
+        <h3>Protección Solar</h3>
+        <p>SPF 50+ para cada tipo de piel. Mineral, sin white cast.</p>
+        <span class="count">8 productos</span>
+      </a>
+      <a href="coleccion.html" class="category-card cat-sueros reveal reveal-delay-2">
+        <span class="category-card-icon">✦</span>
+        <h3>Sueros</h3>
+        <p>Activos en concentraciones efectivas. Gotas, transparencia, ingrediente.</p>
+        <span class="count">4 productos</span>
+      </a>
+      <a href="coleccion.html" class="category-card cat-cremas reveal reveal-delay-3">
+        <span class="category-card-icon">◐</span>
+        <h3>Cremas</h3>
+        <p>Textura rica, envolvente, nutrición. Para hidratar y reparar.</p>
+        <span class="count">2 productos</span>
+      </a>
+      <a href="coleccion.html" class="category-card cat-limpiadores reveal reveal-delay-4">
+        <span class="category-card-icon">❂</span>
+        <h3>Limpiadores</h3>
+        <p>Espuma, frescura, claridad. El primer paso de toda rutina.</p>
+        <span class="count">2 productos</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BESTSELLERS ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">MÁS VENDIDOS</p>
+      <h2>Lo que pieles reales eligen.</h2>
+      <p class="subtitle">Los favoritos de nuestra comunidad.</p>
+    </div>
+    <div class="bestsellers-grid">
+
+      <!-- #1 Protector Solar Anti-Brillo -->
+      <a href="producto.html" class="product-card reveal reveal-delay-1">
+        <div class="product-card-img">
+          <img src="img/products/ps-antibrillo-1.jpg" alt="Protector Solar Anti-Brillo"
+               onmouseover="this.src='img/products/ps-antibrillo-2.jpg'"
+               onmouseout="this.src='img/products/ps-antibrillo-1.jpg'" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">MATE</span><span class="pill pill--ocre">SPF 50+</span></div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-category">PROTECCIÓN SOLAR</p>
+          <h3 class="product-card-name">Protector Solar Anti-Brillo</h3>
+          <div class="product-card-price">
+            <span class="current">$384</span><span class="compare">$480</span><span class="discount">−20%</span>
+          </div>
+          <div class="product-card-rating">
+            <span class="stars" style="color:var(--ocre)">4.8 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">4.8 (241)</span>
+          </div>
+          <button class="product-card-btn" data-add-to-cart data-product-id="PS-ANTIBRILLO" data-product-name="Protector Solar Anti-Brillo" data-product-price="384">AGREGAR</button>
+        </div>
+      </a>
+
+      <!-- #2 Protector Solar con Ácido Hialurónico -->
+      <a href="producto.html" class="product-card reveal reveal-delay-2">
+        <div class="product-card-img">
+          <img src="img/products/ps-hialuronico-1.jpg" alt="Protector Solar con Ácido Hialurónico"
+               onmouseover="this.src='img/products/ps-hialuronico-2.jpg'"
+               onmouseout="this.src='img/products/ps-hialuronico-1.jpg'" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">HIDRATA</span><span class="pill pill--ocre">SPF 50+</span></div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-category">PROTECCIÓN SOLAR</p>
+          <h3 class="product-card-name">Protector Solar con Ácido Hialurónico</h3>
+          <div class="product-card-price">
+            <span class="current">$384</span><span class="compare">$480</span><span class="discount">−20%</span>
+          </div>
+          <div class="product-card-rating">
+            <span class="stars" style="color:var(--ocre)">4.9 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">4.9 (189)</span>
+          </div>
+          <button class="product-card-btn" data-add-to-cart data-product-id="PS-HIALURONICO" data-product-name="Protector Solar con Ácido Hialurónico" data-product-price="384">AGREGAR</button>
+        </div>
+      </a>
+
+      <!-- #3 Suero Facial con Vitamina C -->
+      <a href="producto.html" class="product-card reveal reveal-delay-3">
+        <div class="product-card-img">
+          <img src="img/products/su-vitc-1.jpg" alt="Suero Facial con Vitamina C"
+               onmouseover="this.src='img/products/su-vitc-2.jpg'"
+               onmouseout="this.src='img/products/su-vitc-1.jpg'" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">ANTIOXIDANTE</span></div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-category">SUEROS</p>
+          <h3 class="product-card-name">Suero Facial con Vitamina C</h3>
+          <div class="product-card-price">
+            <span class="current">$392</span><span class="compare">$490</span><span class="discount">−20%</span>
+          </div>
+          <div class="product-card-rating">
+            <span class="stars" style="color:var(--ocre)">4.7 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">4.7 (178)</span>
+          </div>
+          <button class="product-card-btn" data-add-to-cart data-product-id="SU-VITC" data-product-name="Suero Facial con Vitamina C" data-product-price="392">AGREGAR</button>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROPUESTA DE VALOR ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">NUESTRA PROPUESTA</p>
+      <h2>Pieles diversas, fórmulas que respetan.</h2>
+      <p class="subtitle">Cuidado real, sin disculpas.</p>
+    </div>
+    <div class="values-grid">
+      <div class="card value-card reveal reveal-delay-1">
+        <div class="value-number">01</div>
+        <h3>Formulación minimalista</h3>
+        <p>Ingredientes activos en concentraciones efectivas, sin rellenos. Listas cortas, transparentes, con porcentajes a la vista.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-2">
+        <div class="value-number">02</div>
+        <h3>Hecha para piel mexicana</h3>
+        <p>Formulamos considerando subtonos rosado y amarillo, fototipos III-V, melasma, manchas y la realidad de un país soleado.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-3">
+        <div class="value-number">03</div>
+        <h3>Ética sin compromiso</h3>
+        <p>100% vegana, libre de crueldad animal, biodegradable, empaques reciclables. No es una etiqueta — es la regla de formulación.</p>
+      </div>
+      <div class="card value-card reveal reveal-delay-4">
+        <div class="value-number">04</div>
+        <h3>Transparencia radical</h3>
+        <p>Nombres comerciales + INCI + porcentajes + función. Sin ingredientes escondidos. Sin promesas infladas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MANIFIESTO ═══ -->
+<section class="section-dark manifesto">
+  <div class="container">
+    <div class="reveal">
+      <blockquote>"Nacimos en Ciudad de México con una convicción radical: la belleza no debería estandarizarse. Por eso formulamos en minúsculo — sin rellenos, sin perfumes innecesarios, sin promesas infladas."</blockquote>
+      <p class="attribution">— Protect Diversity · CDMX</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUIZ CTA ═══ -->
+<section class="quiz-cta">
+  <div class="container reveal">
+    <div class="quiz-cta-icon">◈</div>
+    <h2>¿No sabes por dónde empezar?</h2>
+    <p>Responde 5 preguntas y te recomendamos la rutina perfecta para tu piel en 60 segundos.</p>
+    <a href="quiz.html" class="btn-primary btn-primary--large">TOMA EL QUIZ DE RUTINA</a>
+  </div>
+</section>
+
+<!-- ═══ DERMA-APROBADO ═══ -->
+<section class="derma-section">
+  <div class="container">
+    <div class="derma-grid">
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--salvia);">DERMATOLÓGICAMENTE APROBADO</p>
+        <h2 style="margin:12px 0 16px;">No es un sello decorativo.<br>Es nuestro estándar mínimo.</h2>
+        <p style="font-size:15px;opacity:0.7;line-height:1.7;max-width:520px;">Cada producto de Protect Diversity pasa por evaluación dermatológica antes de salir al mercado. No vendemos un producto que no haya sido revisado por un dermatólogo certificado — sin excepciones.</p>
+        <div class="derma-points">
+          <div class="derma-point reveal reveal-delay-1">
+            <div class="derma-point-num">01</div>
+            <div>
+              <h4>Formulación supervisada</h4>
+              <p>Cada fórmula es revisada por un dermatólogo antes de producción. Concentraciones, interacciones y estabilidad verificadas.</p>
+            </div>
+          </div>
+          <div class="derma-point reveal reveal-delay-2">
+            <div class="derma-point-num">02</div>
+            <div>
+              <h4>Pruebas en piel real</h4>
+              <p>Test de tolerabilidad en voluntarios con diferentes tipos de piel, incluida piel sensible y con condiciones como acné y rosácea.</p>
+            </div>
+          </div>
+          <div class="derma-point reveal reveal-delay-3">
+            <div class="derma-point-num">03</div>
+            <div>
+              <h4>COFEPRIS compliant</h4>
+              <p>Todos nuestros productos cumplen con la normativa mexicana vigente para cosméticos. Registro y notificación ante autoridades sanitarias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="card" style="padding:40px;text-align:center;background:var(--crema-2);">
+          <p style="font-size:48px;margin-bottom:16px;">✓</p>
+          <p class="eyebrow" style="margin-bottom:8px;">Certificación vigente</p>
+          <p style="font-family:'Fraunces',serif;font-size:28px;font-weight:500;margin-bottom:16px;">Cada producto,<br>cada lote.</p>
+          <p style="font-size:13px;opacity:0.6;line-height:1.6;">No certificamos la marca. Certificamos cada producto individualmente, en cada lote producido.</p>
+        </div>
+        <div class="derma-badge-row" style="margin-top:16px;">
+          <div class="derma-badge"><span class="derma-badge-icon">✓</span><span>Apto piel sensible</span></div>
+          <div class="derma-badge"><span class="derma-badge-icon">✓</span><span>Sin irritantes probados</span></div>
+          <div class="derma-badge"><span class="derma-badge-icon">✓</span><span>COFEPRIS</span></div>
+          <div class="derma-badge"><span class="derma-badge-icon">✓</span><span>Testado dermatológicamente</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIOS ═══ -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <p class="eyebrow">TESTIMONIOS</p>
+      <h2>Pieles reales hablando.</h2>
+      <p class="subtitle">Las reseñas más recientes de nuestra comunidad.</p>
+    </div>
+    <div class="testimonials-grid" id="homeTestimonials"></div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section>
+  <div class="container">
+    <div class="newsletter reveal">
+      <h3>15% en tu primera compra.</h3>
+      <p>Únete a la comunidad. Recibe consejos de skincare basados en ciencia, no en marketing.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='¡LISTO!'; this.querySelector('input').value='';">
+        <input type="email" class="input" placeholder="tu@email.com" required>
+        <button type="submit" class="btn-primary">SUSCRIBIRME</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="img/isotipo.svg" alt="Protect Diversity" height="48" style="height:48px;width:auto;">
+        <p class="footer-tagline">One World · Many Stories · One Future</p>
+        <p style="margin-top:16px;">Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="coleccion.html">Protección Solar</a></li>
+          <li><a href="coleccion.html">Sueros</a></li>
+          <li><a href="coleccion.html">Cremas</a></li>
+          <li><a href="coleccion.html">Limpiadores</a></li>
+          <li><a href="comparador.html">Comparador</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="nosotros.html">Quiénes Somos</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="quiz.html">Quiz de Rutina</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>masm@protectdiversity.store</p>
+        <p style="margin-top:8px;">Roma Norte, CDMX<br>Lunes a Viernes · 9:00 – 18:00</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Protect Diversity · Skincare Dermatológico · CDMX, México</p>
+        <p style="margin-top:6px;font-size:11px;opacity:0.3;">Diseño y desarrollo · MV Design</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">◈</a>
+        <a href="#" aria-label="TikTok">✦</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ CART DRAWER ═══ -->
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Tu bolsa</h3>
+    <button class="cart-drawer-close">✕</button>
+  </div>
+  <div class="cart-drawer-items">
+    <div class="cart-drawer-empty">
+      <p>Tu bolsa está vacía</p>
+      <a href="coleccion.html" class="btn-secondary">Explorar productos</a>
+    </div>
+  </div>
+  <div class="cart-drawer-footer" style="display:none">
+    <div class="cart-drawer-subtotal">
+      <span>Subtotal</span>
+      <span class="amount">$0</span>
+    </div>
+    <p class="cart-drawer-shipping">Envío gratis en compras desde $1,200</p>
+    <a href="carrito.html" class="btn-primary btn-primary--full">VER BOLSA</a>
+  </div>
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/products.js"></script>
+<script src="js/reviews.js"></script>
+<script>
+(function() {
+  // Render home testimonials from most recent reviews
+  var container = document.getElementById('homeTestimonials');
+  if (!container) return;
+  var recent = PD.getRecentReviews(3);
+  var starsHtml = function(n) {
+    return '<span style="color:var(--ocre);font-size:14px">' + '★'.repeat(n) + '☆'.repeat(5-n) + '</span>';
+  };
+  var productNames = {};
+  (PD.catalog || []).forEach(function(p) { productNames[p.id] = p.name; });
+  container.innerHTML = recent.map(function(r, i) {
+    var initials = r.name.split(' ').map(function(w) { return w[0]; }).join('').substring(0,2);
+    return '<div class="card card--white testimonial-card visible">' +
+      '<div class="testimonial-header">' +
+        '<div class="testimonial-avatar">' + initials + '</div>' +
+        '<div class="testimonial-meta">' +
+          '<div class="name">' + r.name + '</div>' +
+          '<div class="info">' + r.city + ' · ' + r.skin + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="testimonial-stars" style="margin:8px 0;">' + starsHtml(r.stars) + '</div>' +
+      '<p class="testimonial-product" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;opacity:0.4;margin-bottom:8px;">' + (productNames[r.productId] || '') + '</p>' +
+      '<p class="testimonial-text">"' + r.text + '"</p>' +
+    '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

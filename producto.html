@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protector Solar Anti-Brillo SPF 50+ | Protect Diversity</title>
+<meta name="description" content="Protector solar de acabado mate sin white cast. Ideal para piel grasa o mixta. Formulado con niacinamida y filtros minerales.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Protector Solar Anti-Brillo SPF 50+ | Protect Diversity">
+<meta property="og:description" content="Protector solar de acabado mate sin white cast. Ideal para piel grasa o mixta. Formulado con niacinamida y filtros minerales.">
+<meta property="og:image" content="https://protectdiversity.store/img/banners/magnific_premium-sunscreen-website_gJvVzaPSXO.png">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protector Solar Anti-Brillo SPF 50+ | Protect Diversity">
+<meta name="twitter:description" content="Protector solar de acabado mate sin white cast. Ideal para piel grasa o mixta. Formulado con niacinamida y filtros minerales.">
 <!--
   ╔══════════════════════════════════════════════════════════════╗
   ║  PROTECT DIVERSITY — Product Detail Page (PDP) Template     ║
@@ -1074,6 +1083,65 @@ section {
   .sticky-bar { padding: 12px 16px; gap: 12px; }
   .sticky-name { display: none; }
 }
+
+/* ═══ CART DRAWER ═══ */
+.cart-overlay {
+  position: fixed; inset: 0; background: rgba(42,29,20,0.4);
+  z-index: 1100; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 400px; max-width: 100vw;
+  background: var(--crema, #F5EFE4); z-index: 1200; display: flex; flex-direction: column;
+  transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+  box-shadow: -8px 0 32px rgba(42,29,20,0.12);
+}
+.cart-drawer.open { transform: translateX(0); }
+.cart-drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; border-bottom: 1px solid rgba(42,29,20,0.08);
+}
+.cart-drawer-header h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; }
+.cart-drawer-close {
+  background: none; border: none; cursor: pointer; font-size: 18px;
+  color: var(--cacao, #2A1D14); opacity: 0.5; padding: 4px; transition: opacity 0.15s;
+}
+.cart-drawer-close:hover { opacity: 1; }
+.cart-drawer-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+.cart-drawer-empty { text-align: center; padding: 48px 0; }
+.cart-drawer-empty p { opacity: 0.5; margin-bottom: 16px; }
+.cart-drawer-item {
+  display: flex; gap: 12px; padding: 12px 0;
+  border-bottom: 1px solid rgba(42,29,20,0.06);
+}
+.cart-drawer-item-img {
+  width: 64px; height: 64px; min-width: 64px;
+  background: var(--crema-2, #EDE4D3); border-radius: 8px; overflow: hidden; flex-shrink: 0;
+}
+.cart-drawer-item-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.cart-drawer-item-info { flex: 1; }
+.cart-drawer-item-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; line-height: 1.3; }
+.cart-drawer-item-price { font-size: 13px; opacity: 0.7; margin-bottom: 8px; }
+.cart-drawer-item-qty {
+  display: flex; align-items: center; gap: 8px;
+}
+.cart-drawer-item-qty button {
+  width: 24px; height: 24px; border-radius: 4px; border: 1px solid rgba(42,29,20,0.2);
+  background: none; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+}
+.cart-drawer-item-qty span { font-size: 13px; font-weight: 600; min-width: 20px; text-align: center; }
+.cart-drawer-item-remove {
+  background: none; border: none; font-size: 11px; cursor: pointer;
+  opacity: 0.4; color: var(--cacao, #2A1D14); margin-top: 6px; padding: 0; display: block;
+  transition: opacity 0.15s; text-decoration: underline; font-family: 'Manrope', sans-serif;
+}
+.cart-drawer-item-remove:hover { opacity: 1; color: #C45A2C; }
+.cart-drawer-footer { padding: 16px 24px; border-top: 1px solid rgba(42,29,20,0.08); }
+.cart-drawer-subtotal {
+  display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; margin-bottom: 8px;
+}
+.cart-drawer-shipping { font-size: 12px; opacity: 0.5; margin-bottom: 16px; }
+.btn-primary--full { width: 100%; text-align: center; display: block; }
 </style>
 </head>
 <body>
@@ -1086,15 +1154,17 @@ section {
     </a>
     <nav>
       <ul class="header-nav">
-        <li><a href="#">Protección Solar</a></li>
-        <li><a href="#">Sueros</a></li>
-        <li><a href="#">Cremas</a></li>
-        <li><a href="#">Limpiadores</a></li>
+        <li><a href="coleccion.html">Protección Solar</a></li>
+        <li><a href="coleccion.html?cat=sueros">Sueros</a></li>
+        <li><a href="coleccion.html?cat=cremas">Cremas</a></li>
+        <li><a href="coleccion.html?cat=limpiadores">Limpiadores</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </nav>
     <div class="header-icons">
       <span>◈</span>
-      <span>♡</span>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito" style="background:none;border:none;cursor:pointer;position:relative;display:flex;align-items:center;color:var(--cacao);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;pointer-events:none;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><span class="cart-count" style="display:none;position:absolute;top:-6px;right:-8px;background:#C45A2C;color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:none;align-items:center;justify-content:center;">0</span></button>
     </div>
   </div>
   <div class="breadcrumb">
@@ -1153,7 +1223,7 @@ section {
         </div>
         <!-- Shopify: {%- form 'product', product, id: 'product-form' -%} -->
         <!-- <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"> -->
-        <button class="btn-primary" type="submit" data-add-to-cart>AGREGAR A MI BOLSA — $384</button>
+        <button class="btn-primary" type="submit" data-add-to-cart>AGREGAR AL CARRITO — $384</button>
         <!-- {%- endform -%} -->
       </div>
     </div>
@@ -1455,7 +1525,7 @@ section {
     <h2>¿Lista para</h2>
     <p class="italic-line">probarlo?</p>
     <p class="subtitle">30 días para enamorarte. Si no, te devolvemos todo sin preguntas.</p>
-    <button class="btn-primary">AGREGAR A MI BOLSA — $384</button>
+    <button class="btn-primary">AGREGAR AL CARRITO — $384</button>
   </div>
 </section>
 
@@ -1528,11 +1598,83 @@ document.querySelectorAll('.gallery-thumb').forEach(thumb => {
   });
 });
 </script>
+<!-- Cart drawer -->
+<div class="cart-overlay"></div>
+<div class="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Tu carrito</h3>
+    <button class="cart-drawer-close">✕</button>
+  </div>
+  <div class="cart-drawer-items"></div>
+  <div class="cart-drawer-footer" style="display:none">
+    <div class="cart-drawer-subtotal"><span>Subtotal</span><span class="amount">$0</span></div>
+    <p class="cart-drawer-shipping">Envío gratis en compras desde $1,200</p>
+    <a href="carrito.html" class="btn-primary btn-primary--full">VER CARRITO</a>
+  </div>
+</div>
+<script src="js/global.js"></script>
 <script src="js/products.js"></script>
 <script src="js/reviews.js"></script>
 <script>
-// Render PDP reviews from reviews.js
-PD.renderReviews('PS-ANTIBRILLO', document.getElementById('pdpReviewsContainer'));
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id') || 'PS-ANTIBRILLO';
+  var p = (PD.catalog || []).find(function(x) { return x.id === id; });
+  if (!p) { PD.renderReviews('PS-ANTIBRILLO', document.getElementById('pdpReviewsContainer')); return; }
+
+  document.title = p.name + ' | Protect Diversity';
+
+  var bc = document.querySelector('.breadcrumb');
+  if (bc) bc.innerHTML = 'Tienda <span>\u00b7</span> ' + p.category + ' <span>\u00b7</span> ' + p.name;
+
+  var mainImg = document.getElementById('galleryMainImg');
+  if (mainImg) { mainImg.src = p.img1 || ''; mainImg.alt = p.name; }
+
+  document.querySelectorAll('.gallery-thumb').forEach(function(t) { t.dataset.img = p.img1 || ''; });
+
+  var eyebrow = document.querySelector('.purchase-box .eyebrow');
+  if (eyebrow) eyebrow.textContent = p.category.toUpperCase();
+
+  var h1 = document.querySelector('.purchase-box h1');
+  if (h1) h1.textContent = p.name;
+
+  var starsEl = document.querySelector('.purchase-box .stars');
+  var scoreEl = document.querySelector('.purchase-box .score');
+  var countEl = document.querySelector('.purchase-box .count');
+  if (starsEl) starsEl.textContent = '\u2605'.repeat(Math.round(p.stars)) + '\u2606'.repeat(5 - Math.round(p.stars));
+  if (scoreEl) scoreEl.textContent = p.stars;
+  if (countEl) countEl.textContent = '(' + p.reviews + ' rese\u00f1as)';
+
+  if (document.querySelector('.price-current')) document.querySelector('.price-current').textContent = '$' + p.price;
+  if (document.querySelector('.price-compare')) document.querySelector('.price-compare').textContent = '$' + p.comparePrice;
+  if (document.querySelector('.price-discount')) document.querySelector('.price-discount').textContent = p.discount;
+
+  var descEl = document.querySelector('.product-desc');
+  if (descEl) descEl.textContent = p.shortDesc;
+
+  var ingr = document.querySelector('.ingredient-pill');
+  if (ingr) ingr.textContent = p.keyIngredient;
+
+  var skinContainer = document.querySelector('.skin-types');
+  if (skinContainer && p.bestFor) {
+    skinContainer.innerHTML = p.bestFor.map(function(s) {
+      return '<span class="skin-pill">' + s.charAt(0).toUpperCase() + s.slice(1) + '</span>';
+    }).join('');
+  }
+
+  var btn = document.querySelector('[data-add-to-cart]');
+  if (btn) {
+    btn.textContent = 'AGREGAR AL CARRITO \u2014 $' + p.price;
+    btn.dataset.productId = p.id;
+    btn.dataset.productName = p.name;
+    btn.dataset.productPrice = p.price;
+  }
+
+  var pillMate = document.querySelector('.gallery-main .pill-mate');
+  if (pillMate) pillMate.textContent = p.pill || '';
+
+  PD.renderReviews(p.id, document.getElementById('pdpReviewsContainer'));
+})();
 </script>
 </body>
 </html>

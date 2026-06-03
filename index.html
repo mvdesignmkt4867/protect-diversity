@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protect Diversity — Skincare Dermatológico · CDMX</title>
 <meta name="description" content="Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada. Formulada para la diversidad real de pieles mexicanas.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Protect Diversity — Skincare Dermatológico · CDMX">
+<meta property="og:description" content="Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada. Formulada para la diversidad real de pieles mexicanas.">
+<meta property="og:image" content="https://protectdiversity.store/img/banners/magnific_premium-sunscreen-website_gJvVzaPSXO.png">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protect Diversity — Skincare Dermatológico · CDMX">
+<meta name="twitter:description" content="Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada. Formulada para la diversidad real de pieles mexicanas.">
+<meta name="description" content="Dermocosmética mexicana minimalista. Vegana, biodegradable y dermatológicamente aprobada. Formulada para la diversidad real de pieles mexicanas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,29 +23,117 @@
 
 /* Hero */
 .home-hero {
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   padding-top: 100px;
+  padding-bottom: 64px;
   position: relative;
   overflow: hidden;
 }
-.home-hero::after {
-  content: '';
+.home-hero-bg {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 40%;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, transparent 40%, var(--rose) 100%);
-  opacity: 0.15;
-  pointer-events: none;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
-.home-hero-content {
-  max-width: 680px;
-  position: relative;
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    rgba(245,239,228,0.97) 0%,
+    rgba(245,239,228,0.90) 28%,
+    rgba(245,239,228,0.20) 48%,
+    rgba(245,239,228,0.00) 62%
+  );
   z-index: 1;
 }
+.home-hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.home-hero-content {
+  max-width: 560px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating product card — bottom right */
+.home-hero-product-float {
+  position: absolute;
+  bottom: 48px;
+  right: var(--pad-desktop);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.home-hero-badges {
+  display: flex;
+  gap: 8px;
+}
+.home-hero-rank-badge {
+  background: var(--terracota);
+  color: var(--blanco);
+  font-family: 'Manrope', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.home-hero-spf-badge {
+  background: var(--cacao);
+  color: var(--crema);
+  font-family: 'Manrope', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+.home-hero-product-meta {
+  background: rgba(245,239,228,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 240px;
+}
+.home-hero-product-meta-name {
+  font-family: 'Fraunces', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cacao);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.home-hero-product-meta-ingr {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.45;
+  color: var(--cacao);
+  margin-bottom: 10px;
+}
+.home-hero-product-meta-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--cacao);
+}
+.home-hero-product-meta-rating .stars { color: var(--ocre); }
+.home-hero-product-meta-rating .count { opacity: 0.5; font-size: 11px; }
 .home-hero-eyebrow {
   margin-bottom: 20px;
   color: var(--cacao);
@@ -101,11 +198,14 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform var(--dur-md) var(--ease-out), box-shadow var(--dur-md) var(--ease-out);
   text-decoration: none;
   color: inherit;
 }
-.category-card:hover { transform: translateY(-4px); color: inherit; }
+@media (hover: hover) and (pointer: fine) {
+  .category-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(42,29,20,0.1); }
+  .cat-limpiadores:hover { color: var(--crema); }
+}
 .category-card-icon {
   font-size: 32px;
   margin-bottom: 16px;
@@ -136,9 +236,8 @@
 /* Bestsellers */
 .bestsellers-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 380px));
-  gap: 24px;
-  justify-content: center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
 
 /* Value props */
@@ -269,12 +368,20 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .home-hero-product-float { display: none; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
   .bestsellers-grid { grid-template-columns: repeat(2, 1fr); }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .home-hero { min-height: auto; padding-top: 120px; padding-bottom: 60px; }
+  .home-hero { min-height: 80vh; padding-top: 120px; padding-bottom: 60px; }
+  .home-hero-overlay {
+    background: linear-gradient(180deg,
+      rgba(245,239,228,0.92) 0%,
+      rgba(245,239,228,0.80) 60%,
+      rgba(245,239,228,0.75) 100%
+    );
+  }
   .categories-grid { grid-template-columns: 1fr 1fr; }
   .bestsellers-grid {
     grid-template-columns: repeat(4, 260px);
@@ -301,16 +408,17 @@
     <nav>
       <ul class="header-nav">
         <li><a href="coleccion.html">Protección Solar</a></li>
-        <li><a href="coleccion.html">Sueros</a></li>
-        <li><a href="coleccion.html">Cremas</a></li>
-        <li><a href="coleccion.html">Limpiadores</a></li>
+        <li><a href="coleccion.html?cat=sueros">Sueros</a></li>
+        <li><a href="coleccion.html?cat=cremas">Cremas</a></li>
+        <li><a href="coleccion.html?cat=limpiadores">Limpiadores</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </nav>
     <div class="header-icons">
       <button class="header-icon mobile-menu-btn" aria-label="Menú">☰</button>
       <button class="header-icon" aria-label="Buscar">◈</button>
-      <button class="header-icon" data-cart-toggle aria-label="Carrito">♡<span class="cart-count" style="display:none">0</span></button>
+      <button class="header-icon" data-cart-toggle aria-label="Carrito"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="display:block;pointer-events:none;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg><span class="cart-count" style="display:none">0</span></button>
     </div>
   </div>
 </header>
@@ -319,9 +427,9 @@
 <nav class="mobile-nav">
   <button class="mobile-nav-close">✕</button>
   <a href="coleccion.html">Protección Solar</a>
-  <a href="coleccion.html">Sueros</a>
-  <a href="coleccion.html">Cremas</a>
-  <a href="coleccion.html">Limpiadores</a>
+  <a href="coleccion.html?cat=sueros">Sueros</a>
+  <a href="coleccion.html?cat=cremas">Cremas</a>
+  <a href="coleccion.html?cat=limpiadores">Limpiadores</a>
   <a href="nosotros.html">Nosotros</a>
   <a href="blog.html">Blog</a>
   <a href="contacto.html">Contacto</a>
@@ -329,6 +437,9 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="home-hero">
+  <img class="home-hero-bg" src="img/banners/magnific_premium-sunscreen-website_gJvVzaPSXO.png" alt="" aria-hidden="true">
+  <div class="home-hero-overlay"></div>
+
   <div class="container">
     <div class="home-hero-content reveal">
       <p class="eyebrow home-hero-eyebrow">DERMOCOSMÉTICA · CDMX</p>
@@ -338,6 +449,23 @@
       <div class="home-hero-ctas">
         <a href="quiz.html" class="btn-primary btn-primary--large">DESCUBRE TU RUTINA</a>
         <a href="coleccion.html" class="btn-secondary">VER CATÁLOGO</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tarjeta flotante producto estrella -->
+  <div class="home-hero-product-float reveal reveal-delay-2">
+    <div class="home-hero-badges">
+      <span class="home-hero-rank-badge">MÁS VENDIDO</span>
+      <span class="home-hero-spf-badge">SPF 50+</span>
+    </div>
+    <div class="home-hero-product-meta">
+      <div class="home-hero-product-meta-name">Protector Solar Anti-Brillo</div>
+      <div class="home-hero-product-meta-ingr">Óxido de Zinc 15% · Niacinamida 3%</div>
+      <div class="home-hero-product-meta-rating">
+        <span class="stars">★★★★★</span>
+        <span>4.8</span>
+        <span class="count">(241 reseñas)</span>
       </div>
     </div>
   </div>
@@ -370,19 +498,19 @@
         <p>SPF 50+ para cada tipo de piel. Mineral, sin white cast.</p>
         <span class="count">8 productos</span>
       </a>
-      <a href="coleccion.html" class="category-card cat-sueros reveal reveal-delay-2">
+      <a href="coleccion.html?cat=sueros" class="category-card cat-sueros reveal reveal-delay-2">
         <span class="category-card-icon">✦</span>
         <h3>Sueros</h3>
         <p>Activos en concentraciones efectivas. Gotas, transparencia, ingrediente.</p>
         <span class="count">4 productos</span>
       </a>
-      <a href="coleccion.html" class="category-card cat-cremas reveal reveal-delay-3">
+      <a href="coleccion.html?cat=cremas" class="category-card cat-cremas reveal reveal-delay-3">
         <span class="category-card-icon">◐</span>
         <h3>Cremas</h3>
         <p>Textura rica, envolvente, nutrición. Para hidratar y reparar.</p>
         <span class="count">2 productos</span>
       </a>
-      <a href="coleccion.html" class="category-card cat-limpiadores reveal reveal-delay-4">
+      <a href="coleccion.html?cat=limpiadores" class="category-card cat-limpiadores reveal reveal-delay-4">
         <span class="category-card-icon">❂</span>
         <h3>Limpiadores</h3>
         <p>Espuma, frescura, claridad. El primer paso de toda rutina.</p>
@@ -396,18 +524,17 @@
 <section>
   <div class="container">
     <div class="section-intro reveal">
-      <p class="eyebrow">MÁS VENDIDOS</p>
       <h2>Lo que pieles reales eligen.</h2>
       <p class="subtitle">Los favoritos de nuestra comunidad.</p>
     </div>
     <div class="bestsellers-grid">
 
       <!-- #1 Protector Solar Anti-Brillo -->
-      <a href="producto.html" class="product-card reveal reveal-delay-1">
+      <a href="producto.html?id=PS-ANTIBRILLO" class="product-card reveal reveal-delay-1">
         <div class="product-card-img">
-          <img src="img/products/ps-antibrillo-1.jpg" alt="Protector Solar Anti-Brillo"
-               onmouseover="this.src='img/products/ps-antibrillo-2.jpg'"
-               onmouseout="this.src='img/products/ps-antibrillo-1.jpg'" loading="lazy">
+          <img src="img/Productos Editados/ps-antibrillo-2.png" alt="Protector Solar Anti-Brillo"
+               onmouseover="this.src='img/Productos Editados/ps-antibrillo-2.png'"
+               onmouseout="this.src='img/Productos Editados/ps-antibrillo-2.png'" loading="lazy">
           <div class="pills"><span class="pill pill--cacao">MATE</span><span class="pill pill--ocre">SPF 50+</span></div>
         </div>
         <div class="product-card-body">
@@ -418,53 +545,73 @@
           </div>
           <div class="product-card-rating">
             <span class="stars" style="color:var(--ocre)">4.8 ★</span>
-            <span class="score" style="font-size:12px;opacity:0.5;">4.8 (241)</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">(241)</span>
           </div>
           <button class="product-card-btn" data-add-to-cart data-product-id="PS-ANTIBRILLO" data-product-name="Protector Solar Anti-Brillo" data-product-price="384">AGREGAR</button>
         </div>
       </a>
 
-      <!-- #2 Protector Solar con Ácido Hialurónico -->
-      <a href="producto.html" class="product-card reveal reveal-delay-2">
+      <!-- #2 Suero Facial con Ácido Hialurónico -->
+      <a href="producto.html?id=SU-HIALURONICO" class="product-card reveal reveal-delay-2">
         <div class="product-card-img">
-          <img src="img/products/ps-hialuronico-1.jpg" alt="Protector Solar con Ácido Hialurónico"
-               onmouseover="this.src='img/products/ps-hialuronico-2.jpg'"
-               onmouseout="this.src='img/products/ps-hialuronico-1.jpg'" loading="lazy">
-          <div class="pills"><span class="pill pill--cacao">HIDRATA</span><span class="pill pill--ocre">SPF 50+</span></div>
-        </div>
-        <div class="product-card-body">
-          <p class="product-card-category">PROTECCIÓN SOLAR</p>
-          <h3 class="product-card-name">Protector Solar con Ácido Hialurónico</h3>
-          <div class="product-card-price">
-            <span class="current">$384</span><span class="compare">$480</span><span class="discount">−20%</span>
-          </div>
-          <div class="product-card-rating">
-            <span class="stars" style="color:var(--ocre)">4.9 ★</span>
-            <span class="score" style="font-size:12px;opacity:0.5;">4.9 (189)</span>
-          </div>
-          <button class="product-card-btn" data-add-to-cart data-product-id="PS-HIALURONICO" data-product-name="Protector Solar con Ácido Hialurónico" data-product-price="384">AGREGAR</button>
-        </div>
-      </a>
-
-      <!-- #3 Suero Facial con Vitamina C -->
-      <a href="producto.html" class="product-card reveal reveal-delay-3">
-        <div class="product-card-img">
-          <img src="img/products/su-vitc-1.jpg" alt="Suero Facial con Vitamina C"
-               onmouseover="this.src='img/products/su-vitc-2.jpg'"
-               onmouseout="this.src='img/products/su-vitc-1.jpg'" loading="lazy">
-          <div class="pills"><span class="pill pill--cacao">ANTIOXIDANTE</span></div>
+          <img src="img/Productos Editados/su-hialuronico-2.png" alt="Suero Facial con Ácido Hialurónico"
+               onmouseover="this.src='img/Productos Editados/su-hialuronico-2.png'"
+               onmouseout="this.src='img/Productos Editados/su-hialuronico-2.png'" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">TRIPLE HA</span></div>
         </div>
         <div class="product-card-body">
           <p class="product-card-category">SUEROS</p>
-          <h3 class="product-card-name">Suero Facial con Vitamina C</h3>
+          <h3 class="product-card-name">Suero Facial con Ácido Hialurónico</h3>
           <div class="product-card-price">
             <span class="current">$392</span><span class="compare">$490</span><span class="discount">−20%</span>
           </div>
           <div class="product-card-rating">
-            <span class="stars" style="color:var(--ocre)">4.7 ★</span>
-            <span class="score" style="font-size:12px;opacity:0.5;">4.7 (178)</span>
+            <span class="stars" style="color:var(--ocre)">4.8 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">(156)</span>
           </div>
-          <button class="product-card-btn" data-add-to-cart data-product-id="SU-VITC" data-product-name="Suero Facial con Vitamina C" data-product-price="392">AGREGAR</button>
+          <button class="product-card-btn" data-add-to-cart data-product-id="SU-HIALURONICO" data-product-name="Suero Facial con Ácido Hialurónico" data-product-price="392">AGREGAR</button>
+        </div>
+      </a>
+
+      <!-- #3 Crema Facial con Ácido Hialurónico -->
+      <a href="producto.html?id=CR-HIALURONICO" class="product-card reveal reveal-delay-3">
+        <div class="product-card-img">
+          <img src="img/Productos Editados/cr-hialuronico-2.png" alt="Crema Facial con Ácido Hialurónico"
+               onmouseover="this.src='img/Productos Editados/cr-hialuronico-2.png'"
+               onmouseout="this.src='img/Productos Editados/cr-hialuronico-2.png'" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">ANTI-EDAD</span></div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-category">CREMAS</p>
+          <h3 class="product-card-name">Crema Facial con Ácido Hialurónico</h3>
+          <div class="product-card-price">
+            <span class="current">$368</span><span class="compare">$460</span><span class="discount">−20%</span>
+          </div>
+          <div class="product-card-rating">
+            <span class="stars" style="color:var(--ocre)">4.8 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">(143)</span>
+          </div>
+          <button class="product-card-btn" data-add-to-cart data-product-id="CR-HIALURONICO" data-product-name="Crema Facial con Ácido Hialurónico" data-product-price="368">AGREGAR</button>
+        </div>
+      </a>
+
+      <!-- #4 Limpiador Facial con Ácido Hialurónico -->
+      <a href="producto.html?id=LI-HIALURONICO" class="product-card reveal reveal-delay-4">
+        <div class="product-card-img">
+          <img src="img/Productos Editados/li-hialuronico-1.png" alt="Limpiador Facial con Ácido Hialurónico" loading="lazy">
+          <div class="pills"><span class="pill pill--cacao">SUAVE</span></div>
+        </div>
+        <div class="product-card-body">
+          <p class="product-card-category">LIMPIADORES</p>
+          <h3 class="product-card-name">Limpiador Facial con Ácido Hialurónico</h3>
+          <div class="product-card-price">
+            <span class="current">$376</span><span class="compare">$470</span><span class="discount">−20%</span>
+          </div>
+          <div class="product-card-rating">
+            <span class="stars" style="color:var(--ocre)">4.7 ★</span>
+            <span class="score" style="font-size:12px;opacity:0.5;">(98)</span>
+          </div>
+          <button class="product-card-btn" data-add-to-cart data-product-id="LI-HIALURONICO" data-product-name="Limpiador Facial con Ácido Hialurónico" data-product-price="376">AGREGAR</button>
         </div>
       </a>
 
@@ -476,9 +623,8 @@
 <section>
   <div class="container">
     <div class="section-intro reveal">
-      <p class="eyebrow">NUESTRA PROPUESTA</p>
       <h2>Pieles diversas, fórmulas que respetan.</h2>
-      <p class="subtitle">Cuidado real, sin disculpas.</p>
+      <p class="subtitle">Sin rellenos, sin ingredientes escondidos, sin promesas infladas.</p>
     </div>
     <div class="values-grid">
       <div class="card value-card reveal reveal-delay-1">
@@ -614,9 +760,9 @@
         <h4>Productos</h4>
         <ul>
           <li><a href="coleccion.html">Protección Solar</a></li>
-          <li><a href="coleccion.html">Sueros</a></li>
-          <li><a href="coleccion.html">Cremas</a></li>
-          <li><a href="coleccion.html">Limpiadores</a></li>
+          <li><a href="coleccion.html?cat=sueros">Sueros</a></li>
+          <li><a href="coleccion.html?cat=cremas">Cremas</a></li>
+          <li><a href="coleccion.html?cat=limpiadores">Limpiadores</a></li>
           <li><a href="comparador.html">Comparador</a></li>
         </ul>
       </div>
@@ -627,7 +773,9 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="quiz.html">Quiz de Rutina</a></li>
           <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="privacidad.html">Aviso de privacidad</a></li>
+          <li><a href="terminos.html">Términos y condiciones</a></li>
+          <li><a href="devoluciones.html">Devoluciones</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -651,12 +799,12 @@
 <div class="cart-overlay"></div>
 <div class="cart-drawer">
   <div class="cart-drawer-header">
-    <h3>Tu bolsa</h3>
+    <h3>Tu carrito</h3>
     <button class="cart-drawer-close">✕</button>
   </div>
   <div class="cart-drawer-items">
     <div class="cart-drawer-empty">
-      <p>Tu bolsa está vacía</p>
+      <p>Tu carrito está vacía</p>
       <a href="coleccion.html" class="btn-secondary">Explorar productos</a>
     </div>
   </div>
@@ -666,7 +814,7 @@
       <span class="amount">$0</span>
     </div>
     <p class="cart-drawer-shipping">Envío gratis en compras desde $1,200</p>
-    <a href="carrito.html" class="btn-primary btn-primary--full">VER BOLSA</a>
+    <a href="carrito.html" class="btn-primary btn-primary--full">VER CARRITO</a>
   </div>
 </div>
 

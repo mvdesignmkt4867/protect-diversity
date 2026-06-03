@@ -19,8 +19,8 @@ PD.catalog = [
     bestFor: ['piel grasa', 'piel mixta'],
     concerns: ['brillo', 'sebo', 'poros', 'acne'],
     stars: 4.8, reviews: 241,
-    img1: 'img/products/ps-antibrillo-1.jpg',
-    img2: 'img/products/ps-antibrillo-2.jpg',
+    img1: 'img/Productos Editados/ps-antibrillo-2.png',
+    img2: 'img/Productos Editados/ps-antibrillo-2.png',
     url: 'producto.html'
   },
   {
@@ -34,8 +34,8 @@ PD.catalog = [
     bestFor: ['todo tipo de piel'],
     concerns: ['manchas', 'pigmentación', 'fotoenvejecimiento'],
     stars: 4.8, reviews: 203,
-    img1: 'img/products/ps-antimanchas-1.jpg',
-    img2: 'img/products/ps-antimanchas-2.jpg',
+    img1: 'img/Productos Editados/ps-antimanchas-2.png',
+    img2: 'img/Productos Editados/ps-antimanchas-2.png',
     url: 'producto.html'
   },
   {
@@ -49,8 +49,8 @@ PD.catalog = [
     bestFor: ['piel seca', 'piel normal', 'piel sensible'],
     concerns: ['deshidratación', 'líneas finas'],
     stars: 4.9, reviews: 189,
-    img1: 'img/products/ps-hialuronico-1.jpg',
-    img2: 'img/products/ps-hialuronico-2.jpg',
+    img1: 'img/Productos Editados/ps-hialuronico-2.png',
+    img2: 'img/Productos Editados/ps-hialuronico-2.png',
     url: 'producto.html'
   },
   {
@@ -64,8 +64,8 @@ PD.catalog = [
     bestFor: ['piel clara'],
     concerns: ['rojeces', 'imperfecciones'],
     stars: 4.6, reviews: 98,
-    img1: 'img/products/ps-color-claro-1.jpg',
-    img2: 'img/products/ps-color-claro-2.jpg',
+    img1: 'img/Productos Editados/ps-color-claro-1.png',
+    img2: 'img/Productos Editados/ps-color-claro-1.png',
     url: 'producto.html'
   },
   {
@@ -79,8 +79,8 @@ PD.catalog = [
     bestFor: ['piel media'],
     concerns: ['desigualdad de tono'],
     stars: 4.7, reviews: 112,
-    img1: 'img/products/ps-color-medio-1.jpg',
-    img2: 'img/products/ps-color-medio-2.jpg',
+    img1: 'img/Productos Editados/ps-color-medio-2.png',
+    img2: 'img/Productos Editados/ps-color-medio-2.png',
     url: 'producto.html'
   },
   {
@@ -94,8 +94,8 @@ PD.catalog = [
     bestFor: ['todo tipo de piel'],
     concerns: ['pigmentación', 'poros', 'fotoenvejecimiento'],
     stars: 4.8, reviews: 167,
-    img1: 'img/products/ps-niacinamida-1.jpg',
-    img2: 'img/products/ps-niacinamida-2.jpg',
+    img1: 'img/Productos Editados/ps-niacinamida-1.png',
+    img2: 'img/Productos Editados/ps-niacinamida-1.png',
     url: 'producto.html'
   },
   {
@@ -109,8 +109,8 @@ PD.catalog = [
     bestFor: ['todo tipo', 'outdoor'],
     concerns: ['luz azul', 're-aplicación'],
     stars: 4.5, reviews: 87,
-    img1: 'img/products/ps-barra-1.jpg',
-    img2: 'img/products/ps-barra-1.jpg',
+    img1: 'img/Productos Editados/ps-barra-1.png',
+    img2: 'img/Productos Editados/ps-barra-1.png',
     url: 'producto.html'
   },
   {
@@ -124,8 +124,8 @@ PD.catalog = [
     bestFor: ['piel grasa', 'piel mixta'],
     concerns: ['brillo', 'fotoenvejecimiento'],
     stars: 4.7, reviews: 145,
-    img1: 'img/products/ps-toqueseco-1.jpg',
-    img2: 'img/products/ps-toqueseco-2.jpg',
+    img1: 'img/Productos Editados/ps-toqueseco-2.png',
+    img2: 'img/Productos Editados/ps-toqueseco-2.png',
     url: 'producto.html'
   },
 
@@ -141,8 +141,8 @@ PD.catalog = [
     bestFor: ['piel seca', 'piel madura', 'todo tipo'],
     concerns: ['deshidratación', 'líneas finas', 'flacidez'],
     stars: 4.8, reviews: 156,
-    img1: 'img/products/su-hialuronico-1.jpg',
-    img2: 'img/products/su-hialuronico-2.jpg',
+    img1: 'img/Productos Editados/su-hialuronico-2.png',
+    img2: 'img/Productos Editados/su-hialuronico-2.png',
     url: 'producto.html'
   },
   {
@@ -151,13 +151,13 @@ PD.catalog = [
     category: 'Sueros',
     pill: 'SEBOREGULA',
     price: 392, comparePrice: 490, discount: '-20% OFF',
-    shortDesc: 'Seborregula y desinflamia. Minimiza poros y aclara marcas de acné en 4 semanas.',
+    shortDesc: 'Seborregula y desinflama. Minimiza poros y aclara marcas de acné en 4 semanas.',
     keyIngredient: 'Niacinamida 10% + Zinc PCA',
     bestFor: ['piel grasa', 'piel mixta', 'acné'],
     concerns: ['poros', 'sebo', 'marcas', 'rojeces'],
     stars: 4.7, reviews: 134,
-    img1: 'img/products/su-niacinamida-1.jpg',
-    img2: 'img/products/su-niacinamida-2.jpg',
+    img1: 'img/Productos Editados/su-niacinamida-1.png',
+    img2: 'img/Productos Editados/su-niacinamida-1.png',
     url: 'producto.html'
   },
   {
@@ -171,8 +171,8 @@ PD.catalog = [
     bestFor: ['piel apagada', 'todo tipo'],
     concerns: ['manchas', 'piel apagada', 'radicales libres'],
     stars: 4.7, reviews: 178,
-    img1: 'img/products/su-vitc-1.jpg',
-    img2: 'img/products/su-vitc-2.jpg',
+    img1: 'img/Productos Editados/su-vitc-1.png',
+    img2: 'img/Productos Editados/su-vitc-1.png',
     url: 'producto.html'
   },
   {
@@ -186,8 +186,8 @@ PD.catalog = [
     bestFor: ['todo tipo'],
     concerns: ['ojeras', 'bolsas', 'líneas finas'],
     stars: 4.6, reviews: 112,
-    img1: 'img/products/su-ojos-1.jpg',
-    img2: 'img/products/su-ojos-2.jpg',
+    img1: 'img/Productos Editados/su-ojos-2.png',
+    img2: 'img/Productos Editados/su-ojos-2.png',
     url: 'producto.html'
   },
 
@@ -203,8 +203,8 @@ PD.catalog = [
     bestFor: ['piel seca', 'piel madura'],
     concerns: ['líneas finas', 'arrugas', 'deshidratación'],
     stars: 4.8, reviews: 143,
-    img1: 'img/products/cr-hialuronico-1.jpg',
-    img2: 'img/products/cr-hialuronico-2.jpg',
+    img1: 'img/Productos Editados/cr-hialuronico-2.png',
+    img2: 'img/Productos Editados/cr-hialuronico-2.png',
     url: 'producto.html'
   },
   {
@@ -218,8 +218,8 @@ PD.catalog = [
     bestFor: ['piel apagada', 'todo tipo'],
     concerns: ['apagada', 'líneas finas'],
     stars: 4.7, reviews: 121,
-    img1: 'img/products/cr-iluminadora-1.jpg',
-    img2: 'img/products/cr-iluminadora-2.jpg',
+    img1: 'img/Productos Editados/cr-iluminadora-2.png',
+    img2: 'img/Productos Editados/cr-iluminadora-2.png',
     url: 'producto.html'
   },
 
@@ -235,8 +235,8 @@ PD.catalog = [
     bestFor: ['piel sensible', 'piel seca', 'todo tipo'],
     concerns: ['sensibilidad', 'tirantez'],
     stars: 4.7, reviews: 98,
-    img1: 'img/products/li-hialuronico-1.jpg',
-    img2: 'img/products/li-hialuronico-1.jpg',
+    img1: 'img/Productos Editados/li-hialuronico-1.png',
+    img2: 'img/Productos Editados/li-hialuronico-1.png',
     url: 'producto.html'
   },
   {
@@ -250,8 +250,8 @@ PD.catalog = [
     bestFor: ['piel grasa', 'acné'],
     concerns: ['sebo', 'brillo', 'poros'],
     stars: 4.6, reviews: 89,
-    img1: 'img/products/li-grasa-1.jpg',
-    img2: 'img/products/li-grasa-1.jpg',
+    img1: 'img/Productos Editados/li-grasa-1.png',
+    img2: 'img/Productos Editados/li-grasa-1.png',
     url: 'producto.html'
   }
 ];
@@ -274,7 +274,7 @@ PD.renderCard = function(p, delay) {
       (p.img2 ? ' onmouseover="this.src=\'' + p.img2 + '\'" onmouseout="this.src=\'' + p.img1 + '\'"' : '') +
       ' loading="lazy">'
     : '';
-  return '<a href="' + (p.url || 'producto.html') + '" class="product-card reveal' + delayClass + '">' +
+  return '<a href="producto.html?id=' + p.id + '" class="product-card reveal' + delayClass + '">' +
     '<div class="product-card-img">' +
       imgHtml +
       '<div class="pills"><span class="pill pill--cacao">' + p.pill + '</span>' +
@@ -302,3 +302,8 @@ PD.renderCard = function(p, delay) {
     '</div>' +
   '</a>';
 };
+
+/* Re-render cart drawer now that catalog is available */
+if (typeof PD.renderCartDrawer === 'function') {
+  PD.renderCartDrawer();
+}

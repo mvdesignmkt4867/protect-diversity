@@ -126,12 +126,18 @@
     routine.forEach(function(r) {
       var match = Math.min(Math.round((r.score / maxScore) * 100), 99);
       total += r.product.price;
+      var catalogEntry = (PD.catalog || []).find(function(p) { return p.id === r.product.id; });
+      var imgSrc = catalogEntry && catalogEntry.img1 ? catalogEntry.img1 : '';
+      var imgHtml = imgSrc
+        ? '<img src="' + imgSrc + '" alt="' + r.product.name + '" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">'
+        : '';
       grid.innerHTML += '<div class="card result-card">' +
         '<p class="result-card-match">' + match + '% match</p>' +
-        '<div class="result-card-img"></div>' +
+        '<div class="result-card-img" style="overflow:hidden;">' + imgHtml + '</div>' +
         '<h4>' + r.product.name + '</h4>' +
         '<p class="price">$' + r.product.price + '</p>' +
         '<p>' + r.product.desc + '</p>' +
+        '<button class="product-card-btn" style="margin-top:12px;" data-add-to-cart data-product-id="' + r.product.id + '" data-product-name="' + r.product.name + '" data-product-price="' + r.product.price + '">AGREGAR</button>' +
       '</div>';
     });
 

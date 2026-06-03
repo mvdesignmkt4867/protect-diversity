@@ -191,29 +191,33 @@ PD.renderReviews = function(productId, container) {
   var reviews = PD.reviews[productId] || [];
   if (!reviews.length || !container) return;
   var avg = PD.getAvgStars(productId);
-  var starsBar = function(n) {
-    return '<span style="color:var(--ocre)">' + '★'.repeat(n) + '☆'.repeat(5-n) + '</span>';
+  var stars = function(n) {
+    return '<span style="color:var(--ocre);">' + '★'.repeat(n) + '☆'.repeat(5 - n) + '</span>';
   };
+  var initials = function(name) {
+    return name.split(' ').map(function(w) { return w[0]; }).join('').substring(0, 2).toUpperCase();
+  };
+
   var html = '<div class="reviews-header">' +
     '<div class="reviews-avg">' +
       '<span class="reviews-avg-num">' + avg + '</span>' +
-      starsBar(Math.round(avg)) +
+      stars(Math.round(avg)) +
       '<span class="reviews-count">(' + reviews.length + ' reseñas verificadas)</span>' +
     '</div>' +
     '<p style="font-size:12px;opacity:0.4;font-style:italic;">Solo clientes que compraron pueden dejar reseña.</p>' +
   '</div>' +
-  '<div class="reviews-list">' +
+  '<div class="reviews-grid">' +
     reviews.map(function(r) {
       return '<div class="review-card">' +
         '<div class="review-header">' +
+          '<div class="review-avatar">' + initials(r.name) + '</div>' +
           '<div class="review-meta">' +
-            '<span class="review-name">' + r.name + '</span>' +
-            '<span class="review-city">· ' + r.city + '</span>' +
-            (r.verified ? '<span class="review-verified">✓ Compra verificada</span>' : '') +
+            '<div class="review-name">' + r.name + '</div>' +
+            '<div class="review-info">' + r.city + ' · ' + r.skin + '</div>' +
           '</div>' +
-          '<div class="review-stars">' + starsBar(r.stars) + '</div>' +
+          (r.verified ? '<span class="review-verified">✓ Verificada</span>' : '') +
         '</div>' +
-        '<div class="review-skin">' + r.skin + '</div>' +
+        '<div class="review-stars">' + stars(r.stars) + '</div>' +
         '<h4 class="review-title">"' + r.title + '"</h4>' +
         '<p class="review-text">' + r.text + '</p>' +
         '<span class="review-date">' + r.date + '</span>' +

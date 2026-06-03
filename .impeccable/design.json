@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-01T00:00:00Z",
+  "title": "Design System: Protect Diversity",
+  "extensions": {
+    "colorMeta": {
+      "cacao":         { "role": "primary",   "displayName": "Cacao Profundo",  "canonical": "oklch(19% 0.038 47)", "tonalRamp": ["#0e0a07","#1a110c","#2a1d14","#3f2d20","#55402e","#7a5e46","#a88466","#c9ab90","#e8d4be","#f7efe5"] },
+      "crema":         { "role": "neutral",   "displayName": "Crema",           "canonical": "oklch(94% 0.022 80)", "tonalRamp": ["#3d2e1e","#5c4530","#7d6045","#9e7b5c","#bf9d7c","#d8bfa0","#ece0cc","#f5efe4","#faf6ef","#fffdf9"] },
+      "crema-profunda":{ "role": "neutral",   "displayName": "Crema Profunda",  "canonical": "oklch(91% 0.028 78)", "tonalRamp": ["#3a2b1c","#584230","#796048","#9a7e62","#bba083","#d3bfa4","#e5d7c3","#ede4d3","#f5ede1","#fdf7f0"] },
+      "terracota":     { "role": "accent",    "displayName": "Terracota",       "canonical": "oklch(55% 0.145 42)", "tonalRamp": ["#3d1205","#631f0a","#8c2f10","#b53e1b","#c45a2c","#d07a50","#da9e7c","#e5bda4","#f0d9cc","#faf1ec"] },
+      "ocre":          { "role": "secondary", "displayName": "Ocre",            "canonical": "oklch(65% 0.13 58)",  "tonalRamp": ["#4a2700","#703c00","#925200","#b36800","#d9893b","#e4a660","#edbf8b","#f5d8b5","#faeedd","#fdf8f0"] },
+      "salvia":        { "role": "tertiary",  "displayName": "Salvia",          "canonical": "oklch(46% 0.06 140)", "tonalRamp": ["#0f1a0c","#1e2f1a","#2f4527","#415c37","#5e6b4e","#7b8867","#9aa482","#b8c2a1","#d5dbc3","#eef0e8"] },
+      "rose":          { "role": "tertiary",  "displayName": "Rose",            "canonical": "oklch(80% 0.07 30)",  "tonalRamp": ["#4a1a11","#72291b","#9a3c2a","#bd5540","#d67a65","#e09183","#e8b9a6","#f0d3c8","#f8ece7","#fdf7f5"] }
+    },
+    "shadows": [
+      { "name": "hover-card",   "value": "0 16px 40px rgba(42,29,20,0.10)", "purpose": "Product and category cards on hover. Never at rest." },
+      { "name": "focus-ring",   "value": "0 0 0 3px rgba(42,29,20,0.08)",  "purpose": "Input fields on :focus. Replaces outline." },
+      { "name": "btn-hover",    "value": "0 4px 16px rgba(42,29,20,0.15)", "purpose": "Primary button on hover only. Removed on :active." },
+      { "name": "header-scroll","value": "0 1px 12px rgba(42,29,20,0.04)", "purpose": "Header on window scroll > 10px. Separator, not decoration." }
+    ],
+    "motion": [
+      { "name": "ease-out",    "value": "cubic-bezier(0.23, 1, 0.32, 1)",   "purpose": "Default for all entrances and UI state changes." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)",  "purpose": "On-screen movement between two states." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)",   "purpose": "Cart drawer and mobile nav slide in/out." },
+      { "name": "dur-press",   "value": "120ms",  "purpose": ":active scale feedback." },
+      { "name": "dur-fast",    "value": "160ms",  "purpose": "Hover opacity and color changes." },
+      { "name": "dur-md",      "value": "200ms",  "purpose": "Nav underlines, input focus, badge pop." },
+      { "name": "dur-lg",      "value": "350ms",  "purpose": "Card hover elevation, cart item entrance." },
+      { "name": "dur-drawer",  "value": "380–420ms", "purpose": "Full-panel slide animations." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "768px", "purpose": "Single breakpoint. Below: mobile nav, 1-col layout, 16px container padding." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Used for add-to-cart, quiz start, primary navigation actions.",
+      "html": "<button class=\"ds-btn-primary\">DESCUBRE TU RUTINA</button>",
+      "css": ".ds-btn-primary { display: inline-block; background: #2A1D14; color: #F5EFE4; border: none; border-radius: 999px; padding: 16px 32px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; cursor: pointer; transition: opacity 160ms cubic-bezier(0.23,1,0.32,1), transform 120ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-primary:hover { opacity: 0.85; box-shadow: 0 4px 16px rgba(42,29,20,0.15); } .ds-btn-primary:active { transform: scale(0.97); box-shadow: none; } .ds-btn-primary.added { background: #5E6B4E; pointer-events: none; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ghost/outline variant. For secondary actions and navigation CTAs.",
+      "html": "<button class=\"ds-btn-secondary\">VER CATÁLOGO</button>",
+      "css": ".ds-btn-secondary { display: inline-block; background: transparent; color: #2A1D14; border: 2px solid #2A1D14; border-radius: 999px; padding: 14px 28px; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; cursor: pointer; text-decoration: none; transition: opacity 160ms cubic-bezier(0.23,1,0.32,1), transform 120ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1), color 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-secondary:hover { background: #2A1D14; color: #F5EFE4; } .ds-btn-secondary:active { transform: scale(0.97); }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Used in bestsellers grid and collection page. Image-forward with inline add-to-cart.",
+      "html": "<a class=\"ds-product-card\" href=\"#\"><div class=\"ds-product-card-img\"><div class=\"ds-product-card-pills\"><span class=\"ds-pill ds-pill-cacao\">MATE</span><span class=\"ds-pill ds-pill-ocre\">SPF 50+</span></div></div><div class=\"ds-product-card-body\"><p class=\"ds-product-card-cat\">PROTECCIÓN SOLAR</p><h3 class=\"ds-product-card-name\">Protector Solar Anti-Brillo</h3><div class=\"ds-product-card-price\"><span class=\"ds-price-current\">$384</span><span class=\"ds-price-compare\">$480</span><span class=\"ds-price-discount\">−20%</span></div><div class=\"ds-product-card-rating\"><span class=\"ds-stars\">4.8 ★</span><span class=\"ds-rating-count\">4.8 (241)</span></div><button class=\"ds-product-card-btn\">AGREGAR</button></div></a>",
+      "css": ".ds-product-card { display: block; background: #EDE4D3; border-radius: 12px; overflow: hidden; text-decoration: none; color: #2A1D14; transition: transform 350ms cubic-bezier(0.23,1,0.32,1), box-shadow 350ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-product-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(42,29,20,0.10); } } .ds-product-card-img { aspect-ratio: 4/5; background: #EDE4D3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; } .ds-product-card-pills { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; } .ds-pill { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding: 5px 12px; border-radius: 999px; } .ds-pill-cacao { background: #2A1D14; color: #F5EFE4; } .ds-pill-ocre { background: #D9893B; color: #fff; } .ds-product-card-body { padding: 16px 20px 20px; } .ds-product-card-cat { font-family: 'Manrope', sans-serif; font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.5; margin-bottom: 4px; } .ds-product-card-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; margin-bottom: 6px; line-height: 1.2; } .ds-product-card-price { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; } .ds-price-current { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; } .ds-price-compare { font-size: 13px; text-decoration: line-through; opacity: 0.4; } .ds-price-discount { font-size: 10px; font-weight: 600; color: #5E6B4E; } .ds-product-card-rating { display: flex; align-items: center; gap: 4px; margin-bottom: 12px; } .ds-stars { color: #D9893B; font-size: 12px; } .ds-rating-count { font-size: 12px; opacity: 0.5; } .ds-product-card-btn { width: 100%; background: #2A1D14; color: #F5EFE4; border: none; border-radius: 999px; padding: 10px; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; cursor: pointer; transition: opacity 160ms cubic-bezier(0.23,1,0.32,1), transform 120ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1); } .ds-product-card-btn:hover { opacity: 0.85; } .ds-product-card-btn:active { transform: scale(0.97); } .ds-product-card-btn.added { background: #5E6B4E; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Used in newsletter, contact form, and search.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-input-label\">EMAIL</label><input class=\"ds-input\" type=\"email\" placeholder=\"tu@email.com\"></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; } .ds-input-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; color: #2A1D14; } .ds-input { width: 100%; background: #fff; border: 1px solid rgba(42,29,20,0.25); border-radius: 8px; padding: 14px 16px; font-family: 'Manrope', sans-serif; font-size: 14px; color: #2A1D14; outline: none; transition: border-color 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1); } .ds-input::placeholder { opacity: 0.4; } .ds-input:focus { border-color: #2A1D14; box-shadow: 0 0 0 3px rgba(42,29,20,0.08); }"
+    },
+    {
+      "name": "Category Card",
+      "kind": "card",
+      "refersTo": "category-card",
+      "description": "Navigation tile to product category. Four per row on desktop, 2x2 on mobile.",
+      "html": "<a class=\"ds-cat-card ds-cat-solar\" href=\"#\"><span class=\"ds-cat-icon\">☀</span><h3 class=\"ds-cat-name\">Protección Solar</h3><p class=\"ds-cat-desc\">SPF 50+ para cada tipo de piel. Mineral, sin white cast.</p><span class=\"ds-cat-count\">8 PRODUCTOS</span></a>",
+      "css": ".ds-cat-card { display: flex; flex-direction: column; justify-content: flex-end; border-radius: 16px; padding: 40px 28px 32px; min-height: 280px; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; color: inherit; transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1); } @media (hover: hover) and (pointer: fine) { .ds-cat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(42,29,20,0.10); } } .ds-cat-solar { background: #EDE4D3; } .ds-cat-icon { font-size: 32px; margin-bottom: 16px; opacity: 0.4; } .ds-cat-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 6px; color: #2A1D14; } .ds-cat-desc { font-family: 'Manrope', sans-serif; font-size: 13px; opacity: 0.65; line-height: 1.5; color: #2A1D14; } .ds-cat-count { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.4; margin-top: 12px; }"
+    },
+    {
+      "name": "Pill / Badge",
+      "kind": "chip",
+      "refersTo": "pill-primary",
+      "description": "Used on product images (MATE, SPF 50+), category labels, and status badges.",
+      "html": "<div style=\"display:flex;gap:6px;\"><span class=\"ds-pill-demo ds-pill-demo-cacao\">MATE</span><span class=\"ds-pill-demo ds-pill-demo-ocre\">SPF 50+</span><span class=\"ds-pill-demo ds-pill-demo-salvia\">VEGANO</span><span class=\"ds-pill-demo ds-pill-demo-terracota\">HIDRATA</span></div>",
+      "css": ".ds-pill-demo { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; padding: 5px 12px; border-radius: 999px; } .ds-pill-demo-cacao { background: #2A1D14; color: #F5EFE4; } .ds-pill-demo-ocre { background: #D9893B; color: #fff; } .ds-pill-demo-salvia { background: #5E6B4E; color: #fff; } .ds-pill-demo-terracota { background: #C45A2C; color: #fff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Ciencia Real",
+    "overview": "The Protect Diversity visual system is built on a single conviction: information density is a feature, not a flaw. Where most skincare brands use sparse elegance to signal luxury, Protect Diversity uses precision and transparency to signal trust. The palette is grounded in Mexican earth: warm cacao as the dominant ink, terracota as the voice of conviction, crema as the surface that breathes. This is not a cream-and-minimalism aesthetic by default — it is a deliberate palette that evokes the skin tones and regional materials of Mexico.",
+    "keyCharacteristics": [
+      "Serif display (Fraunces) paired with humanist sans (Manrope) — confidence + legibility",
+      "Pill-shaped controls contrast with editorial typography for clear affordance hierarchy",
+      "Terracota is the voice color — used for emphasis, not decoration",
+      "Cacao as both ink and primary surface creates tonal cohesion across dark sections",
+      "No shadows on cards at rest; depth comes from tonal contrast between surface levels"
+    ],
+    "rules": [
+      { "name": "La Regla Terracota",  "body": "Terracota (#C45A2C) appears on ≤15% of any screen. Headlines in terracota must be italic Fraunces; never upright roman, never Manrope.", "section": "colors" },
+      { "name": "La Regla de Superficie", "body": "Pages have three surface levels: crema (base), crema-profunda (raised), blanco (elevated). Shadows are not used to create depth — surface color does that work.", "section": "elevation" },
+      { "name": "La Regla Fraunces",   "body": "Every terracota text on the page is Fraunces italic. The combination of color + weight + style is the brand's accent voice — breaking any part of the triplet dilutes the signal.", "section": "typography" },
+      { "name": "La Regla del Techo",  "body": "Display headings: clamp max is 4.5rem (72px). Letter-spacing floor is -0.025em. Above these values the page shouts, not designs.", "section": "typography" },
+      { "name": "La Regla Plana",      "body": "Every surface is flat at rest. If a card has a shadow before the user does anything, remove it. Elevation is a response to interaction, not a decorative default.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Fraunces italic in terracota for emphasis — preserve the triplet (Fraunces + italic + terracota) as a unit",
+      "Do use tonal surface depth (crema → crema-profunda → blanco) to create hierarchy",
+      "Do gate all hover animations behind @media (hover: hover) and (pointer: fine)",
+      "Do include specific ingredient names, percentages, and certifications in product copy",
+      "Do use text-wrap: balance on H1–H2 and text-wrap: pretty on prose",
+      "Do keep reveal animations on content that is already visible at rest",
+      "Do use salvia for trust signals, eco certifications, and confirmation states",
+      "Do use pill-radius (999px) on all interactive controls — buttons, pills, badges"
+    ],
+    "donts": [
+      "Don't use luxury-brand aesthetics (La Mer, Tatcha-style): aspirational staging, gold accents, exclusion-coded language",
+      "Don't use clinical-cold pharmacy aesthetics (sterile blue-white, hospital-style grids)",
+      "Don't use cream/sand/beige as a second neutral — the crema palette is specific and brand-tied",
+      "Don't add eyebrow labels above every section — use them selectively for sections with real semantic purpose",
+      "Don't pair a border: 1px solid with a large box-shadow on the same card at rest",
+      "Don't use gradient text (background-clip: text) — emphasis is through Fraunces weight, italic, or terracota",
+      "Don't use border-radius above 16px on cards",
+      "Don't animate from opacity: 0 initial states that aren't already visible at rest",
+      "Don't exceed the display clamp ceiling of 4.5rem or tighten letter-spacing below -0.025em",
+      "Don't use transition: all — specify exact properties with explicit durations and ease-out curves"
+    ]
+  }
+}

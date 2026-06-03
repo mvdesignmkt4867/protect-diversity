@@ -33,26 +33,28 @@
   }
 
   /* ── Cart Drawer ── */
-  const cartBtn = document.querySelector('[data-cart-toggle]');
-  const cartOverlay = document.querySelector('.cart-overlay');
-  const cartDrawer = document.querySelector('.cart-drawer');
-  const cartClose = document.querySelector('.cart-drawer-close');
-
   function openCart() {
-    if (cartOverlay) cartOverlay.classList.add('open');
-    if (cartDrawer) cartDrawer.classList.add('open');
+    var overlay = document.querySelector('.cart-overlay');
+    var drawer  = document.querySelector('.cart-drawer');
+    if (overlay) overlay.classList.add('open');
+    if (drawer)  drawer.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeCart() {
-    if (cartOverlay) cartOverlay.classList.remove('open');
-    if (cartDrawer) cartDrawer.classList.remove('open');
+    var overlay = document.querySelector('.cart-overlay');
+    var drawer  = document.querySelector('.cart-drawer');
+    if (overlay) overlay.classList.remove('open');
+    if (drawer)  drawer.classList.remove('open');
     document.body.style.overflow = '';
   }
 
-  if (cartBtn) cartBtn.addEventListener('click', openCart);
-  if (cartOverlay) cartOverlay.addEventListener('click', closeCart);
-  if (cartClose) cartClose.addEventListener('click', closeCart);
+  /* Single delegated listener — works for dynamically rendered buttons too */
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-cart-toggle]')) { openCart(); return; }
+    if (e.target.closest('.cart-overlay'))       { closeCart(); return; }
+    if (e.target.closest('.cart-drawer-close'))  { closeCart(); return; }
+  });
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeCart();
@@ -63,16 +65,21 @@
 
   PD.cart = JSON.parse(localStorage.getItem('pd_cart') || '[]');
 
-  PD.updateCartCount = function() {
+  PD.updateCartCount = function(animate) {
     var badges = document.querySelectorAll('.cart-count');
     var total = PD.cart.reduce(function(sum, item) { return sum + item.qty; }, 0);
     badges.forEach(function(b) {
       b.textContent = total;
       b.style.display = total > 0 ? 'flex' : 'none';
+      if (animate && total > 0) {
+        b.classList.remove('pop');
+        void b.offsetWidth;
+        b.classList.add('pop');
+      }
     });
   };
 
-  PD.addToCart = function(product) {
+  PD.addToCart = function(product, triggerBtn) {
     var existing = PD.cart.find(function(item) { return item.id === product.id; });
     if (existing) {
       existing.qty += 1;
@@ -80,9 +87,19 @@
       PD.cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
     }
     localStorage.setItem('pd_cart', JSON.stringify(PD.cart));
-    PD.updateCartCount();
+    PD.updateCartCount(true);
     PD.renderCartDrawer();
     openCart();
+
+    if (triggerBtn) {
+      var original = triggerBtn.textContent;
+      triggerBtn.textContent = '✓ AGREGADO';
+      triggerBtn.classList.add('added');
+      setTimeout(function() {
+        triggerBtn.textContent = original;
+        triggerBtn.classList.remove('added');
+      }, 1200);
+    }
   };
 
   PD.removeFromCart = function(id) {
@@ -107,7 +124,7 @@
     if (!itemsContainer) return;
 
     if (PD.cart.length === 0) {
-      itemsContainer.innerHTML = '<div class="cart-drawer-empty"><p>Tu bolsa está vacía</p><a href="index.html" class="btn-secondary">Explorar productos</a></div>';
+      itemsContainer.innerHTML = '<div class="cart-drawer-empty"><p>Tu carrito está vacío</p><a href="coleccion.html" class="btn-secondary">Explorar productos</a></div>';
       if (footerEl) footerEl.style.display = 'none';
       return;
     }
@@ -116,8 +133,13 @@
 
     var html = '';
     PD.cart.forEach(function(item) {
+      var catalogEntry = (PD.catalog || []).find(function(p) { return p.id === item.id; });
+      var imgSrc = item.img || (catalogEntry && catalogEntry.img1) || '';
+      var imgHtml = imgSrc
+        ? '<img src="' + imgSrc + '" alt="' + item.name + '" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">'
+        : '';
       html += '<div class="cart-drawer-item">' +
-        '<div class="cart-drawer-item-img"></div>' +
+        '<div class="cart-drawer-item-img" style="overflow:hidden;">' + imgHtml + '</div>' +
         '<div class="cart-drawer-item-info">' +
           '<div class="cart-drawer-item-name">' + item.name + '</div>' +
           '<div class="cart-drawer-item-price">$' + item.price + '</div>' +
@@ -148,12 +170,12 @@
   /* ── Add-to-cart buttons ── */
   document.addEventListener('click', function(e) {
     var btn = e.target.closest('[data-add-to-cart]');
-    if (!btn) return;
+    if (!btn || btn.classList.contains('added')) return;
     e.preventDefault();
     var id = btn.dataset.productId || 'PS-ANTIBRILLO';
     var name = btn.dataset.productName || 'Protector Solar Anti-Brillo';
     var price = parseInt(btn.dataset.productPrice || '384', 10);
-    PD.addToCart({ id: id, name: name, price: price });
+    PD.addToCart({ id: id, name: name, price: price }, btn);
   });
 
   /* ── Scroll reveal animations ── */
@@ -167,7 +189,7 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.08, rootMargin: '0px 0px -80px 0px' });
 
       revealElements.forEach(function(el) {
         revealObserver.observe(el);

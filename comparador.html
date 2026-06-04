@@ -43,6 +43,7 @@
 .comp-table .product-header-img { width: 80px; height: 100px; background: var(--crema-2); border-radius: 8px; margin: 0 auto 8px; }
 .comp-table .product-header-name { font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500; margin-bottom: 4px; }
 .comp-table .product-header-price { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; }
+.comp-table .product-header-sku { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.45; margin: 4px 0 6px; }
 .comp-table .product-header-desc { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 400; opacity: 0.65; line-height: 1.5; margin-top: 10px; text-transform: none; letter-spacing: 0; text-align: center; max-width: 220px; margin-left: auto; margin-right: auto; }
 
 .comp-cta { text-align: center; margin-top: 40px; }
@@ -98,24 +99,33 @@
         <option value="0">Anti-Brillo (Mate)</option>
         <option value="1">Anti-Manchas</option>
         <option value="2">con Ácido Hialurónico</option>
-        <option value="3">con Niacinamida</option>
-        <option value="4">Toque Seco</option>
+        <option value="3">con Color — Claro</option>
+        <option value="4">con Color — Medio</option>
+        <option value="5">con Niacinamida</option>
+        <option value="6">en Barra</option>
+        <option value="7">Toque Seco</option>
       </select>
       <span style="font-size:20px;opacity:0.2;align-self:center;">vs</span>
       <select class="comp-select" id="comp2" onchange="renderTable()">
         <option value="1">Anti-Manchas</option>
         <option value="0">Anti-Brillo (Mate)</option>
         <option value="2">con Ácido Hialurónico</option>
-        <option value="3">con Niacinamida</option>
-        <option value="4">Toque Seco</option>
+        <option value="3">con Color — Claro</option>
+        <option value="4">con Color — Medio</option>
+        <option value="5">con Niacinamida</option>
+        <option value="6">en Barra</option>
+        <option value="7">Toque Seco</option>
       </select>
       <span style="font-size:20px;opacity:0.2;align-self:center;">vs</span>
       <select class="comp-select" id="comp3" onchange="renderTable()">
         <option value="2">con Ácido Hialurónico</option>
         <option value="0">Anti-Brillo (Mate)</option>
         <option value="1">Anti-Manchas</option>
-        <option value="3">con Niacinamida</option>
-        <option value="4">Toque Seco</option>
+        <option value="3">con Color — Claro</option>
+        <option value="4">con Color — Medio</option>
+        <option value="5">con Niacinamida</option>
+        <option value="6">en Barra</option>
+        <option value="7">Toque Seco</option>
       </select>
     </div>
 
@@ -146,11 +156,14 @@
 <script src="js/global.js"></script>
 <script>
 var compProducts = [
-  { name: 'Anti-Brillo',          id: 'PS-ANTIBRILLO',   img: 'img/products/ps-antibrillo-1.jpg',   price: 384, spf: '50+', finish: 'Mate',        description: 'Control de brillo y sebo todo el día. Acabado mate ultra ligero con FPS 50+ amplio espectro.', keyIngredient: 'Óxido de Zinc 15% + Aloe vera + Octil Salicilato',     skinType: 'Grasa · Mixta',         concerns: 'Brillo · Poros · Acné',                texture: 'Fluida · Emulsión ligera',    whiteCast: 'Ninguno', makeup: 'Sí — prep ideal',      absorption: 'Rápida · < 60 seg' },
-  { name: 'Anti-Manchas',         id: 'PS-ANTIMANCHAS',  img: 'img/products/ps-antimanchas-1.jpg',  price: 384, spf: '50+', finish: 'Luminoso',     description: 'Con Vitamina C estable. Previene y atenúa manchas e hiperpigmentación. Antioxidante triple.', keyIngredient: 'Vit. C estable + Ferúlico + Óxido de Zinc',           skinType: 'Todo tipo',             concerns: 'Manchas · Piel apagada',                texture: 'Fluida · Ligeramente satinada', whiteCast: 'Ninguno', makeup: 'Sí',              absorption: 'Media · 60-90 seg' },
-  { name: 'Ácido Hialurónico',    id: 'PS-HIALURONICO',  img: 'img/products/ps-hialuronico-1.jpg',  price: 384, spf: '50+', finish: 'Hidratante',   description: 'Hidratación profunda + fotoprotección. Anti-envejecimiento diario sin sensación tirante.',   keyIngredient: 'Ácido Hialurónico triple + Octil salicilato + Pantenol', skinType: 'Seca · Sensible',     concerns: 'Arrugas · Deshidratación · Piel apagada', texture: 'Crema ligera · Envolvente', whiteCast: 'Mínimo',  makeup: 'Sí',              absorption: 'Media · 60-90 seg' },
-  { name: 'Niacinamida',          id: 'PS-NIACINAMIDA',  img: 'img/products/ps-niacinamida-1.jpg',  price: 384, spf: '50+', finish: 'Semi-mate',    description: 'Previene fotoenvejecimiento y pigmentación. Multifunción para todo tipo de piel.',           keyIngredient: 'Niacinamida 5% + Óxido de Zinc + Octil Salicilato',   skinType: 'Grasa · Mixta · Seca',  concerns: 'Brillo · Manchas · Poros · Acné · Piel apagada', texture: 'Gel-crema · Ligera', whiteCast: 'Ninguno', makeup: 'Sí',              absorption: 'Rápida · < 60 seg' },
-  { name: 'Toque Seco',           id: 'PS-TOQUESECO',    img: 'img/products/ps-toqueseco-1.jpg',    price: 384, spf: '50+', finish: 'Ultra mate',   description: 'Fotoprotección con acabado ultra seco. Controla brillo. Prep perfecta bajo maquillaje.',     keyIngredient: 'Óxido de Zinc + Almidón de Tapioca',                 skinType: 'Grasa · Mixta',         concerns: 'Brillo · Acné',                        texture: 'Fluida · Casi acuosa',       whiteCast: 'Ninguno', makeup: 'Sí — acabado powder', absorption: 'Muy rápida · < 30 seg' }
+  { name: 'Anti-Brillo',        id: 'PS-ANTIBRILLO',  sku: 'PSCB 50',  img: 'img/Productos Editados/ps-antibrillo-2.webp',  price: 384, spf: '50+', finish: 'Mate',         description: 'Control de brillo y sebo todo el día. Acabado mate ultra ligero con FPS 50+ amplio espectro.', keyIngredient: 'Óxido de Zinc 15% + Aloe vera + Octil Salicilato',         skinType: 'Grasa · Mixta',                  concerns: 'Brillo · Poros · Acné',                          texture: 'Fluida · Emulsión ligera',         whiteCast: 'Ninguno', makeup: 'Sí — prep ideal',      absorption: 'Rápida · < 60 seg' },
+  { name: 'Anti-Manchas',       id: 'PS-ANTIMANCHAS', sku: 'PSAM 50',  img: 'img/Productos Editados/ps-antimanchas-2.webp', price: 384, spf: '50+', finish: 'Luminoso',     description: 'Con Vitamina C estable. Previene y atenúa manchas e hiperpigmentación. Antioxidante triple.', keyIngredient: 'Vit. C estable + Ferúlico + Óxido de Zinc',                skinType: 'Todo tipo',                      concerns: 'Manchas · Piel apagada',                          texture: 'Fluida · Ligeramente satinada',    whiteCast: 'Ninguno', makeup: 'Sí',                   absorption: 'Media · 60-90 seg' },
+  { name: 'Ácido Hialurónico',  id: 'PS-HIALURONICO', sku: 'PSAH 50',  img: 'img/Productos Editados/ps-hialuronico-2.webp', price: 384, spf: '50+', finish: 'Hidratante',   description: 'Hidratación profunda + fotoprotección. Anti-envejecimiento diario sin sensación tirante.',   keyIngredient: 'Ácido Hialurónico triple + Octil salicilato + Pantenol',  skinType: 'Seca · Sensible',                concerns: 'Arrugas · Deshidratación · Piel apagada',          texture: 'Crema ligera · Envolvente',       whiteCast: 'Mínimo',  makeup: 'Sí',                   absorption: 'Media · 60-90 seg' },
+  { name: 'Color — Claro',      id: 'PS-COLOR-CLARO', sku: 'PSCCC 50', img: 'img/Productos Editados/ps-color-claro-1.webp', price: 384, spf: '50+', finish: 'Satinado',     description: 'Acabado satinado para subtono rosado. Empareja y cubre imperfecciones.',                       keyIngredient: 'Óxido de Zinc + Pigmentos Minerales',                     skinType: 'Todo tipo · subtono rosado',     concerns: 'Manchas · Piel apagada',                          texture: 'Crema ligera con pigmentos',       whiteCast: 'Ninguno · da color', makeup: 'Sustituye base',       absorption: 'Media · 60-90 seg' },
+  { name: 'Color — Medio',      id: 'PS-COLOR-MEDIO', sku: 'PSCCM 50', img: 'img/Productos Editados/ps-color-medio-2.webp', price: 384, spf: '50+', finish: 'Satinado',     description: 'Subtono amarillo. Acabado satinado construible. Empareja manchas y rojeces.',                  keyIngredient: 'Óxido de Zinc + Pigmentos Minerales',                     skinType: 'Todo tipo · subtono amarillo',   concerns: 'Manchas · Piel apagada',                          texture: 'Crema ligera con pigmentos',       whiteCast: 'Ninguno · da color', makeup: 'Sustituye base',       absorption: 'Media · 60-90 seg' },
+  { name: 'Niacinamida',        id: 'PS-NIACINAMIDA', sku: 'PSCN 50',  img: 'img/Productos Editados/ps-niacinamida-1.webp', price: 384, spf: '50+', finish: 'Semi-mate',    description: 'Previene fotoenvejecimiento y pigmentación. Multifunción para todo tipo de piel.',            keyIngredient: 'Niacinamida 5% + Óxido de Zinc + Octil Salicilato',        skinType: 'Grasa · Mixta · Seca',           concerns: 'Brillo · Manchas · Poros · Acné · Piel apagada',  texture: 'Gel-crema · Ligera',              whiteCast: 'Ninguno', makeup: 'Sí',                   absorption: 'Rápida · < 60 seg' },
+  { name: 'En Barra',           id: 'PS-BARRA',       sku: 'PSBR 50',  img: 'img/Productos Editados/ps-barra-1.webp',       price: 360, spf: '50+', finish: 'Stick portátil',description: 'Formato compacto para llevar. UVA, UVB, luz azul. Apto para arrecifes.',                       keyIngredient: 'Óxido de Zinc + Squalene + Octocrylene',                   skinType: 'Todo tipo · outdoor',            concerns: 'Brillo · Poros · Re-aplicación',                  texture: 'Sólida · barra',                  whiteCast: 'Mínimo',  makeup: 'No recomendado encima', absorption: 'Inmediata' },
+  { name: 'Toque Seco',         id: 'PS-TOQUESECO',   sku: 'PSTS 50',  img: 'img/Productos Editados/ps-toqueseco-2.webp',   price: 384, spf: '50+', finish: 'Ultra mate',   description: 'Fotoprotección con acabado ultra seco. Controla brillo. Prep perfecta bajo maquillaje.',      keyIngredient: 'Óxido de Zinc + Almidón de Tapioca',                       skinType: 'Grasa · Mixta',                  concerns: 'Brillo · Acné',                                  texture: 'Fluida · Casi acuosa',             whiteCast: 'Ninguno', makeup: 'Sí — acabado powder',  absorption: 'Muy rápida · < 30 seg' }
 ];
 
 function renderTable() {
@@ -175,9 +188,10 @@ function renderTable() {
   var html = '<table class="comp-table"><thead><tr><th></th>';
   ps.forEach(function(p) {
     html += '<th class="product-header">' +
-      '<img src="' + p.img + '" alt="PS ' + p.name + '" ' +
-        'style="width:80px;height:100px;object-fit:contain;border-radius:8px;background:var(--crema-2);display:block;margin:0 auto 10px;padding:6px;">' +
+      '<img src="' + p.img + '" alt="PS ' + p.name + '" loading="lazy" decoding="async" ' +
+        'style="width:120px;height:150px;object-fit:contain;border-radius:8px;background:var(--crema-2);display:block;margin:0 auto 10px;padding:8px;">' +
       '<div class="product-header-name">PS ' + p.name + '</div>' +
+      '<div class="product-header-sku">SKU: ' + p.sku + '</div>' +
       '<div class="product-header-price">$' + p.price + '</div>' +
       '<div class="product-header-desc">' + p.description + '</div>' +
     '</th>';

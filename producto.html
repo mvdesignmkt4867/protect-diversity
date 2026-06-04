@@ -189,9 +189,18 @@ section {
   justify-content: center;
 }
 
-.gallery-main .pill {
+.gallery-main .pills-container {
   position: absolute;
   top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: calc(100% - 40px);
+  z-index: 2;
+}
+
+.gallery-main .pill {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -200,10 +209,10 @@ section {
   border-radius: 999px;
   background: var(--cacao);
   color: var(--crema);
+  white-space: nowrap;
 }
 
-.gallery-main .pill-mate { left: 20px; }
-.gallery-main .pill-spf { left: 100px; background: var(--ocre); }
+.gallery-main .pill-spf { background: var(--ocre); }
 
 .gallery-main-placeholder {
   font-family: 'Fraunces', serif;
@@ -1179,8 +1188,10 @@ section {
     <div class="hero-grid">
       <div class="gallery">
         <div class="gallery-main" id="galleryMain">
-          <span class="pill pill-mate">MATE</span>
-          <span class="pill pill-spf">FPS 50+</span>
+          <div class="pills-container">
+            <span class="pill pill-mate">MATE</span>
+            <span class="pill pill-spf">FPS 50+</span>
+          </div>
           <img id="galleryMainImg"
                src="img/products/ps-antibrillo-1.jpg"
                alt="Protector Solar Anti-Brillo"

@@ -769,9 +769,16 @@ section { padding: 80px 0; }
   opacity: 0.4;
 }
 .product-card-price .discount {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--salvia);
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: #5A8A3F;
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(90, 138, 63, 0.25);
+  display: inline-block;
 }
 .product-card-rating {
   display: flex;

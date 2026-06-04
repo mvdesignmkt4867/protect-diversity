@@ -23,8 +23,8 @@ PD.catalog = [
     ages: ['18-24', '25-34', '35-44'],
     makeupCompat: true,
     stars: 4.8, reviews: 241,
-    img1: 'img/Productos Editados/ps-antibrillo-2.png',
-    img2: 'img/Productos Editados/ps-antibrillo-2.png',
+    img1: 'img/Productos Editados/ps-antibrillo-2.webp',
+    img2: 'img/Productos Editados/ps-antibrillo-2.webp',
     url: 'producto.html'
   },
   {
@@ -43,8 +43,8 @@ PD.catalog = [
     ages: ['35-44', '45+'],
     makeupCompat: true,
     stars: 4.8, reviews: 203,
-    img1: 'img/Productos Editados/ps-antimanchas-2.png',
-    img2: 'img/Productos Editados/ps-antimanchas-2.png',
+    img1: 'img/Productos Editados/ps-antimanchas-2.webp',
+    img2: 'img/Productos Editados/ps-antimanchas-2.webp',
     url: 'producto.html'
   },
   {
@@ -63,8 +63,8 @@ PD.catalog = [
     ages: ['35-44', '45+'],
     makeupCompat: true,
     stars: 4.9, reviews: 189,
-    img1: 'img/Productos Editados/ps-hialuronico-2.png',
-    img2: 'img/Productos Editados/ps-hialuronico-2.png',
+    img1: 'img/Productos Editados/ps-hialuronico-2.webp',
+    img2: 'img/Productos Editados/ps-hialuronico-2.webp',
     url: 'producto.html'
   },
   {
@@ -83,8 +83,8 @@ PD.catalog = [
     ages: ['25-34', '35-44', '45+'],
     makeupCompat: true,
     stars: 4.6, reviews: 98,
-    img1: 'img/Productos Editados/ps-color-claro-1.png',
-    img2: 'img/Productos Editados/ps-color-claro-1.png',
+    img1: 'img/Productos Editados/ps-color-claro-1.webp',
+    img2: 'img/Productos Editados/ps-color-claro-1.webp',
     url: 'producto.html'
   },
   {
@@ -103,8 +103,8 @@ PD.catalog = [
     ages: ['25-34', '35-44', '45+'],
     makeupCompat: true,
     stars: 4.7, reviews: 112,
-    img1: 'img/Productos Editados/ps-color-medio-2.png',
-    img2: 'img/Productos Editados/ps-color-medio-2.png',
+    img1: 'img/Productos Editados/ps-color-medio-2.webp',
+    img2: 'img/Productos Editados/ps-color-medio-2.webp',
     url: 'producto.html'
   },
   {
@@ -123,8 +123,8 @@ PD.catalog = [
     ages: ['25-34', '35-44'],
     makeupCompat: true,
     stars: 4.8, reviews: 167,
-    img1: 'img/Productos Editados/ps-niacinamida-1.png',
-    img2: 'img/Productos Editados/ps-niacinamida-1.png',
+    img1: 'img/Productos Editados/ps-niacinamida-1.webp',
+    img2: 'img/Productos Editados/ps-niacinamida-1.webp',
     url: 'producto.html'
   },
   {
@@ -143,8 +143,8 @@ PD.catalog = [
     ages: ['18-24', '25-34', '35-44', '45+'],
     makeupCompat: false,
     stars: 4.5, reviews: 87,
-    img1: 'img/Productos Editados/ps-barra-1.png',
-    img2: 'img/Productos Editados/ps-barra-1.png',
+    img1: 'img/Productos Editados/ps-barra-1.webp',
+    img2: 'img/Productos Editados/ps-barra-1.webp',
     url: 'producto.html'
   },
   {
@@ -163,8 +163,8 @@ PD.catalog = [
     ages: ['18-24', '25-34', '35-44'],
     makeupCompat: true,
     stars: 4.7, reviews: 145,
-    img1: 'img/Productos Editados/ps-toqueseco-2.png',
-    img2: 'img/Productos Editados/ps-toqueseco-2.png',
+    img1: 'img/Productos Editados/ps-toqueseco-2.webp',
+    img2: 'img/Productos Editados/ps-toqueseco-2.webp',
     url: 'producto.html'
   },
   {
@@ -183,8 +183,8 @@ PD.catalog = [
     ages: ['35-44', '45+'],
     makeupCompat: false,
     stars: 4.8, reviews: 156,
-    img1: 'img/Productos Editados/su-hialuronico-2.png',
-    img2: 'img/Productos Editados/su-hialuronico-2.png',
+    img1: 'img/Productos Editados/su-hialuronico-2.webp',
+    img2: 'img/Productos Editados/su-hialuronico-2.webp',
     url: 'producto.html'
   },
   {
@@ -203,8 +203,8 @@ PD.catalog = [
     ages: ['18-24', '25-34'],
     makeupCompat: false,
     stars: 4.7, reviews: 134,
-    img1: 'img/Productos Editados/su-niacinamida-1.png',
-    img2: 'img/Productos Editados/su-niacinamida-1.png',
+    img1: 'img/Productos Editados/su-niacinamida-1.webp',
+    img2: 'img/Productos Editados/su-niacinamida-1.webp',
     url: 'producto.html'
   },
   {
@@ -223,8 +223,8 @@ PD.catalog = [
     ages: ['25-34', '35-44', '45+'],
     makeupCompat: false,
     stars: 4.7, reviews: 178,
-    img1: 'img/Productos Editados/su-vitc-1.png',
-    img2: 'img/Productos Editados/su-vitc-1.png',
+    img1: 'img/Productos Editados/su-vitc-1.webp',
+    img2: 'img/Productos Editados/su-vitc-1.webp',
     url: 'producto.html'
   },
   {
@@ -243,8 +243,8 @@ PD.catalog = [
     ages: ['35-44', '45+'],
     makeupCompat: false,
     stars: 4.6, reviews: 112,
-    img1: 'img/Productos Editados/su-ojos-2.png',
-    img2: 'img/Productos Editados/su-ojos-2.png',
+    img1: 'img/Productos Editados/su-ojos-2.webp',
+    img2: 'img/Productos Editados/su-ojos-2.webp',
     url: 'producto.html'
   },
   {
@@ -263,8 +263,8 @@ PD.catalog = [
     ages: ['35-44', '45+'],
     makeupCompat: false,
     stars: 4.8, reviews: 143,
-    img1: 'img/Productos Editados/cr-hialuronico-2.png',
-    img2: 'img/Productos Editados/cr-hialuronico-2.png',
+    img1: 'img/Productos Editados/cr-hialuronico-2.webp',
+    img2: 'img/Productos Editados/cr-hialuronico-2.webp',
     url: 'producto.html'
   },
   {
@@ -283,8 +283,8 @@ PD.catalog = [
     ages: ['25-34', '35-44', '45+'],
     makeupCompat: false,
     stars: 4.7, reviews: 121,
-    img1: 'img/Productos Editados/cr-iluminadora-2.png',
-    img2: 'img/Productos Editados/cr-iluminadora-2.png',
+    img1: 'img/Productos Editados/cr-iluminadora-2.webp',
+    img2: 'img/Productos Editados/cr-iluminadora-2.webp',
     url: 'producto.html'
   },
   {
@@ -303,8 +303,8 @@ PD.catalog = [
     ages: ['18-24', '25-34', '35-44', '45+'],
     makeupCompat: false,
     stars: 4.7, reviews: 98,
-    img1: 'img/Productos Editados/li-hialuronico-1.png',
-    img2: 'img/Productos Editados/li-hialuronico-1.png',
+    img1: 'img/Productos Editados/li-hialuronico-1.webp',
+    img2: 'img/Productos Editados/li-hialuronico-1.webp',
     url: 'producto.html'
   },
   {
@@ -323,8 +323,8 @@ PD.catalog = [
     ages: ['18-24', '25-34', '35-44'],
     makeupCompat: false,
     stars: 4.6, reviews: 89,
-    img1: 'img/Productos Editados/li-grasa-1.png',
-    img2: 'img/Productos Editados/li-grasa-1.png',
+    img1: 'img/Productos Editados/li-grasa-1.webp',
+    img2: 'img/Productos Editados/li-grasa-1.webp',
     url: 'producto.html'
   },
 ];

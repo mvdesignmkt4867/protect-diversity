@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "product-page",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", ".", "-p", "8080", "-c-1"],
-      "port": 8080
+      "name": "pd",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765"],
+      "port": 8765,
+      "cwd": "/Volumes/ADATA PIETRO/6. PIETRO/SALUD/PROTECT DIVERSITY/2. Web/Protect Diversity Web"
     }
   ]
 }

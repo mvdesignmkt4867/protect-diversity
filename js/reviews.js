@@ -94,7 +94,7 @@ PD.reviews = {
 
   'SU-HIALURONICO': [
     { id: 21, name: 'Diana R.', city: 'CDMX', skin: 'Piel seca', stars: 5, date: '2026-05-20', verified: true,
-      title: 'Los 3 pesos moleculares se sienten',
+      title: 'Los 3 pasos moleculares se sienten',
       text: 'He probado muchos sueros de HA y ninguno se compara. La hidratación superficial es inmediata, pero la profunda se nota después de 2 semanas. Mi piel se ve más firme y llena.' },
     { id: 22, name: 'Mónica L.', city: 'Monterrey', skin: 'Piel madura', stars: 5, date: '2026-05-11', verified: true,
       title: 'Mi suero anti-edad favorito',

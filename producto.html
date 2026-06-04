@@ -1195,8 +1195,9 @@ section {
             <span class="pill pill-spf">FPS 50+</span>
           </div>
           <img id="galleryMainImg"
-               src="img/products/ps-antibrillo-1.jpg"
+               src="img/Productos Editados/ps-antibrillo-2.webp"
                alt="Protector Solar Anti-Brillo"
+               decoding="async"
                style="width:100%;height:100%;object-fit:contain;display:block;padding:20px;">
         </div>
         <div class="gallery-thumbs" id="galleryThumbs">
@@ -1685,6 +1686,10 @@ document.querySelectorAll('.gallery-thumb').forEach(thumb => {
 
   var pillMate = document.querySelector('.gallery-main .pill-mate');
   if (pillMate) pillMate.textContent = p.pill || '';
+
+  // El pill "FPS 50+" solo aplica a Protección Solar; ocultarlo en sueros/cremas/limpiadores
+  var pillSpf = document.querySelector('.gallery-main .pill-spf');
+  if (pillSpf) pillSpf.style.display = (p.category === 'Protección Solar') ? '' : 'none';
 
   PD.renderReviews(p.id, document.getElementById('pdpReviewsContainer'));
 })();

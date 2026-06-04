@@ -40,7 +40,10 @@
   display: block !important;
 }
 @media (max-width: 768px) {
-  .collection-hero-wordmark { left: var(--pad-mobile); width: 200px; }
+  .collection-hero { height: auto; min-height: 0; aspect-ratio: 16/10; }
+  .collection-hero-wordmark { display: none !important; }
+  .collection-hero-bg { object-fit: cover; object-position: center center; }
+  .collection-hero-overlay { display: none; }
 }
 .collection-hero-bg {
   position: absolute; inset: 0; width: 100%; height: 100%;
@@ -82,6 +85,9 @@
   .collection-layout { grid-template-columns: 1fr; }
   .filters { position: static; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  /* Más respiro entre banner y tabs (override inline padding-top:0) */
+  .collection-hero + section { padding-top: 32px !important; }
+  .cat-tabs { margin-bottom: 24px; }
 }
 </style>
 </head>

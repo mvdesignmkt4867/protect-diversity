@@ -115,7 +115,7 @@ A five-role palette grounded in Mexican earth and botanical materials. The warmt
 - **Terracota** (`#C45A2C`): The voice. Used for emphasis text (hero italic, subtitles, derma eyebrow labels), star ratings, and the cart badge. Never used for body copy. Its appearance signals conviction.
 
 ### Secondary
-- **Ocre** (`#D9893B`): Supporting warmth. Used for star ratings, SPF pills, discount labels, sale badges. Lighter and more approachable than terracota. Pairs with cacao for data-forward contexts.
+- **Ocre** (`#D9893B`): Supporting warmth. Used for star ratings, FPS pills, discount labels, sale badges. Lighter and more approachable than terracota. Pairs with cacao for data-forward contexts.
 - **Salvia** (`#5E6B4E`): The ethical accent. Used for "verified", "added to cart", eco-certifications, and trust signals. Its green-gray carries authority without medical coldness.
 
 ### Tertiary
@@ -185,7 +185,7 @@ Two variants, same pill shape, clear affordance hierarchy.
 ### Pills / Chips
 
 - **Style:** Pill shape (radius 999px), 5px 12px padding, 11px Manrope 600 uppercase ls 0.15em.
-- **Variants:** cacao/crema (primary info), ocre/white (SPF, sale), terracota/white (benefit), salvia/white (eco), outline cacao (filter chips).
+- **Variants:** cacao/crema (primary info), ocre/white (FPS, sale), terracota/white (benefit), salvia/white (eco), outline cacao (filter chips).
 - **Position:** Absolute top-left on product card images. Max 2 pills per card.
 
 ### Product Cards

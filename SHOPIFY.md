@@ -24,7 +24,7 @@
 | `subtitle` | Eyebrow del PDP (categoría) | `PROTECCIÓN SOLAR` |
 | `key_ingredient` | Ingrediente estrella con concentración | `Óxido de Zinc 15%` |
 | `pill_1` | Primera pill del hero | `MATE` |
-| `pill_2` | Segunda pill del hero | `SPF 50+` |
+| `pill_2` | Segunda pill del hero | `FPS 50+` |
 | `short_description` | Descripción corta del hero PDP | `Protector solar de acabado mate…` |
 | `texture_desc` | Descripción de textura | `Gel-crema ultraligero` |
 | `free_from_list` | Comas: ingredientes excluidos | `Fragancias, Parabenos, Oxibenzona` |
@@ -66,7 +66,7 @@
   "subtitle": "PROTECCIÓN SOLAR",
   "key_ingredient": "Óxido de Zinc 15% + Niacinamida 3%",
   "pill_1": "MATE",
-  "pill_2": "SPF 50+",
+  "pill_2": "FPS 50+",
   "short_description": "Protector solar mineral de acabado mate. Controla el brillo desde la primera aplicación. Sin white cast. Ideal bajo el maquillaje.",
   "skin_types": ["Grasa", "Mixta", "Con acné"],
   "concerns": ["Brillo", "Poros", "Manchas"],

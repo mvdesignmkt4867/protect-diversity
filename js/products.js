@@ -14,7 +14,7 @@ PD.catalog = [
     category: 'Protección Solar',
     pill: 'MATE',
     price: 384, comparePrice: 480, discount: '-20% OFF',
-    shortDesc: 'Control de brillo y sebo todo el día. Acabado mate ultra ligero con SPF 50+ amplio espectro.',
+    shortDesc: 'Control de brillo y sebo todo el día. Acabado mate ultra ligero con FPS 50+ amplio espectro.',
     keyIngredient: 'Óxido de Zinc 15% + Niacinamida 3%',
     bestFor: ['piel grasa', 'piel mixta'],
     concerns: ['brillo', 'sebo', 'poros', 'acne'],
@@ -278,7 +278,7 @@ PD.renderCard = function(p, delay) {
     '<div class="product-card-img">' +
       imgHtml +
       '<div class="pills"><span class="pill pill--cacao">' + p.pill + '</span>' +
-      (p.category === 'Protección Solar' ? '<span class="pill pill--ocre">SPF 50+</span>' : '') +
+      (p.category === 'Protección Solar' ? '<span class="pill pill--ocre">FPS 50+</span>' : '') +
       '</div>' +
     '</div>' +
     '<div class="product-card-body">' +

@@ -85,7 +85,7 @@ Todos tienen: nombre, pill, precio, comparePrice, shortDesc, keyIngredient, best
 
 ### 4. Comparador de Productos
 - ✅ Selectores dinámicos de 3 protectores
-- ✅ Tabla 10 atributos (precio, SPF, acabado, ingredientes, piel, concerns, textura, white cast, makeup, absorción)
+- ✅ Tabla 10 atributos (precio, FPS, acabado, ingredientes, piel, concerns, textura, white cast, makeup, absorción)
 - ✅ Botones "AGREGAR" integrados con cart
 - ✅ Responsive (tabla → cards apiladas en móvil)
 

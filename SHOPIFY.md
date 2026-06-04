@@ -87,10 +87,10 @@
 ```json
 {
   "subtitle": "SUERO FACIAL",
-  "key_ingredient": "Ácido Hialurónico 3 pasos moleculares",
+  "key_ingredient": "Ácido Hialurónico 3 pesos moleculares",
   "pill_1": "HIDRATANTE",
   "pill_2": "24H",
-  "short_description": "Suero de hidratación profunda con ácido hialurónico de triple paso molecular. Rellena, suaviza y protege la barrera cutánea.",
+  "short_description": "Suero de hidratación profunda con ácido hialurónico de triple peso molecular. Rellena, suaviza y protege la barrera cutánea.",
   "skin_types": ["Seca", "Normal", "Mixta", "Sensible"],
   "concerns": ["Deshidratación", "Arrugas finas", "Tirantez"],
   "stars": 49,

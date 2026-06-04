@@ -40,8 +40,13 @@
   display: block !important;
 }
 @media (max-width: 768px) {
-  /* Banner mobile: altura fija razonable, imagen recortada solo lo necesario */
-  .collection-hero { height: 340px; min-height: 0; aspect-ratio: auto; }
+  /* Banner mobile: altura fija + margin-top para no quedar tapado por header fixed */
+  .collection-hero {
+    margin-top: 64px;
+    height: 340px;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
   .collection-hero-wordmark { display: none !important; }
   .collection-hero-bg {
     position: absolute;

@@ -55,6 +55,22 @@
 | `texture_attrs` | Atributos de textura | `[{"label":"Acabado","value":"Mate","positive":true}]` |
 | `faqs` | Preguntas frecuentes del producto | `[{"q":"¿Sirve para piel sensible?","a":"Sí, su…"}]` |
 | `trust_badges` | Badges de confianza | `[{"icon":"✓","text":"Vegano"},{"icon":"◎","text":"Sin crueldad"}]` |
+| `benefits` | 4 beneficios (cards) | `[{"icon":"☀","title":"FPS 50+","desc":"UVA+UVB…"}]` |
+| `ideal_for` | Lista "Ideal para ti si" | `["Piel grasa o mixta","Clima cálido"]` |
+| `not_ideal_for` | Lista "Quizás no si" | `["Piel extremadamente seca"]` |
+
+> **Fuente de los valores JSON por producto:** `js/product-details.js` (`PD.details[<id>]`).
+> Cada PDP del sitio estático ya construye estas secciones dinámicamente desde ese archivo,
+> así que para migrar basta con volcar cada clave a su metafield. `usage_steps` y las 4 FAQ
+> de categoría son **compartidas por categoría** (`PD.usageByCategory`, `PD.categoryFaqs`),
+> y las 4 FAQ de marca son universales (`PD.universalFaqs`) → en Shopify conviene resolverlas
+> a nivel de sección/snippet por categoría, no por producto.
+>
+> ⚠️ **Validación INCI pendiente.** Las tablas `ingredients_table` se reconstruyeron a partir del
+> Excel A2 del cliente (que solo aporta el "activo clave"). Para ingredientes nuevos sin % divulgado
+> se usó el nombre INCI estándar y `—`. **El laboratorio debe validar la fórmula completa antes de
+> publicar**, en especial: **PS-BARRA** (Octocrileno es filtro químico — revisar claim "mineral"),
+> **SU-OJOS** (cafeína conservada del PDF), y limpiadores/cremas con aceite de almendras y manteca de cacao.
 
 ---
 

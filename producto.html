@@ -1628,6 +1628,7 @@ document.querySelectorAll('.gallery-thumb').forEach(thumb => {
 </div>
 <script src="js/global.js"></script>
 <script src="js/products.js"></script>
+<script src="js/product-details.js"></script>
 <script src="js/reviews.js"></script>
 <script>
 (function() {
@@ -1690,6 +1691,118 @@ document.querySelectorAll('.gallery-thumb').forEach(thumb => {
   // El pill "FPS 50+" solo aplica a Protección Solar; ocultarlo en sueros/cremas/limpiadores
   var pillSpf = document.querySelector('.gallery-main .pill-spf');
   if (pillSpf) pillSpf.style.display = (p.category === 'Protección Solar') ? '' : 'none';
+
+  /* ── Render dinámico de secciones por producto ────────────── */
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  var d = (PD.details && PD.details[p.id]) || null;
+
+  // 02 · Beneficios
+  if (d && d.benefits) {
+    var grid = document.querySelector('.benefits-grid');
+    if (grid) {
+      grid.innerHTML = d.benefits.map(function(b) {
+        return '<div class="benefit-card">' +
+          '<div class="benefit-icon">' + esc(b.icon) + '</div>' +
+          '<h3>' + esc(b.title) + '</h3>' +
+          '<p>' + esc(b.desc) + '</p>' +
+        '</div>';
+      }).join('');
+    }
+  }
+
+  // 03 · Ingredientes (INCI)
+  if (d && d.inci) {
+    var tbody = document.querySelector('.ingredients-table tbody');
+    if (tbody) {
+      tbody.innerHTML = d.inci.map(function(r) {
+        var pctCell = (r.pct && r.pct !== '—')
+          ? '<span class="pct-pill">' + esc(r.pct) + '</span>'
+          : '—';
+        return '<tr>' +
+          '<td class="name">' + esc(r.name) + '</td>' +
+          '<td class="inci">' + esc(r.inci) + '</td>' +
+          '<td>' + pctCell + '</td>' +
+          '<td>' + esc(r.fn) + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+  }
+
+  // 03 · Textura
+  if (d && d.texture) {
+    var texList = document.querySelector('.texture-list');
+    if (texList) {
+      texList.innerHTML = d.texture.map(function(t) {
+        var cls = t.positive ? ' positive' : '';
+        return '<li class="texture-item">' +
+          '<span class="label">' + esc(t.label) + '</span>' +
+          '<span class="value' + cls + '">' + esc(t.value) + '</span>' +
+        '</li>';
+      }).join('');
+    }
+  }
+
+  // 04 · Modo de uso (4 pasos por categoría)
+  var steps = PD.usageByCategory && PD.usageByCategory[p.category];
+  if (steps) {
+    var usageGrid = document.querySelector('.usage-grid');
+    if (usageGrid) {
+      usageGrid.innerHTML = steps.map(function(txt, i) {
+        var n = ('0' + (i + 1)).slice(-2);
+        return '<div class="usage-step"><div class="number">' + n + '</div>' +
+          '<p>' + esc(txt) + '</p></div>';
+      }).join('');
+    }
+  }
+
+  // 05 · ¿Es para ti?
+  if (d) {
+    var idealUl = document.querySelector('.fit-card.ideal ul');
+    if (idealUl && d.idealFor) {
+      idealUl.innerHTML = d.idealFor.map(function(x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    }
+    var notCard = document.querySelector('.fit-card.not-ideal');
+    if (notCard) {
+      var notUl = notCard.querySelector('ul');
+      if (notUl && d.notIdealFor) {
+        notUl.innerHTML = d.notIdealFor.map(function(x) { return '<li>' + esc(x) + '</li>'; }).join('');
+      }
+      var altP = notCard.querySelector('.alt-suggestion');
+      if (altP) {
+        if (d.notIdealAlt) { altP.textContent = '(' + d.notIdealAlt + ')'; altP.style.display = ''; }
+        else { altP.style.display = 'none'; }
+      }
+    }
+  }
+
+  // 07 · FAQ (4 de categoría + 4 universales)
+  var catFaqs = (PD.categoryFaqs && PD.categoryFaqs[p.category]) || [];
+  var allFaqs = catFaqs.concat(PD.universalFaqs || []);
+  if (allFaqs.length) {
+    var faqList = document.querySelector('.faq-list');
+    if (faqList) {
+      faqList.innerHTML = allFaqs.map(function(f) {
+        return '<div class="faq-item">' +
+          '<button class="faq-question">' + esc(f.q) + '<span class="faq-icon">+</span></button>' +
+          '<div class="faq-answer"><p>' + esc(f.a) + '</p></div>' +
+        '</div>';
+      }).join('');
+      // Re-bind acordeón (los handlers originales se perdieron al reemplazar el HTML)
+      faqList.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = btn.parentElement;
+          var wasOpen = item.classList.contains('open');
+          faqList.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+    }
+  }
 
   PD.renderReviews(p.id, document.getElementById('pdpReviewsContainer'));
 })();

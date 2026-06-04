@@ -134,6 +134,14 @@
     <!-- LAYOUT: filtros | (texto + grid) -->
     <div class="collection-layout">
       <aside class="filters">
+        <h4>Ordenar</h4>
+        <select class="sort-select" onchange="sortProducts(this.value)">
+          <option value="default">Más vendidos</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="rating">Mejor valorado</option>
+        </select>
+
         <h4>Tipo de piel</h4>
         <div class="filter-option" onclick="filterToggle(this,'grasa')"><span class="filter-checkbox"></span>Grasa</div>
         <div class="filter-option" onclick="filterToggle(this,'mixta')"><span class="filter-checkbox"></span>Mixta</div>
@@ -145,14 +153,6 @@
         <div class="filter-option" onclick="filterToggle(this,'manchas')"><span class="filter-checkbox"></span>Manchas</div>
         <div class="filter-option" onclick="filterToggle(this,'poros')"><span class="filter-checkbox"></span>Poros</div>
         <div class="filter-option" onclick="filterToggle(this,'deshidratación')"><span class="filter-checkbox"></span>Deshidratación</div>
-
-        <h4>Ordenar</h4>
-        <select class="sort-select" onchange="sortProducts(this.value)">
-          <option value="default">Más vendidos</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="rating">Mejor valorado</option>
-        </select>
       </aside>
 
       <div>

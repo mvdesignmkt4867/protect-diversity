@@ -149,7 +149,7 @@ PD.catalog = [
     id: 'SU-NIACINAMIDA',
     name: 'Suero Facial con Niacinamida',
     category: 'Sueros',
-    pill: 'SEBOREGULA',
+    pill: 'SEBORREGULA',
     price: 392, comparePrice: 490, discount: '-20% OFF',
     shortDesc: 'Seborregula y desinflama. Minimiza poros y aclara marcas de acné en 4 semanas.',
     keyIngredient: 'Niacinamida 10% + Zinc PCA',

@@ -345,12 +345,19 @@ PD.getByRole = function(role) {
 };
 
 /* Helper: render a product card HTML */
-PD.renderCard = function(p, delay) {
+PD.renderCard = function(p, delay, idx) {
   var delayClass = delay ? ' reveal-delay-' + delay : '';
+  // Primeros 4 cards (above-fold) = eager + high priority; resto = lazy
+  var isAboveFold = (typeof idx === 'number' && idx < 4);
+  var loadingAttr = isAboveFold ? 'eager' : 'lazy';
+  var priorityAttr = isAboveFold ? ' fetchpriority="high"' : '';
+  // Solo activar hover swap si img1 !== img2 (evita re-fetch innecesario)
+  var hoverSwap = (p.img2 && p.img2 !== p.img1)
+    ? ' onmouseover="this.src=\'' + p.img2 + '\'" onmouseout="this.src=\'' + p.img1 + '\'"'
+    : '';
   var imgHtml = p.img1
-    ? '<img src="' + p.img1 + '" alt="' + p.name + '"' +
-      (p.img2 ? ' onmouseover="this.src=\'' + p.img2 + '\'" onmouseout="this.src=\'' + p.img1 + '\'"' : '') +
-      ' loading="lazy">'
+    ? '<img src="' + p.img1 + '" alt="' + p.name + '"' + hoverSwap +
+      ' loading="' + loadingAttr + '"' + priorityAttr + ' decoding="async" width="800" height="1000">'
     : '';
   return '<a href="producto.html?id=' + p.id + '" class="product-card reveal' + delayClass + '">' +
     '<div class="product-card-img">' +

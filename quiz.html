@@ -85,7 +85,7 @@
 <div class="quiz-wrapper">
   <div class="quiz-header">
     <a href="index.html"><img src="img/isotipo.svg" alt="Protect Diversity" height="36" style="height:36px;width:auto;"></a>
-    <span class="eyebrow" id="quizCounter">1 / 5</span>
+    <span class="eyebrow" id="quizCounter">1 / 6</span>
     <a href="index.html" class="quiz-close">✕</a>
   </div>
   <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar" style="width:20%"></div></div>
@@ -96,13 +96,13 @@
     <div class="quiz-step active" data-step="0">
       <p class="eyebrow">QUIZ DE RUTINA</p>
       <h2>Encuentra tu rutina en 60 segundos.</h2>
-      <p>Responde 5 preguntas sobre tu piel y te recomendaremos los productos exactos que necesitas.</p>
+      <p>Responde 6 preguntas sobre tu piel y te recomendaremos los productos exactos que necesitas.</p>
       <button class="btn-primary btn-primary--large" onclick="nextStep()">COMENZAR</button>
     </div>
 
     <!-- Step 1: Skin type -->
     <div class="quiz-step" data-step="1">
-      <p class="eyebrow">PASO 1 DE 5</p>
+      <p class="eyebrow">PASO 1 DE 6</p>
       <h2>¿Cuál es tu tipo de piel?</h2>
       <p>Selecciona el que mejor te describe.</p>
       <div class="quiz-options" id="skinType">
@@ -132,7 +132,7 @@
 
     <!-- Step 2: Concerns -->
     <div class="quiz-step" data-step="2">
-      <p class="eyebrow">PASO 2 DE 5</p>
+      <p class="eyebrow">PASO 2 DE 6</p>
       <h2>¿Qué te preocupa más?</h2>
       <p>Puedes elegir varias opciones.</p>
       <div class="quiz-options quiz-options--multi quiz-options--3" id="concerns">
@@ -160,13 +160,21 @@
           <span class="quiz-option-icon">✕</span>
           <span class="quiz-option-label">Acné</span>
         </div>
+        <div class="quiz-option" data-value="ojeras" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">◌</span>
+          <span class="quiz-option-label">Ojeras</span>
+        </div>
+        <div class="quiz-option" data-value="piel apagada" onclick="toggleMulti(this)">
+          <span class="quiz-option-icon">◍</span>
+          <span class="quiz-option-label">Piel apagada</span>
+        </div>
       </div>
       <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button><button class="btn-primary" onclick="nextStep()">SIGUIENTE</button></div>
     </div>
 
     <!-- Step 3: Climate -->
     <div class="quiz-step" data-step="3">
-      <p class="eyebrow">PASO 3 DE 5</p>
+      <p class="eyebrow">PASO 3 DE 6</p>
       <h2>¿Qué clima predomina donde vives?</h2>
       <div class="quiz-options quiz-options--3" id="climate" style="margin-top:24px;">
         <div class="quiz-option" data-value="calido" onclick="selectOption(this)">
@@ -187,7 +195,7 @@
 
     <!-- Step 4: Sunscreen -->
     <div class="quiz-step" data-step="4">
-      <p class="eyebrow">PASO 4 DE 5</p>
+      <p class="eyebrow">PASO 4 DE 6</p>
       <h2>¿Usas protector solar diario?</h2>
       <div class="quiz-bool" style="margin-top:24px;">
         <div class="quiz-option" data-value="si" onclick="selectOption(this)">
@@ -202,14 +210,36 @@
 
     <!-- Step 5: Makeup -->
     <div class="quiz-step" data-step="5">
-      <p class="eyebrow">PASO 5 DE 5</p>
+      <p class="eyebrow">PASO 5 DE 6</p>
       <h2>¿Usas maquillaje encima del skincare?</h2>
       <div class="quiz-bool" style="margin-top:24px;">
-        <div class="quiz-option" data-value="si" onclick="selectAndFinish(this)">
+        <div class="quiz-option" data-value="si" onclick="selectOption(this)">
           <span class="quiz-option-label">Sí</span>
         </div>
-        <div class="quiz-option" data-value="no" onclick="selectAndFinish(this)">
+        <div class="quiz-option" data-value="no" onclick="selectOption(this)">
           <span class="quiz-option-label">No</span>
+        </div>
+      </div>
+      <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>
+    </div>
+
+    <!-- Step 6: Age -->
+    <div class="quiz-step" data-step="6">
+      <p class="eyebrow">PASO 6 DE 6</p>
+      <h2>¿Cuál es tu rango de edad?</h2>
+      <p>Nos ayuda a recomendar fórmulas adecuadas a tu etapa.</p>
+      <div class="quiz-options" id="ageRange" style="margin-top:24px;">
+        <div class="quiz-option" data-value="18-24" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">18–24</span>
+        </div>
+        <div class="quiz-option" data-value="25-34" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">25–34</span>
+        </div>
+        <div class="quiz-option" data-value="35-44" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">35–44</span>
+        </div>
+        <div class="quiz-option" data-value="45+" onclick="selectAndFinish(this)">
+          <span class="quiz-option-label">45+</span>
         </div>
       </div>
       <div class="quiz-nav"><button class="btn-secondary" onclick="prevStep()">ATRÁS</button></div>

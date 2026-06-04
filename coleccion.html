@@ -40,15 +40,16 @@
   display: block !important;
 }
 @media (max-width: 768px) {
-  /* Banner mobile: imagen en flujo natural, sin stretch ni crop */
-  .collection-hero { height: auto; min-height: 0; aspect-ratio: auto; }
+  /* Banner mobile: altura fija razonable, imagen recortada solo lo necesario */
+  .collection-hero { height: 340px; min-height: 0; aspect-ratio: auto; }
   .collection-hero-wordmark { display: none !important; }
   .collection-hero-bg {
-    position: static;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
-    object-fit: initial;
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 65%;
   }
   .collection-hero-overlay { display: none; }
 }
@@ -69,7 +70,9 @@
 
 .filters { position: sticky; top: 100px; align-self: start; }
 .filters h4 { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 12px; opacity: 0.4; margin-top: 24px; }
-.filters h4:first-child { margin-top: 0; }
+.filters .filter-group:first-child h4 { margin-top: 0; }
+.filter-group h4 { margin-top: 0; }
+.filter-group + .filter-group { margin-top: 24px; }
 .filter-option { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; cursor: pointer; user-select: none; }
 .filter-checkbox { width: 18px; height: 18px; border: 1.5px solid rgba(42,29,20,0.25); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--crema); transition: all 0.15s; flex-shrink: 0; }
 .filter-option.active .filter-checkbox { background: var(--cacao); border-color: var(--cacao); }
@@ -90,7 +93,15 @@
 @media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
   .collection-layout { grid-template-columns: 1fr; }
-  .filters { position: static; }
+  .filters {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+    margin-bottom: 24px;
+  }
+  .filter-group + .filter-group { margin-top: 0; }
+  .filter-group--full { grid-column: 1 / -1; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   /* Más respiro entre banner y tabs (override inline padding-top:0) */
   .collection-hero + section { padding-top: 32px !important; }
@@ -147,25 +158,31 @@
     <!-- LAYOUT: filtros | (texto + grid) -->
     <div class="collection-layout">
       <aside class="filters">
-        <h4>Ordenar</h4>
-        <select class="sort-select" onchange="sortProducts(this.value)">
-          <option value="default">Más vendidos</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="rating">Mejor valorado</option>
-        </select>
+        <div class="filter-group filter-group--full">
+          <h4>Ordenar</h4>
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="default">Más vendidos</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="rating">Mejor valorado</option>
+          </select>
+        </div>
 
-        <h4>Tipo de piel</h4>
-        <div class="filter-option" onclick="filterToggle(this,'grasa')"><span class="filter-checkbox"></span>Grasa</div>
-        <div class="filter-option" onclick="filterToggle(this,'mixta')"><span class="filter-checkbox"></span>Mixta</div>
-        <div class="filter-option" onclick="filterToggle(this,'seca')"><span class="filter-checkbox"></span>Seca</div>
-        <div class="filter-option" onclick="filterToggle(this,'sensible')"><span class="filter-checkbox"></span>Sensible</div>
+        <div class="filter-group">
+          <h4>Tipo de piel</h4>
+          <div class="filter-option" onclick="filterToggle(this,'grasa')"><span class="filter-checkbox"></span>Grasa</div>
+          <div class="filter-option" onclick="filterToggle(this,'mixta')"><span class="filter-checkbox"></span>Mixta</div>
+          <div class="filter-option" onclick="filterToggle(this,'seca')"><span class="filter-checkbox"></span>Seca</div>
+          <div class="filter-option" onclick="filterToggle(this,'sensible')"><span class="filter-checkbox"></span>Sensible</div>
+        </div>
 
-        <h4>Preocupación</h4>
-        <div class="filter-option" onclick="filterToggle(this,'brillo')"><span class="filter-checkbox"></span>Brillo / sebo</div>
-        <div class="filter-option" onclick="filterToggle(this,'manchas')"><span class="filter-checkbox"></span>Manchas</div>
-        <div class="filter-option" onclick="filterToggle(this,'poros')"><span class="filter-checkbox"></span>Poros</div>
-        <div class="filter-option" onclick="filterToggle(this,'deshidratación')"><span class="filter-checkbox"></span>Deshidratación</div>
+        <div class="filter-group">
+          <h4>Preocupación</h4>
+          <div class="filter-option" onclick="filterToggle(this,'brillo')"><span class="filter-checkbox"></span>Brillo / sebo</div>
+          <div class="filter-option" onclick="filterToggle(this,'manchas')"><span class="filter-checkbox"></span>Manchas</div>
+          <div class="filter-option" onclick="filterToggle(this,'poros')"><span class="filter-checkbox"></span>Poros</div>
+          <div class="filter-option" onclick="filterToggle(this,'deshidratación')"><span class="filter-checkbox"></span>Deshidratación</div>
+        </div>
       </aside>
 
       <div>

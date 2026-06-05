@@ -25,8 +25,8 @@
 .quiz-option:hover { border-color: var(--cacao); }
 .quiz-option.selected { border-color: var(--terracota); background: rgba(196,90,44,0.05); }
 .quiz-option-icon { font-size: 28px; margin-bottom: 8px; display: block; }
-.quiz-option-label { font-size: 14px; font-weight: 600; }
-.quiz-option-desc { font-size: 12px; opacity: 0.5; margin-top: 4px; }
+.quiz-option-label { font-size: 14px; font-weight: 600; display: block; }
+.quiz-option-desc { font-size: 12px; opacity: 0.5; margin-top: 4px; display: block; }
 
 .quiz-options--multi .quiz-option.selected::after { content: "✓"; position: absolute; top: 8px; right: 10px; color: var(--terracota); font-weight: 700; font-size: 14px; }
 .quiz-options--multi .quiz-option { position: relative; }

@@ -1,0 +1,38 @@
+.contact-hero { padding: 140px 0 48px; text-align: center; }
+.contact-hero h1 { margin-bottom: 12px; font-family: 'Fraunces', serif; font-size: clamp(42px, 5vw, 64px); font-weight: 500; }
+.contact-hero p { font-size: 15px; opacity: 0.7; max-width: 480px; margin: 0 auto; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; }
+
+.contact-info h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+.contact-detail { margin-bottom: 24px; }
+.contact-detail .label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; opacity: 0.5; margin-bottom: 4px; }
+.contact-detail p { font-size: 15px; line-height: 1.6; }
+.contact-detail a { border-bottom: 1px solid rgba(42,29,20,0.2); }
+
+.contact-form h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 24px; }
+.form-row { margin-bottom: 16px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+textarea.input { min-height: 140px; resize: vertical; }
+.form-success { display: none; text-align: center; padding: 48px; }
+.form-success h3 { font-family: 'Fraunces', serif; font-size: 24px; margin-bottom: 8px; }
+.form-success p { opacity: 0.7; }
+
+/* FAQ */
+.contact-faq { margin-top: 24px; }
+.contact-faq-item { border-bottom: 1px solid rgba(42,29,20,0.08); }
+.contact-faq-q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0; background: none; border: none; font-family: 'Manrope', sans-serif;
+  font-size: 14px; font-weight: 500; color: var(--cacao); text-align: left; cursor: pointer;
+}
+.contact-faq-icon { font-size: 16px; transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+.contact-faq-item.open .contact-faq-icon { transform: rotate(45deg); }
+.contact-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+.contact-faq-item.open .contact-faq-a { max-height: 120px; padding-bottom: 16px; }
+.contact-faq-a p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
+
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row-2 { grid-template-columns: 1fr; }
+}

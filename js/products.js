@@ -371,8 +371,9 @@ PD.renderCard = function(p, delay, idx) {
       '<h3 class="product-card-name">' + p.name + '</h3>' +
       '<div class="product-card-price">' +
         '<span class="current">$' + p.price + '</span>' +
-        '<span class="compare">$' + p.comparePrice + '</span>' +
-        '<span class="discount">' + p.discount + '</span>' +
+        ((p.comparePrice && p.comparePrice > p.price)
+          ? '<span class="compare">$' + p.comparePrice + '</span><span class="discount">' + p.discount + '</span>'
+          : '') +
       '</div>' +
       '<div class="product-card-rating">' +
         '<span class="stars" style="color:var(--ocre)">' + p.stars + ' ★</span>' +

@@ -1655,8 +1655,11 @@ document.querySelectorAll('.gallery-thumb').forEach(thumb => {
   if (countEl) countEl.textContent = '(' + p.reviews + ' rese\u00f1as)';
 
   if (document.querySelector('.price-current')) document.querySelector('.price-current').textContent = '$' + p.price;
-  if (document.querySelector('.price-compare')) document.querySelector('.price-compare').textContent = '$' + p.comparePrice;
-  if (document.querySelector('.price-discount')) document.querySelector('.price-discount').textContent = p.discount;
+  var hasDiscount = p.comparePrice && p.comparePrice > p.price;
+  var compareEl = document.querySelector('.price-compare');
+  var discountEl = document.querySelector('.price-discount');
+  if (compareEl) { compareEl.textContent = '$' + p.comparePrice; compareEl.style.display = hasDiscount ? '' : 'none'; }
+  if (discountEl) { discountEl.textContent = p.discount; discountEl.style.display = hasDiscount ? '' : 'none'; }
 
   var descEl = document.querySelector('.product-desc');
   if (descEl) descEl.textContent = p.shortDesc;

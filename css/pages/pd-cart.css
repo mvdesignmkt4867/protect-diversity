@@ -1,0 +1,79 @@
+.cart-page-hero { padding: 120px 0 32px; }
+.cart-page-hero h1 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; }
+
+.cart-layout { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+
+/* Items */
+.cart-items { border-top: 1px solid rgba(42,29,20,0.1); }
+.cart-item {
+  display: grid; grid-template-columns: 80px 1fr auto auto; gap: 20px;
+  align-items: center; padding: 24px 0; border-bottom: 1px solid rgba(42,29,20,0.06);
+}
+.cart-item-img { width: 80px; height: 80px; background: var(--crema-2); border-radius: 8px; }
+.cart-item-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+.cart-item-variant { font-size: 12px; opacity: 0.5; }
+.cart-item-qty {
+  display: flex; align-items: center; gap: 8px;
+}
+.cart-item-qty button {
+  width: 32px; height: 32px; border: 1px solid rgba(42,29,20,0.2); border-radius: 6px;
+  background: none; font-size: 16px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.cart-item-qty span { font-size: 14px; font-weight: 600; min-width: 24px; text-align: center; }
+.cart-item-price { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; text-align: right; min-width: 80px; }
+.cart-item-remove { font-size: 11px; opacity: 0.4; cursor: pointer; background: none; border: none; margin-top: 4px; }
+.cart-item-remove:hover { opacity: 1; color: var(--terracota); }
+
+/* Cart actions (below items) */
+.cart-actions { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0 4px; flex-wrap: wrap; }
+.cart-actions a.cart-continue { font-size: 13px; opacity: 0.6; text-decoration: none; color: var(--cacao); }
+.cart-actions a.cart-continue:hover { opacity: 1; }
+.cart-update-btn {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  background: none; border: 1px solid rgba(42,29,20,0.2); border-radius: 999px;
+  padding: 9px 18px; cursor: pointer; color: var(--cacao); transition: all 0.2s ease;
+}
+.cart-update-btn:hover { border-color: var(--cacao); background: var(--cacao); color: var(--crema); }
+.cart-update-btn.is-updated { border-color: var(--salvia); color: var(--salvia); }
+
+/* Summary */
+.cart-summary { position: sticky; top: 100px; }
+.cart-summary-inner { padding: 32px; }
+.cart-summary h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+.cart-summary-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+.cart-summary-row.total { border-top: 1px solid rgba(42,29,20,0.1); padding-top: 16px; margin-top: 8px; font-weight: 600; }
+.cart-summary-row.total .val { font-family: 'Fraunces', serif; font-size: 22px; }
+.cart-summary-shipping { font-size: 12px; color: var(--salvia); font-weight: 500; margin-top: 4px; }
+.cart-summary .btn-primary { margin-top: 20px; }
+
+/* Empty */
+.cart-empty { text-align: center; padding: 80px 20px; }
+.cart-empty h2 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 500; margin-bottom: 12px; }
+.cart-empty p { font-size: 15px; opacity: 0.6; margin-bottom: 28px; }
+
+/* Upsell */
+.upsell { margin-top: 48px; }
+.upsell h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+.upsell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.upsell-item { display: flex; gap: 12px; padding: 16px; align-items: center; }
+.upsell-img { width: 56px; height: 56px; background: var(--crema); border-radius: 8px; flex-shrink: 0; }
+.upsell-info { flex: 1; }
+.upsell-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+.upsell-price { font-size: 12px; opacity: 0.6; }
+.upsell-add { font-size: 18px; background: none; border: none; cursor: pointer; color: var(--cacao); opacity: 0.4; }
+.upsell-add:hover { opacity: 1; }
+
+/* Trust */
+.cart-trust { display: flex; justify-content: center; gap: 32px; padding: 40px 0; margin-top: 24px; border-top: 1px solid rgba(42,29,20,0.06); }
+.cart-trust-item { text-align: center; font-size: 12px; opacity: 0.5; }
+.cart-trust-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+@media (max-width: 768px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-item { grid-template-columns: 64px 1fr; gap: 12px; }
+  .cart-item-price { grid-column: 2; }
+  .cart-item-qty { grid-column: 2; }
+  .upsell-grid { grid-template-columns: 1fr; }
+  .cart-trust { gap: 20px; flex-wrap: wrap; }
+}
